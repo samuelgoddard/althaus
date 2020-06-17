@@ -1,0 +1,24 @@
+a {
+	@apply transition duration-300;
+}
+
+[class*='transition'] {
+	@apply duration-300;
+}
+
+.gradient-ltr {
+	background: rgb(44,53,128);
+	background: linear-gradient(275deg, rgba(44,53,128,1) 0%, rgba(239,67,98,1) 100%);
+}
+
+.fixed-text-left {
+	writing-mode: vertical-rl;
+	text-orientation: mixed;
+	top: 35%;
+}
+
+.fixed-text-right {
+	writing-mode: vertical-rl;
+	text-orientation: mixed;
+	top: 31%;
+}
