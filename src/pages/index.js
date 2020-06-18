@@ -12,23 +12,18 @@ if (typeof window !== `undefined`) {
   gsap.core.globals("ScrollTrigger", ScrollTrigger)
 }
 
-const duration = 0.35
+const transition = { duration: 0.35, ease: [0.43, 0.13, 0.23, 0.96] }
 
-const container = {
-  visible: {
-    transition: {
-      when: 'beforeChildren',
-      staggerChildren: 0.2,
-      delayChildren: duration,
-    },
-  },
-}
 const item = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-  },
+	initial: { y: 20, opacity: 0 },
+	enter: { y: 0, opacity: 1, transition },
+	exit: { opacity: 0, transition: { transition }}
+}
+
+const itemFade = {
+	initial: { opacity: 0 },
+	enter: { opacity: 1, transition },
+	exit: { opacity: 0, transition: { transition }}
 }
 
 class IndexPage extends React.Component {
@@ -128,47 +123,39 @@ class IndexPage extends React.Component {
       <>
         <SEO title="Home" />
         <motion.section
-          variants={container}
-          initial="hidden" 
-          animate="visible"
-          className="bg-purple pt-8 pb-24 md:pt-12 md:pb-24 xl:pt-24"
+          initial="initial"
+          animate="enter"
+          exit="exit"
+          className=""
         >
-          <motion.div 
-            className="absolute top-0 left-0 w-full z-0 overflow-hidden w-full"
-            variants={item}
-            transition="easeInOut"
-          >
-            <svg className="logo-bg opacity-25" viewBox="0 0 44 37" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.316 31.173l9.259-.004 3.326 5.685h10.283L21.59 0 16.4 8.866l7.972 13.487-9.404.013-6.617 11.235H5.726L15.044 17.7l1.402 2.386h3.827l-5.237-8.892L0 36.858h10.262l6.613-11.24 13.26.013-9.913-16.773 1.368-2.336 15.83 27.025h-2.63L31.445 27.9l-13.295.008-5.199 8.95h16.914l-1.912-3.244h-9.276l1.427-2.436.213-.005z" fill="url(#paint0_linear)"/><defs><linearGradient id="paint0_linear" x1="42.07" y1="9.562" x2="8.917" y2="40.813" gradientUnits="userSpaceOnUse"><stop stopColor="#D51F3A"/><stop offset="1" stopColor="#2C3583"/></linearGradient></defs></svg>
-          </motion.div>
+          <motion.div variants={itemFade} className="bg-purple pt-32 pb-24 md:pt-48 md:pb-24 xl:pt-56 relative">
+            <motion.div variants={itemFade} className="absolute top-0 left-0 w-full z-10 overflow-hidden w-full">
+              <svg className="logo-bg opacity-25 relative block z-10" viewBox="0 0 44 37" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.316 31.173l9.259-.004 3.326 5.685h10.283L21.59 0 16.4 8.866l7.972 13.487-9.404.013-6.617 11.235H5.726L15.044 17.7l1.402 2.386h3.827l-5.237-8.892L0 36.858h10.262l6.613-11.24 13.26.013-9.913-16.773 1.368-2.336 15.83 27.025h-2.63L31.445 27.9l-13.295.008-5.199 8.95h16.914l-1.912-3.244h-9.276l1.427-2.436.213-.005z" fill="url(#paint0_linear)"/><defs><linearGradient id="paint0_linear" x1="42.07" y1="9.562" x2="8.917" y2="40.813" gradientUnits="userSpaceOnUse"><stop stopColor="#D51F3A"/><stop offset="1" stopColor="#2C3583"/></linearGradient></defs></svg>
+            </motion.div>
+            <div className="container lg:px-32 relative z-10">
+              <div className="w-11/12 md:w-9/12 lg:w-8/12">
+                <motion.h1 variants={item} className="text-4xl md:text-6xl xl:text-7xl font-medium text-white mb-6 md:mb-8">Unleashing the digital leaders of tomorrow</motion.h1>
 
-          <motion.div 
-            className="container lg:px-32 relative z-10"
-            variants={item}
-            transition="easeInOut"
-          >
-            <div className="w-11/12 md:w-9/12 lg:w-8/12">
-              <h1 className="text-4xl md:text-6xl xl:text-7xl font-medium text-white mb-6 md:mb-8">Unleashing the digital leaders of tomorrow</h1>
+                <motion.div variants={item} className="w-8/12 md:w-10/12">
+                  <p className="text-white text-xl md:text-2xl mb-8 md:mb-12">Welcome to <span className="font-semibold">althaus digital</span> - an alternative training provider who see the bigger picture.</p>
 
-              <div className="w-8/12 md:w-10/12">
-                <p className="text-white text-xl md:text-2xl mb-8 md:mb-12">Welcome to <span className="font-semibold">althaus digital</span> - an alternative training provider who see the bigger picture.</p>
-
-                <Link to="/" className="text-md text-white font-semibold uppercase flex flex-wrap items-center">
-                  <span className="block">Discover More</span>
-                  <span className="block ml-4"><Arrow /></span>
-                </Link>
+                  <Link to="/" className="text-md text-white font-semibold uppercase flex flex-wrap items-center">
+                    <span className="block">Discover More</span>
+                    <span className="block ml-4"><Arrow /></span>
+                  </Link>
+                </motion.div>
               </div>
             </div>
           </motion.div>
         </motion.section>
         
         <motion.section
-          variants={container}
-          initial="hidden" 
-          animate="visible"
-          className="bg-purple"
+          initial="initial"
+          animate="enter"
+          exit="exit"
         >
-          <div className="flex flex-wrap">
-            <div className="w-full md:w-9/12 lg:w-8/12 ml-auto relative z-10">
+          <motion.div variants={itemFade} className="flex flex-wrap bg-purple">
+            <div className="w-full md:w-9/12 lg:w-8/12 ml-auto relative z-20">
               <div className="gradient-ltr">
                 <div className="flex flex-wrap xl:w-10/12 p-4">
                   <div className="w-1/2">
@@ -199,53 +186,54 @@ class IndexPage extends React.Component {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </motion.section>
         
         {/* Why Us? */}
         <motion.section
-          variants={container}
-          initial="hidden" 
-          animate="visible"
-          className="bg-purple pt-10 pb-24 mb-16 md:mb-0 md:pt-12 lg:pt-0 md:pb-32 overflow-hidden relative z-10"
+          initial="initial"
+          animate="enter"
+          exit="exit"
         >
-          <RevealLeft>
-            <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text text-transparent">Why Us?</span>
-          </RevealLeft>
-          
-          <div className="container lg:px-32 -mt-16 lg:-mt-24 xl:-mt-32 relative z-20">
-            <div className="flex flex-wrap md:-mx-8">
-              <div className="w-full md:w-1/2 lg:w-7/12 md:px-8 mb-8 md:mb-0">
-                <div className="relative overflow-hidden">
-                  <ImageReveal>
-                  </ImageReveal>
-                  <img src="https://placedog.net/1200/700" alt="placeholder" />
+          <motion.div variants={itemFade} className="bg-purple pt-10 pb-24 mb-16 md:mb-0 md:pt-12 lg:pt-0 md:pb-32 overflow-hidden relative z-10">
+            <RevealLeft>
+              <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text text-transparent">Why Us?</span>
+            </RevealLeft>
+            
+            <div className="container lg:px-32 -mt-16 lg:-mt-24 xl:-mt-32 relative z-20">
+              <div className="flex flex-wrap md:-mx-8">
+                <div className="w-full md:w-1/2 lg:w-7/12 md:px-8 mb-8 md:mb-0">
+                  <div className="relative overflow-hidden">
+                    <ImageReveal>
+                    </ImageReveal>
+                    <img src="https://placedog.net/1200/700" alt="placeholder" />
+                  </div>
                 </div>
-              </div>
-              <div className="w-full md:w-1/2 lg:w-5/12 md:px-8 content md:pr-16 text-white">
-                <h2 className="pb-6 mb-0">About Us</h2>
-                <span className="w-20 h-2 bg-pink block mb-8"></span>
+                <div className="w-full md:w-1/2 lg:w-5/12 md:px-8 content md:pr-16 text-white">
+                  <h2 className="pb-6 mb-0">About Us</h2>
+                  <span className="w-20 h-2 bg-pink block mb-8"></span>
 
-                <div className="mb-8">
-                  <p>We provide the crucial connection between learner and employer, giving apprentices the opportunity to develop their digital skills whilst being matched to an employer best placed to accelerate their career, all whilst generating measurable value within their role.</p>
+                  <div className="mb-8">
+                    <p>We provide the crucial connection between learner and employer, giving apprentices the opportunity to develop their digital skills whilst being matched to an employer best placed to accelerate their career, all whilst generating measurable value within their role.</p>
 
-                  <p>By pairing our apprentices with the ideal business, mutually-beneficial partnerships are born. This ensures that employer and apprentice alike are set to thrive and grow throughout the digital revolution.</p>
+                    <p>By pairing our apprentices with the ideal business, mutually-beneficial partnerships are born. This ensures that employer and apprentice alike are set to thrive and grow throughout the digital revolution.</p>
+                  </div>
+
+                  <Link to="/" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center block">
+                    <span className="block">Find Out More</span>
+                    <span className="block ml-4"><Arrow /></span>
+                  </Link>
                 </div>
-
-                <Link to="/" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center block">
-                  <span className="block">Find Out More</span>
-                  <span className="block ml-4"><Arrow /></span>
-                </Link>
               </div>
             </div>
-          </div>
+          </motion.div>
         </motion.section>
 
         {/* Alternative */}
         <motion.section
-          variants={container}
-          initial="hidden" 
-          animate="visible"
+          initial="initial"
+          animate="enter"
+          exit="exit"
           className="bg-white mt-10 pb-12 md:mt-24 md:pb-8 lg:pb-8 xl:mt-32 xl:pb-24 overflow-hidden relative"
         >
           <RevealLeft>
@@ -289,9 +277,9 @@ class IndexPage extends React.Component {
 
         {/* Digital */}
         <motion.section
-          variants={container}
-          initial="hidden" 
-          animate="visible"
+          initial="initial"
+          animate="enter"
+          exit="exit"
           className="bg-white mt-10 pb-24 md:mt-24 md:pb-8 lg:pb-8 xl:mt-32 xl:pb-24 overflow-hidden relative"
         >
           <RevealRight>
@@ -335,28 +323,29 @@ class IndexPage extends React.Component {
 
 
         <motion.section
-          variants={container}
-          initial="hidden" 
-          animate="visible"
-          className="bg-white pt-6 md:pt-10 lg:pt-16 xl:pt-20 overflow-hidden"
+          initial="initial"
+          animate="enter"
+          exit="exit"
         >
-          <div className="container lg:px-32">
-            <div className="flex flex-wrap pb-6 md:pb-10 lg:pb-16 xl:pb-20">
-              <div className="w-full md:w-7/12 lg:w-5/12 ml-auto">
-                <span className="text-4xl md:text-5xl xl:text-6xl font-semibold leading-extra-tight block mb-10">Ready to start your journey?</span>
-                <Link to="/" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center block">
-                  <span className="block">Get in touch</span>
-                  <span className="block ml-4"><Arrow /></span>
-                </Link>
+          <div className="bg-white pt-6 md:pt-10 lg:pt-16 xl:pt-20 overflow-hidden">
+            <div className="container lg:px-32">
+              <div className="flex flex-wrap pb-6 md:pb-10 lg:pb-16 xl:pb-20">
+                <div className="w-full md:w-7/12 lg:w-5/12 ml-auto">
+                  <span className="text-4xl md:text-5xl xl:text-6xl font-semibold leading-extra-tight block mb-10">Ready to start your journey?</span>
+                  <Link to="/" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center block">
+                    <span className="block">Get in touch</span>
+                    <span className="block ml-4"><Arrow /></span>
+                  </Link>
+                </div>
               </div>
             </div>
+            <div className="bg-purple-light opacity-75 w-full h-64">
+              <RevealLeft>
+                <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text scroll-text--white text-transparent leading-none block pt-48 md:pt-48 lg:pt-40 xl:pt-20">Contact</span>
+              </RevealLeft>
+            </div>
+            <div className="bg-purple w-full h-20"></div>
           </div>
-          <div className="bg-purple-light opacity-75 w-full h-64">
-            <RevealLeft>
-              <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text scroll-text--white text-transparent leading-none block pt-48 md:pt-48 lg:pt-40 xl:pt-20">Contact</span>
-            </RevealLeft>
-          </div>
-          <div className="bg-purple w-full h-20"></div>
         </motion.section>
 
         <Footer />

@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { motion, AnimatePresence } from "framer-motion"
+import { AnimatePresence } from "framer-motion"
 import { Link } from "gatsby"
 
 import Header from "./header"
@@ -43,13 +43,11 @@ const Layout = ({ children, location }) => {
           <Link to="/" className="xl:text-lg text-white bg-pink p-3 py-5 uppercase font-semibold mt-3">Employers</Link>
         </div>
       </div>
-
-        <main
-          key={location.pathname}
-          
-        >
-        {children}
-        </main>
+        <AnimatePresence exitBeforeEnter initial={false}>
+          <main key={location.pathname}>
+          {children}
+          </main>
+        </AnimatePresence>
     </>
   )
 }
