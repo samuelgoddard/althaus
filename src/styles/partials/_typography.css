@@ -37,6 +37,11 @@ h2 {
   margin-right: -95vw;
 }
 
+.scroll-text--white {
+  -webkit-text-stroke: 2px #FFF;
+  margin-right: -95vw;
+}
+
 
 /* Link */
 .link {

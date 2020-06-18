@@ -22,3 +22,27 @@ a {
 	text-orientation: mixed;
 	top: 31%;
 }
+
+.logo-bg {
+	margin-left: -100vw;
+	margin-top: -15vw;
+	width: 250vw;
+
+	@screen md {
+		margin-left: -450px;
+		margin-top: -190px;
+		width: 1150px;
+	}
+
+	@screen lg {
+		margin-left: -600px;
+		margin-top: -315px;
+		width: 1700px;
+	}
+
+	@screen xl {
+		margin-left: -650px;
+		margin-top: -325px;
+		width: 1950px;
+	}
+}
