@@ -81,13 +81,13 @@ class IndexPage extends React.Component {
       useEffect(() => {
         gsap.to(revealRef.current, {
           scrollTrigger: revealRef.current,
-          width: '33.33%',
+          width: '100%',
           ease: Power3.easeInOut,
           duration: 2
         });
       }, []);
     
-      return <div className="w-0 h-full gradient-ltr absolute top-0 right-0 z-0 hidden md:block" ref={revealRef}>{children}</div>;
+      return <div className="w-0 h-full gradient-ltr absolute top-0 right-0 z-0 block bleed-right" ref={revealRef}>{children}</div>;
     };
     
     const GradientRevealLeft = ({ children }) => {
@@ -96,13 +96,13 @@ class IndexPage extends React.Component {
       useEffect(() => {
         gsap.to(revealRef.current, {
           scrollTrigger: revealRef.current,
-          width: '33.33%',
+          width: '100%',
           ease: Power3.easeInOut,
           duration: 2
         });
       }, []);
     
-      return <div className="w-0 h-full gradient-ltr absolute top-0 left-0 z-0 hidden md:block" ref={revealRef}>{children}</div>;
+      return <div className="w-0 h-full gradient-ltr absolute top-0 left-0 z-0 block bleed-left" ref={revealRef}>{children}</div>;
     };
 
     return (
@@ -211,19 +211,14 @@ class IndexPage extends React.Component {
         </section>
 
         {/* Alternative */}
-        <section className="bg-white mt-10 pb-12 md:mt-24 md:pb-8 lg:pb-8 xl:mt-32 xl:pb-24 overflow-hidden relative">
-          <div>
-            <RevealLeft>
-              <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text scroll-text--purple text-transparent leading-none -mt-4 xl:-mt-8 block">Alternative</span>
-            </RevealLeft>
-            
-            <GradientRevealRight>
-            </GradientRevealRight>
-          </div>
+        <section className="bg-white mt-10 pb-12 md:mt-24 md:pb-8 lg:pb-8 xl:mt-32 xl:pb-24 relative overflow-hidden">
+          <RevealLeft>
+            <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text scroll-text--purple text-transparent leading-none -mt-4 xl:-mt-8 block">Alternative</span>
+          </RevealLeft>
           
-          <div className="container lg:px-32 -mt-16 md:-mt-20 xl:-mt-32 relative z-20">
+          <div className="container lg:px-32 -mt-20 md:-mt-20 xl:-mt-56 relative z-20">
             <div className="flex flex-wrap items md:-mx-8">
-              <div className="w-full md:w-1/2 lg:w-5/12 md:px-8 content mb-8 md:mb-0 order-2 md:order-1 md:pt-24 lg:pt-32">
+              <div className="w-full md:w-1/2 lg:w-5/12 md:px-8 content mb-8 md:mb-0 order-2 md:order-1 md:pt-24 xl:pt-56">
                 <h2 className="pb-6 mb-0">Learners</h2>
                 <span className="w-20 h-2 bg-pink block mb-8"></span>
 
@@ -240,13 +235,19 @@ class IndexPage extends React.Component {
                   <span className="block ml-4"><Arrow /></span>
                 </Link>
               </div>
-              <div className="w-full md:w-1/2 lg:w-7/12 md:px-8 order-1 md:order-2 pb-8 mb-8 md:mb-0 md:pb-0 relative">
-                <div className="w-7/12 h-full gradient-ltr absolute top-0 right-0 z-0 block md:hidden -mr-8"></div>
-                
-                <div className="relative overflow-hidden mt-10 mb-4">
-                  <ImageReveal>
-                  </ImageReveal>
-                  <img src="https://placedog.net/1200/700" alt="placeholder" className="relative z-10" />
+              <div className="w-full md:w-1/2 lg:w-7/12 md:px-8 order-1 md:order-2 mb-8 md:mb-0 relative">
+                <div className="relative">
+                  <div>
+                    <GradientRevealRight>
+                    </GradientRevealRight>
+                  </div>
+                  <div className="relative overflow-hidden py-12 xl:py-24">
+                    <div className="relative overflow-hidden">
+                      <ImageReveal>
+                      </ImageReveal>
+                      <img src="https://placedog.net/1200/700" alt="placeholder" className="relative z-10 mb-0 pb-0" />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -254,26 +255,29 @@ class IndexPage extends React.Component {
         </section>
 
         {/* Digital */}
-        <section className="bg-white mt-10 pb-24 md:mt-24 md:pb-8 lg:pb-8 xl:mt-32 xl:pb-24 overflow-hidden relative">
+        <section className="bg-white mt-10 pb-12 md:mt-24 md:pb-8 lg:pb-8 xl:mt-32 xl:pb-24 relative overflow-hidden">
           <RevealRight>
             <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text-right text-right text-transparent leading-none -mt-4 xl:-mt-8 block">Digital</span>
           </RevealRight>
           
-          <GradientRevealLeft>
-          </GradientRevealLeft>
-          
-          <div className="container lg:px-32 -mt-16 md:-mt-20 xl:-mt-32 relative z-20">
+          <div className="container lg:px-32 -mt-20 md:-mt-20 xl:-mt-56 relative z-20">
             <div className="flex flex-wrap items md:-mx-8">
-              <div className="w-full md:w-1/2 lg:w-7/12 md:px-8 pb-8 md:pb-0 relative mb-8 md:mb-0">
-                <div className="w-7/12 h-full gradient-ltr absolute top-0 left-0 z-0 block md:hidden -ml-8"></div>
-                <div className="relative overflow-hidden mt-10 mb-4">
-                  <ImageReveal>
-                  </ImageReveal>
-                  <img src="https://placedog.net/1200/700" alt="placeholder" className="relative z-10" />
+              <div className="w-full md:w-1/2 lg:w-7/12 md:px-8 mb-8 md:mb-0 relative">
+                <div className="relative">
+                  <div>
+                    <GradientRevealLeft>
+                    </GradientRevealLeft>
+                  </div>
+                  <div className="relative overflow-hidden py-12 xl:py-24">
+                    <div className="relative overflow-hidden">
+                      <ImageReveal>
+                      </ImageReveal>
+                      <img src="https://placedog.net/1200/700" alt="placeholder" className="relative z-10 mb-0 pb-0" />
+                    </div>
+                  </div>
                 </div>
               </div>
-
-              <div className="w-full md:w-1/2 lg:w-5/12 md:px-8 content md:pt-24 lg:pt-32">
+              <div className="w-full md:w-1/2 lg:w-5/12 md:px-8 content md:pt-24 xl:pt-56">
                 <h2 className="pb-6 mb-0">Employers</h2>
                 <span className="w-20 h-2 bg-pink block mb-8"></span>
 
@@ -286,7 +290,7 @@ class IndexPage extends React.Component {
                 </div>
 
                 <Link to="/about" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center block">
-                  <span className="block">Find Out more</span>
+                  <span className="block">Find Out More</span>
                   <span className="block ml-4"><Arrow /></span>
                 </Link>
               </div>

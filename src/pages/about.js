@@ -81,13 +81,13 @@ class AboutPage extends React.Component {
       useEffect(() => {
         gsap.to(revealRef.current, {
           scrollTrigger: revealRef.current,
-          width: '33.33%',
+          width: '100%',
           ease: Power3.easeInOut,
           duration: 2
         });
       }, []);
     
-      return <div className="w-0 h-half gradient-ltr absolute top-0 right-0 z-0 hidden md:block" ref={revealRef}>{children}</div>;
+      return <div className="w-0 h-full gradient-ltr absolute top-0 right-0 z-0 block bleed-right -mt-8 md:-mt-24" ref={revealRef}>{children}</div>;
     };
     
     const GradientRevealLeft = ({ children }) => {
@@ -96,13 +96,13 @@ class AboutPage extends React.Component {
       useEffect(() => {
         gsap.to(revealRef.current, {
           scrollTrigger: revealRef.current,
-          width: '33.33%',
+          width: '100%',
           ease: Power3.easeInOut,
           duration: 2
         });
       }, []);
     
-      return <div className="w-0 h-half gradient-ltr absolute top-0 left-0 z-0 hidden md:block" ref={revealRef}>{children}</div>;
+      return <div className="w-0 h-full gradient-ltr absolute top-0 left-0 mt-8 md:mt-24 z-0 block bleed-left" ref={revealRef}>{children}</div>;
     };
 
     return (
@@ -117,23 +117,27 @@ class AboutPage extends React.Component {
           </div>
           
           {/* Hero */}
-          <div className="bg-white pt-32 pb-24 md:pt-48 md:pb-24 xl:pt-48 relative">
-            <div className="container lg:px-32 relative z-10">
-              <div className="flex flex-wrap items-center">
-                <div className="w-full md:w-1/3 relative z-10 mb-8 md:mb-0">
-                  <span className="uppercase font-semibold text-purple text-xl md:text-2xl block mb-3">About</span>
-                  <h1 className="text-5xl md:text-6xl xl:text-7xl font-medium text-pink mb-6 md:mb-8 whitespace-no-wrap">Learn Digital.<br/>Lead Digital.</h1>
+          <div className="overflow-hidden">
+            <div className="bg-white pt-32 pb-24 md:pt-48 md:pb-24 xl:pt-48 relative">
+              <div className="container lg:px-32 relative">
+                <div className="flex flex-wrap items-center">
+                  <div className="w-full md:w-1/3 relative z-20 mb-8 md:mb-0">
+                    <span className="uppercase font-semibold text-purple text-xl md:text-2xl block mb-3">About</span>
+                    <h1 className="text-5xl md:text-6xl xl:text-7xl font-medium text-pink mb-6 md:mb-8 whitespace-no-wrap">Learn Digital.<br/>Lead Digital.</h1>
 
-                  <div className="w-full">
-                    <Link to="/" className="text-md text-purple font-semibold uppercase flex flex-wrap items-center">
-                      <span className="block">Discover More</span>
-                      <span className="block ml-4"><Arrow /></span>
-                    </Link>
+                    <div className="w-full">
+                      <Link to="/" className="text-md text-purple font-semibold uppercase flex flex-wrap items-center">
+                        <span className="block">Discover More</span>
+                        <span className="block ml-4"><Arrow /></span>
+                      </Link>
+                    </div>
                   </div>
-                </div>
 
-                <div className="w-full md:w-2/3">
-                  <img src="https://placedog.net/1200/700" alt="placeholder" />
+                  <div className="w-full md:w-2/3 relative mt-16">
+                    <GradientRevealRight>
+                    </GradientRevealRight>
+                    <img src="https://placedog.net/1200/640" alt="placeholder" className="relative z-10 mb-0 pb-0" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -144,31 +148,42 @@ class AboutPage extends React.Component {
         {/* Our Mission */}
         <section>
           <div className="overflow-hidden">
-            <RevealLeft>
-              <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text scroll-text--purple text-transparent">Digital Skills</span>
-            </RevealLeft>
+            <RevealRight>
+              <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text-right scroll-text--purple text-right text-transparent leading-none block">Digital Skills</span>
+            </RevealRight>
           </div>
-          
-          <div className="bg-purple pb-8 md:mb-0 relative z-10 md:pb-12 lg:pb-20 xl:pb-32">
-            <GradientRevealLeft>
-            </GradientRevealLeft>
-            <div className="container lg:px-32 relative z-20">
-              <div className="flex flex-wrap md:-mx-8">
-                <div className="w-full md:w-1/2 lg:w-7/12 md:px-8 mb-8 md:mb-0 -mt-16 md:-mt-24 xl:-mt-40">
-                  <div className="relative overflow-hidden">
-                    <ImageReveal>
-                    </ImageReveal>
-                    <img src="https://placedog.net/1200/700" alt="placeholder" />
+
+          <div className="pt-10 md:pt-12">    
+            <div className="bg-purple relative z-10 pb-24 md:pb-32 xl:pb-48">
+              <div className="container lg:px-32 relative z-20">
+                <div className="flex flex-wrap md:-mx-8">
+                  <div className="w-full md:w-1/2 lg:w-7/12 md:px-8 mb-20 md:mb-0 -mt-20 md:-mt-24 xl:-mt-32">
+                    <div className="relative">
+                      <GradientRevealLeft>
+                      </GradientRevealLeft>
+                      <div className="relative overflow-hidden">
+                        <div className="relative overflow-hidden">
+                          <ImageReveal>
+                          </ImageReveal>
+                          <img src="https://placedog.net/1200/700" alt="placeholder" className="relative z-10 mb-0 pb-0" />
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div className="w-full md:w-1/2 lg:w-5/12 md:px-8 content md:pr-16 text-white pt-4 md:pt-24 xl:pt-32">
-                  <h2 className="pb-6 mb-0">Our Mission</h2>
-                  <span className="w-20 h-2 bg-pink block mb-8"></span>
+                  <div className="w-full md:w-1/2 lg:w-5/12 md:px-8 content md:pr-16 text-white md:pt-24 xl:pt-32">
+                    <h2 className="pb-6 mb-0">About Us</h2>
+                    <span className="w-20 h-2 bg-pink block mb-8"></span>
 
-                  <div className="mb-8">
-                    <p>At althaus, we know that digital skills are becoming more and more important - but that’s not the full picture. As well as ensuring our learners are equipped with the very latest technical know-how, they’re taught in creative problem-solving, effective communication and emotional intelligence – a powerful combination which futureproofs their employability.</p>
+                    <div className="mb-8">
+                      <p>We provide the crucial connection between learner and employer, giving apprentices the opportunity to develop their digital skills whilst being matched to an employer best placed to accelerate their career, all whilst generating measurable value within their role.</p>
 
-                    <p>It’s our mission to unleash the digital leaders of tomorrow, by ensuring that both learner and employer have the skills and resources needed to thrive. Our learners gain access to high quality training, cutting edge facilities and tailored teaching plans, whilst our partner organisations benefit from skilled, talented individuals who are able to generate real, measurable value.</p>
+                      <p>By pairing our apprentices with the ideal business, mutually-beneficial partnerships are born. This ensures that employer and apprentice alike are set to thrive and grow throughout the digital revolution.</p>
+                    </div>
+
+                    <Link to="/about" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center block">
+                      <span className="block">Find Out More</span>
+                      <span className="block ml-4"><Arrow /></span>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -176,37 +191,43 @@ class AboutPage extends React.Component {
           </div>
         </section>
 
-        {/* Why Us? */}
-        <section>
-          <div className="bg-purple pb-24 mb-16 md:mb-0 md:pb-32 overflow-hidden relative z-10">
-            <RevealLeft>
-              <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text text-transparent leading-none">Why Us?</span>
-            </RevealLeft>
+        {/* Insights */}
+        <section className="bg-purple pb-12 md:pb-24 lg:pb-32 relative overflow-hidden">
+          <RevealLeft>
+            <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text scroll-text--pink text-transparent leading-none -mt-4 xl:-mt-8 block">Insight</span>
+          </RevealLeft>
+          
+          <div className="container lg:px-32 -mt-20 md:-mt-20 xl:-mt-56 relative z-20">
+            <div className="flex flex-wrap items md:-mx-8">
+              <div className="w-full md:w-1/2 lg:w-5/12 md:px-8 content mb-8 md:mb-0 order-2 md:order-1 md:pt-24 xl:pt-56 text-white">
+                <h2 className="pb-6 mb-0">Learners</h2>
+                <span className="w-20 h-2 bg-pink block mb-8"></span>
 
-            <GradientRevealRight>
-            </GradientRevealRight>
-            
-            <div className="container lg:px-32 -mt-16 lg:-mt-24 xl:-mt-32 relative z-20">
-              <div className="flex flex-wrap md:-mx-8">
-                <div className="w-full md:w-1/2 lg:w-5/12 md:px-8 content mb-8 md:mb-0 md:pr-16 text-white order-2 md:order-1 pt-12 md:pt-20 xl:pt-32">
-                  <h2 className="pb-6 mb-0">Why We're Different</h2>
-                  <span className="w-20 h-2 bg-pink block mb-8"></span>
-
-                  <div className="mb-8">
-                    <p>We provide the crucial connection between learner and employer, giving apprentices the opportunity to develop their digital skills whilst being matched to an employer best placed to accelerate their career, all whilst generating measurable value within their role.</p>
-                  </div>
-
-                  <Link to="/about" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center block">
-                    <span className="block">Find Out More</span>
-                    <span className="block ml-4"><Arrow /></span>
-                  </Link>
+                <div className="mb-8">
+                  <ul className="list list-disc list-inside">
+                    <li className="pb-2 font-medium">Gain industry experience through digital learning</li>
+                    <li className="pb-2 font-medium">Earn a wage whilst receiving in-depth training</li>
+                    <li className="pb-2 font-medium">Develop from learner into leader</li>
+                  </ul>
                 </div>
 
-                <div className="w-full md:w-1/2 lg:w-7/12 md:px-8 order-1 md:order-2">
+                <Link to="/about" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center block">
+                  <span className="block">Start your journey</span>
+                  <span className="block ml-4"><Arrow /></span>
+                </Link>
+              </div>
+              <div className="w-full md:w-1/2 lg:w-7/12 md:px-8 order-1 md:order-2 mb-8 md:mb-0 relative mt-12 md:mt-24">
+                <div className="relative">
+                  <div>
+                    <GradientRevealRight>
+                    </GradientRevealRight>
+                  </div>
                   <div className="relative overflow-hidden">
-                    <ImageReveal>
-                    </ImageReveal>
-                    <img src="https://placedog.net/1200/700" alt="placeholder" />
+                    <div className="relative overflow-hidden">
+                      <ImageReveal>
+                      </ImageReveal>
+                      <img src="https://placedog.net/1200/700" alt="placeholder" className="relative z-10 mb-0 pb-0" />
+                    </div>
                   </div>
                 </div>
               </div>

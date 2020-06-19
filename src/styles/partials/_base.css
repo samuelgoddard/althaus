@@ -47,8 +47,10 @@ a {
 	}
 }
 
-.force-hover-opacity {
-	&:hover {
-		opacity: 100 !important;
-	}
+.bleed-left {
+	margin-left: -40% !important;
+}
+
+.bleed-right {
+	margin-right: -40% !important;
 }
