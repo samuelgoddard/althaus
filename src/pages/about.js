@@ -133,7 +133,7 @@ class AboutPage extends React.Component {
                     </div>
                   </div>
 
-                  <div className="w-full md:w-2/3 relative mt-16">
+                  <div className="w-full md:w-2/3 relative mt-16 md:mt-20">
                     <GradientRevealRight>
                     </GradientRevealRight>
                     <img src="https://placedog.net/1200/640" alt="placeholder" className="relative z-10 mb-0 pb-0" />
@@ -171,13 +171,13 @@ class AboutPage extends React.Component {
                     </div>
                   </div>
                   <div className="w-full md:w-1/2 lg:w-5/12 md:px-8 content md:pr-16 text-white md:pt-24 xl:pt-32">
-                    <h2 className="pb-6 mb-0">About Us</h2>
+                    <h2 className="pb-6 mb-0">Our Mission</h2>
                     <span className="w-20 h-2 bg-pink block mb-8"></span>
 
                     <div className="mb-8">
-                      <p>We provide the crucial connection between learner and employer, giving apprentices the opportunity to develop their digital skills whilst being matched to an employer best placed to accelerate their career, all whilst generating measurable value within their role.</p>
+                      <p>At althaus, we know that digital skills are becoming more and more important - but that’s not the full picture. As well as ensuring our learners are equipped with the very latest technical know-how, they’re taught in creative problem-solving, effective communication and emotional intelligence – a powerful combination which futureproofs their employability.</p>
 
-                      <p>By pairing our apprentices with the ideal business, mutually-beneficial partnerships are born. This ensures that employer and apprentice alike are set to thrive and grow throughout the digital revolution.</p>
+                      <p>It’s our mission to unleash the digital leaders of tomorrow, by ensuring that both learner and employer have the skills and resources needed to thrive. Our learners gain access to high quality training, cutting edge facilities and tailored teaching plans, whilst our partner organisations benefit from skilled, talented individuals who are able to generate real, measurable value.</p>
                     </div>
 
                     <Link to="/about" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center block">
@@ -200,21 +200,17 @@ class AboutPage extends React.Component {
           <div className="container lg:px-32 -mt-20 md:-mt-20 xl:-mt-56 relative z-20">
             <div className="flex flex-wrap items md:-mx-8">
               <div className="w-full md:w-1/2 lg:w-5/12 md:px-8 content mb-8 md:mb-0 order-2 md:order-1 md:pt-24 xl:pt-56 text-white">
-                <h2 className="pb-6 mb-0">Learners</h2>
+                <h2 className="pb-6 mb-0">Why we're different</h2>
                 <span className="w-20 h-2 bg-pink block mb-8"></span>
 
-                <div className="mb-8">
-                  <ul className="list list-disc list-inside">
-                    <li className="pb-2 font-medium">Gain industry experience through digital learning</li>
-                    <li className="pb-2 font-medium">Earn a wage whilst receiving in-depth training</li>
-                    <li className="pb-2 font-medium">Develop from learner into leader</li>
-                  </ul>
+                <div className="mb-12">
+                  <p>We combine self-directed learning with social and collaborative environments - an approach designed to maximise productivity. We offer a carefully-tuned blend of live webinars, face-to-face classroom sessions, and a wealth of on-demand content - all supported by one-to-one mentoring, and insights from our leading industry experts.</p>
                 </div>
 
-                <Link to="/about" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center block">
-                  <span className="block">Start your journey</span>
-                  <span className="block ml-4"><Arrow /></span>
-                </Link>
+                <div className="flex flex-wrap">
+                  <Link to="/" className="xl:text-lg text-white bg-purple-light px-5 py-4 uppercase font-semibold">Learners</Link>
+                  <Link to="/" className="xl:text-lg text-white bg-pink px-5 py-4 uppercase font-semibold ml-3">Employers</Link>
+                </div>
               </div>
               <div className="w-full md:w-1/2 lg:w-7/12 md:px-8 order-1 md:order-2 mb-8 md:mb-0 relative mt-12 md:mt-24">
                 <div className="relative">
@@ -229,6 +225,51 @@ class AboutPage extends React.Component {
                       <img src="https://placedog.net/1200/700" alt="placeholder" className="relative z-10 mb-0 pb-0" />
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-purple pb-12 md:pb-24 -mb-20 md:-mb-40 xl:-mb-48 relative z-10">
+          <div className="overflow-hidden">
+            <RevealRight>
+              <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text-right scroll-text--white text-right text-transparent leading-none block">Our Team</span>
+            </RevealRight>
+          </div>
+        </section>
+        
+        <section className="bg-transparent pb-12 md:pb-24">
+          <div className="container lg:px-32 relative z-20">
+            <div className="flex flex-wrap -mx-4">
+              <div className="w-1/2 md:w-1/3 mb-8 px-4">
+                <div className="bg-pink w-full h-64">
+
+                </div>
+              </div>
+              <div className="w-1/2 md:w-1/3 mb-8 px-4">
+                <div className="bg-pink w-full h-64">
+
+                </div>
+              </div>
+              <div className="w-1/2 md:w-1/3 mb-8 px-4">
+                <div className="bg-pink w-full h-64">
+
+                </div>
+              </div>
+              <div className="w-1/2 md:w-1/3 mb-8 px-4">
+                <div className="bg-pink w-full h-64">
+
+                </div>
+              </div>
+              <div className="w-1/2 md:w-1/3 mb-8 px-4">
+                <div className="bg-pink w-full h-64">
+
+                </div>
+              </div>
+              <div className="w-1/2 md:w-1/3 mb-8 px-4">
+                <div className="bg-pink w-full h-64">
+
                 </div>
               </div>
             </div>

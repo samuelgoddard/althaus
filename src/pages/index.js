@@ -123,7 +123,7 @@ class IndexPage extends React.Component {
             </div>
             <div className="container lg:px-32 relative z-10">
               <div className="w-11/12 md:w-9/12 lg:w-8/12">
-                <h1 className="text-4xl md:text-6xl xl:text-7xl font-medium text-white mb-6 md:mb-8">Unleashing the digital leaders of tomorrow</h1>
+                <h1 className="text-5xl md:text-6xl xl:text-7xl font-medium text-white mb-6 md:mb-8">Unleashing the digital leaders of tomorrow</h1>
 
                 <div className="w-8/12 md:w-10/12">
                   <p className="text-white text-xl md:text-2xl mb-8 md:mb-12">Welcome to <span className="font-semibold">althaus digital</span> - an alternative training provider who see the bigger picture.</p>
