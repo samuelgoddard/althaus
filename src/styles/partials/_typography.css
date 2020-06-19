@@ -30,16 +30,25 @@ h2 {
 .scroll-text {
   -webkit-text-stroke: 2px theme('colors.pink.default');
   margin-left: -95vw;
+  @apply whitespace-no-wrap;
 }
 
 .scroll-text-right {
   -webkit-text-stroke: 2px theme('colors.pink.default');
   margin-right: -95vw;
+  @apply whitespace-no-wrap;
 }
 
 .scroll-text--white {
   -webkit-text-stroke: 2px #FFF;
   margin-right: -95vw;
+  @apply whitespace-no-wrap;
+}
+
+.scroll-text--purple {
+  -webkit-text-stroke: 2px theme('colors.purple.default');
+  margin-right: -95vw;
+  @apply whitespace-no-wrap;
 }
 
 

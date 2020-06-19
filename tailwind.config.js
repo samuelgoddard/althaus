@@ -40,6 +40,9 @@ module.exports = {
           default: '#B32750'
         }
       },
+      height: {
+        half: '50%',
+      },
       lineHeight: {
         'extra-tight': '1.15',
         'extra-relaxed': '1.8'

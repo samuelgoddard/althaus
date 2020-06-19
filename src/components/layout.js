@@ -1,9 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { Link } from "gatsby"
 
-import Header from "./header"
 import "../styles/main.css"
 
 const duration = 0.35
@@ -16,13 +15,17 @@ const variants = {
     opacity: 1,
     transition: {
       duration: duration,
+      ease: [0.43, 0.13, 0.23, 0.96],
       delay: duration,
       when: 'beforeChildren',
+      staggerChildren: 0.5,
     },
   },
   exit: {
     opacity: 0,
     transition: {
+      staggerChildren: 0.5,
+      ease: [0.43, 0.13, 0.23, 0.96],
       duration: duration,
     },
   },
@@ -31,8 +34,6 @@ const variants = {
 const Layout = ({ children, location }) => {
   return (
     <>
-      <Header />
-      
       {/* Fixed text blocks */}
       <div className="fixed z-20 fixed-text-left pl-6 hidden lg:block">
         <span className="text-lg text-white">Learn Digital. Lead Digital.</span>
@@ -43,10 +44,16 @@ const Layout = ({ children, location }) => {
           <Link to="/" className="xl:text-lg text-white bg-pink p-3 py-5 uppercase font-semibold mt-3">Employers</Link>
         </div>
       </div>
-        <AnimatePresence exitBeforeEnter initial={false}>
-          <main key={location.pathname}>
+        <AnimatePresence exitBeforeEnter>
+          <motion.main
+            key={location.pathname}
+            variants={variants}
+            initial="initial"
+            animate="enter"
+            exit="exit"
+          >
           {children}
-          </main>
+          </motion.main>
         </AnimatePresence>
     </>
   )
