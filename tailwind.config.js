@@ -2,7 +2,7 @@ module.exports = {
   purge: {
     content: ['./src/**/*.js',],
     options: {
-      whitelist: ['is-active', '-40', 'md:w-64', 'w-4', 'md:w-8', 'w-8'],
+      whitelist: ['is-active', 'w-40', 'md:w-64', 'w-4', 'md:w-8', 'w-8'],
     }
   },
   theme: {
