@@ -51,7 +51,6 @@ h2 {
   @apply whitespace-no-wrap;
 }
 
-
 /* Link */
 .link {
   @apply text-black underline transition;
@@ -75,5 +74,12 @@ h2 {
   /* Headings following paragraphs */
   p + h1, p + h2, p + h3, p + h4 {
     @apply pt-6 block;
+  }
+}
+
+.css-cols {
+  @screen md {
+    column-count: 2;
+    column-gap: 50px;
   }
 }

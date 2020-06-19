@@ -107,7 +107,7 @@ class AboutPage extends React.Component {
 
     return (
       <>
-        <SEO title="Home" />
+        <SEO title="About" />
 
         <section>
           <div className="absolute top-0 left-0 right-0 z-30">
