@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Sam Goddard <hello@samgoddard.co.uk>",
   "dependencies": {
+    "body-scroll-lock": "^3.0.3",
     "framer-motion": "^1.8.4",
     "gatsby": "^2.19.12",
     "gatsby-image": "^2.2.40",
@@ -29,6 +30,7 @@
     "postcss-nested": "^4.2.1",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^1.19.1",
+    "resize-observer-polyfill": "^1.5.1",
     "tailwindcss": "^1.4.1"
   },
   "keywords": [
