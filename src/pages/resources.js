@@ -13,10 +13,7 @@ if (typeof window !== `undefined`) {
 }
 
 class ResourcesPage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  
+
   render () {
     const RevealLeft = ({ children }) => {
       const revealRef = useRef(null);
@@ -72,7 +69,7 @@ class ResourcesPage extends React.Component {
                 <div className="flex flex-wrap items-center">
                   <div className="w-full md:w-1/2 xl:w-5/12 relative z-20 mb-8 md:mb-0 md:-mt-12 xl:-mt-24">
                     <span className="uppercase font-semibold text-pink text-xl md:text-2xl block mb-3">Resources</span>
-                    <h1 className="text-5xl md:text-5xl xl:text-6xl 2xl:text-7xl font-medium text-purple mb-6 md:mb-8 whitespace-no-wrap">Everything you<br/>need at the click<br/>of a button</h1>
+                    <h1 className="text-5xl md:text-5xl xl:text-6xl 2xl:text-7xl font-medium text-purple mb-6 md:mb-8 md:whitespace-no-wrap">Everything you<br/>need at the click<br/>of a button</h1>
 
                     <p className="w-11/12 md:w-10/12">Welcome to our resource centre. We’re continuously developing our collection of useful resources, from our own articles, to the latest studies and publications about all things digital.</p>
                   </div>

@@ -33,7 +33,7 @@ import "../styles/main.css"
 
 const Layout = ({ children, location }) => {
   return (
-    <>
+    <div id="scroll-container">
       <div className="fixed z-50 fixed-text-left pl-6 hidden lg:block">
         <span className="text-lg text-white">Learn Digital. Lead Digital.</span>
       </div>
@@ -48,7 +48,7 @@ const Layout = ({ children, location }) => {
           {children}
         </main>
       {/* </AnimatePresence> */}
-    </>
+    </div>
   )
 }
 

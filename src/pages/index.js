@@ -13,10 +13,6 @@ if (typeof window !== `undefined`) {
 }
 
 class IndexPage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  
   render () {
     const RevealLeft = ({ children }) => {
       const revealRef = useRef(null);

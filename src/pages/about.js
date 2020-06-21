@@ -13,9 +13,6 @@ if (typeof window !== `undefined`) {
 }
 
 class AboutPage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   
   render () {
     const RevealLeft = ({ children }) => {
@@ -123,7 +120,7 @@ class AboutPage extends React.Component {
                 <div className="flex flex-wrap items-center">
                   <div className="w-full md:w-1/3 relative z-20 mb-8 md:mb-0">
                     <span className="uppercase font-semibold text-purple text-xl md:text-2xl block mb-3">About</span>
-                    <h1 className="text-5xl md:text-6xl xl:text-7xl font-medium text-pink mb-6 md:mb-8 whitespace-no-wrap">Learn Digital.<br/>Lead Digital.</h1>
+                    <h1 className="text-5xl md:text-6xl xl:text-7xl font-medium text-pink mb-6 md:mb-8 md:whitespace-no-wrap">Learn Digital.<br/>Lead Digital.</h1>
 
                     <div className="w-full">
                       <Link to="/" className="text-md text-purple font-semibold uppercase flex flex-wrap items-center">

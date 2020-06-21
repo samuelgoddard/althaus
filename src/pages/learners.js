@@ -13,9 +13,6 @@ if (typeof window !== `undefined`) {
 }
 
 class LearnersPage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   
   render () {
     const RevealLeft = ({ children }) => {
@@ -74,21 +71,6 @@ class LearnersPage extends React.Component {
     
       return <div className="reveal-image z-20 h-full bg-purple absolute bottom-0 left-0 right-0" ref={revealRef}>{children}</div>;
     };
-
-    const GradientRevealRight = ({ children }) => {
-      const revealRef = useRef(null);
-
-      useEffect(() => {
-        gsap.to(revealRef.current, {
-          scrollTrigger: revealRef.current,
-          width: '100%',
-          ease: Power3.easeInOut,
-          duration: 2
-        });
-      }, []);
-    
-      return <div className="w-0 h-full gradient-ltr absolute top-0 right-0 z-0 block bleed-right" ref={revealRef}>{children}</div>;
-    };
     
     const GradientRevealLeft = ({ children }) => {
       const revealRef = useRef(null);
@@ -123,7 +105,7 @@ class LearnersPage extends React.Component {
                 <div className="flex flex-wrap items-center pb-0 md:pb-20 lg:pb-24">
                   <div className="w-full md:w-1/3 mb-8 md:mb-0">
                     <span className="uppercase font-semibold text-white text-xl md:text-2xl block mb-8 -mt-10">Learners</span>
-                    <h1 className="text-5xl md:text-6xl xl:text-7xl font-medium text-white mb-6 md:mb-8 whitespace-no-wrap">Everything you<br/>need to learn<br/> &amp; develop</h1>
+                    <h1 className="text-5xl md:text-6xl xl:text-7xl font-medium text-white mb-6 md:mb-8 md:whitespace-no-wrap">Everything you<br/>need to learn<br/> &amp; develop</h1>
 
                     <div className="w-full">
                       <Link to="/" className="text-md text-white font-semibold uppercase flex flex-wrap items-center">

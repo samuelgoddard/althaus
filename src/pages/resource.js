@@ -3,7 +3,6 @@ import SEO from "../components/seo"
 import Header from "../components/header"
 import Footer from "../components/footer"
 import { Link } from "gatsby"
-import Arrow from "../images/arrow.inline.svg";
 import gsap, { Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -13,67 +12,7 @@ if (typeof window !== `undefined`) {
 }
 
 class ResourcePage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  
   render () {
-    const RevealLeft = ({ children }) => {
-      const revealRef = useRef(null);
-      
-      useEffect(() => {
-        this.tl = gsap.timeline({
-          paused: true,
-          scrollTrigger: {
-            trigger: revealRef.current,
-            scrub: 1,
-            start: "top bottom",
-            // markers: true
-          }
-        });
-        this.tl.to(revealRef.current, {
-          x: '100vw'
-        });
-      }, []);
-    
-      return <div className="reveal-left" ref={revealRef}>{children}</div>;
-    };
-    
-    const RevealRight = ({ children }) => {
-      const revealRef = useRef(null);
-      
-      useEffect(() => {
-        this.tl = gsap.timeline({
-          paused: true,
-          scrollTrigger: {
-            trigger: revealRef.current,
-            scrub: 1,
-            start: "top bottom",
-            // markers: true
-          }
-        });
-        this.tl.to(revealRef.current, {
-          x: '-100vw'
-        });
-      }, []);
-    
-      return <div className="reveal-right" ref={revealRef}>{children}</div>;
-    };
-
-    const ImageReveal = ({ children }) => {
-      const revealRef = useRef(null);
-
-      useEffect(() => {
-        gsap.to(revealRef.current, {
-          scrollTrigger: revealRef.current,
-          y: '-100%',
-          ease: Power3.easeInOut,
-          duration: 2
-        });
-      }, []);
-    
-      return <div className="reveal-image z-20 h-full bg-purple absolute bottom-0 left-0 right-0" ref={revealRef}>{children}</div>;
-    };
 
     const GradientRevealRight = ({ children }) => {
       const revealRef = useRef(null);
@@ -88,21 +27,6 @@ class ResourcePage extends React.Component {
       }, []);
     
       return <div className="w-0 h-full gradient-ltr absolute top-0 right-0 z-0 block bleed-right -mt-8 md:-mt-24" ref={revealRef}>{children}</div>;
-    };
-    
-    const GradientRevealLeft = ({ children }) => {
-      const revealRef = useRef(null);
-
-      useEffect(() => {
-        gsap.to(revealRef.current, {
-          scrollTrigger: revealRef.current,
-          width: '100%',
-          ease: Power3.easeInOut,
-          duration: 2
-        });
-      }, []);
-    
-      return <div className="w-0 h-full gradient-ltr absolute top-0 left-0 mt-8 md:mt-24 z-0 block bleed-left" ref={revealRef}>{children}</div>;
     };
 
     return (
