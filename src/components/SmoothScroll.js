@@ -1,10 +1,12 @@
 import React from "react";
 import { TweenLite, Power2 } from "gsap";
 import ResizeObserver from "resize-observer-polyfill";
+const windowGlobal = typeof window !== 'undefined' && window
+
 
 export default class SmoothScroll extends React.Component {
   state = {
-    height: window.innerHeight
+    height: windowGlobal.innerHeight
   };
 
   ro = new ResizeObserver(elements => {
@@ -18,13 +20,13 @@ export default class SmoothScroll extends React.Component {
   });
 
   componentDidMount() {
-    window.addEventListener("scroll", this.onScroll);
+    windowGlobal.addEventListener("scroll", this.onScroll);
     this.ro.observe(this.viewport);
   }
 
   onScroll = () => {
     TweenLite.to(this.viewport, 1, {
-      y: -window.pageYOffset,
+      y: -windowGlobal.pageYOffset,
       ease: Power2.easeOut
     });
   };

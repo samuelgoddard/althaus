@@ -2,8 +2,6 @@ import React, { useEffect, useRef } from "react";
 import SEO from "../components/seo";
 import Header from "../components/header";
 import Footer from "../components/footer";
-import Arrow from "../images/arrow.inline.svg";
-import { Link } from "gatsby";
 import gsap, { Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -15,26 +13,6 @@ if (typeof window !== `undefined`) {
 class ContactPage extends React.Component {
 
   render () {
-    const RevealLeft = ({ children }) => {
-      const revealRef = useRef(null);
-      
-      useEffect(() => {
-        this.tl = gsap.timeline({
-          paused: true,
-          scrollTrigger: {
-            trigger: revealRef.current,
-            scrub: 1,
-            start: "top bottom",
-            // markers: true
-          }
-        });
-        this.tl.to(revealRef.current, {
-          x: '80vw'
-        });
-      }, []);
-    
-      return <div className="reveal-left" ref={revealRef}>{children}</div>;
-    };
     
     const RevealRight = ({ children }) => {
       const revealRef = useRef(null);
