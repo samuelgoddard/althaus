@@ -41,7 +41,7 @@ class Footer extends React.Component {
                 <div className="flex flex-wrap pb-6 md:pb-10 lg:pb-16 xl:pb-20">
                   <div className="w-full md:w-7/12 lg:w-5/12 ml-auto">
                     <span className="text-4xl md:text-5xl xl:text-6xl font-semibold leading-extra-tight block mb-10">Ready to start your journey?</span>
-                    <Link to="/" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center block">
+                    <Link to="/contact" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center block">
                       <span className="block">Get in touch</span>
                       <span className="block ml-4 w-8"><Arrow /></span>
                     </Link>
@@ -66,8 +66,8 @@ class Footer extends React.Component {
               </Link>
 
               <div className="w-full md:w-auto md:ml-auto md:text-right">
-                <span className="text-white font-semibold block">T: +44 (0) 20 3637 1455</span>
-                <span className="text-white font-semibold block">E: info@althausdigital.co.uk</span>
+                <a href="tel:+442036371455" className="text-white font-semibold block hover:opacity-50 focus:opacity-50">T: +44 (0) 20 3637 1455</a>
+                <a href="mailto:info@althausdigital.co.uk" className="text-white font-semibold block hover:opacity-50 focus:opacity-50">E: info@althausdigital.co.uk</a>
               </div>
             </div>
 
@@ -85,16 +85,16 @@ class Footer extends React.Component {
 
                       <div className="flex flex-wrap -mx-2">
                         <div className="w-1/2 px-2">
-                          <Link to="/" className="text-white block">About</Link>
-                          <Link to="/" className="text-white block">Courses</Link>
-                          <Link to="/" className="text-white block">Learners</Link>
-                          <Link to="/" className="text-white block">Employers</Link>
+                          <Link to="/about" className="text-white block hover:opacity-50 focus:opacity-50">About</Link>
+                          <Link to="/courses" className="text-white block hover:opacity-50 focus:opacity-50">Courses</Link>
+                          <Link to="/learners" className="text-white block hover:opacity-50 focus:opacity-50">Learners</Link>
+                          <Link to="/employers" className="text-white block hover:opacity-50 focus:opacity-50">Employers</Link>
                         </div>
                         <div className="w-1/2 px-2">
-                          <Link to="/" className="text-white block">Resources</Link>
-                          <Link to="/" className="text-white block">Policies</Link>
-                          <Link to="/" className="text-white block">Careers</Link>
-                          <Link to="/" className="text-white block">Contact</Link>
+                          <Link to="/resources" className="text-white block hover:opacity-50 focus:opacity-50">Resources</Link>
+                          <Link to="/policies" className="text-white block hover:opacity-50 focus:opacity-50">Policies</Link>
+                          <Link to="/careers" className="text-white block hover:opacity-50 focus:opacity-50">Careers</Link>
+                          <Link to="/contact" className="text-white block hover:opacity-50 focus:opacity-50">Contact</Link>
                         </div>
                       </div>
                     </div>
@@ -105,10 +105,10 @@ class Footer extends React.Component {
                   <span className="text-white uppercase block text-lg mb-3">Customers</span>
                   <div className="flex flex-wrap -mx-2">
                     <div className="w-1/2 px-2">
-                      <Link to="/" className="xl:text-lg text-white bg-purple-light p-3 text-center block w-full uppercase font-semibold">Learners</Link>
+                      <Link to="/learners" className="xl:text-lg text-white bg-purple-light p-3 text-center block w-full uppercase font-semibold">Learners</Link>
                     </div>
                     <div className="w-1/2 px-2">
-                      <Link to="/" className="xl:text-lg text-white bg-pink p-3 text-center block w-full uppercase font-semibold">Employers</Link>
+                      <Link to="/employers" className="xl:text-lg text-white bg-pink p-3 text-center block w-full uppercase font-semibold">Employers</Link>
                     </div>
                   </div>
                 </div>
