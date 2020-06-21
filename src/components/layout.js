@@ -39,8 +39,8 @@ const Layout = ({ children, location }) => {
       </div>
       <div className="fixed z-30 right-0 fixed-text-right pl-6 hidden lg:block transform rotate-180">
         <div className="flex flex-wrap">
-          <Link to="/" className="xl:text-lg text-white bg-purple-light p-3 py-5 uppercase font-semibold ">Learners</Link>
-          <Link to="/" className="xl:text-lg text-white bg-pink p-3 py-5 uppercase font-semibold mt-3">Employers</Link>
+          <Link to="/learners" className="xl:text-lg text-white bg-purple-light p-3 py-5 uppercase font-semibold ">Learners</Link>
+          <Link to="/employers" className="xl:text-lg text-white bg-pink p-3 py-5 uppercase font-semibold mt-3">Employers</Link>
         </div>
       </div>
       {/* <AnimatePresence> */}

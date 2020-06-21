@@ -34,27 +34,29 @@ class Footer extends React.Component {
 
     return (
       <footer className="">
-        <div>
-          <div className="bg-white pt-6 md:pt-10 lg:pt-16 xl:pt-20 overflow-hidden">
-            <div className="container lg:px-32">
-              <div className="flex flex-wrap pb-6 md:pb-10 lg:pb-16 xl:pb-20">
-                <div className="w-full md:w-7/12 lg:w-5/12 ml-auto">
-                  <span className="text-4xl md:text-5xl xl:text-6xl font-semibold leading-extra-tight block mb-10">Ready to start your journey?</span>
-                  <Link to="/" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center block">
-                    <span className="block">Get in touch</span>
-                    <span className="block ml-4 w-8"><Arrow /></span>
-                  </Link>
+        { !this.props.contactPage && (
+          <div>
+            <div className="bg-white pt-6 md:pt-10 lg:pt-16 xl:pt-20 overflow-hidden">
+              <div className="container lg:px-32">
+                <div className="flex flex-wrap pb-6 md:pb-10 lg:pb-16 xl:pb-20">
+                  <div className="w-full md:w-7/12 lg:w-5/12 ml-auto">
+                    <span className="text-4xl md:text-5xl xl:text-6xl font-semibold leading-extra-tight block mb-10">Ready to start your journey?</span>
+                    <Link to="/" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center block">
+                      <span className="block">Get in touch</span>
+                      <span className="block ml-4 w-8"><Arrow /></span>
+                    </Link>
+                  </div>
                 </div>
               </div>
+              <div className="bg-purple-light opacity-75 w-full h-64">
+                <RevealLeft>
+                  <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text scroll-text--white text-transparent leading-none block pt-48 md:pt-48 lg:pt-40 xl:pt-20">Contact</span>
+                </RevealLeft>
+              </div>
+              <div className="bg-purple w-full h-20"></div>
             </div>
-            <div className="bg-purple-light opacity-75 w-full h-64">
-              <RevealLeft>
-                <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text scroll-text--white text-transparent leading-none block pt-48 md:pt-48 lg:pt-40 xl:pt-20">Contact</span>
-              </RevealLeft>
-            </div>
-            <div className="bg-purple w-full h-20"></div>
           </div>
-        </div>
+        )}
 
         <div className="pt-12 pb-6 md:pt-20 xl:pt-24 md:pb-5 bg-purple">
           <div className="container lg:px-32">

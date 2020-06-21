@@ -140,7 +140,7 @@ class IndexPage extends React.Component {
               <div className="gradient-ltr">
                 <div className="flex flex-wrap xl:w-10/12 p-4">
                   <div className="w-1/2">
-                    <Link to="/about" className="block py-6 md:px-10 text-center md:text-left">
+                    <Link to="/learners" className="block py-6 md:px-10 text-center md:text-left">
                       <span className="block text-white text-2xl md:text-3xl font-medium">Learners</span>
                       <div className="hidden md:block">
                         <span className="block text-white text-lg mb-3">Develop from learner into leader</span>
@@ -153,7 +153,7 @@ class IndexPage extends React.Component {
                   </div>
 
                   <div className="w-1/2 md:border-l md:border-white">
-                    <Link to="/about" className="block py-6 md:px-10 text-center md:text-left">
+                    <Link to="/employers" className="block py-6 md:px-10 text-center md:text-left">
                       <span className="block text-white text-2xl md:text-3xl font-medium">Employers</span>
                       <div className="hidden md:block">
                         <span className="block text-white text-lg mb-3">Find the talent you need</span>
