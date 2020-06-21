@@ -42,7 +42,7 @@ class Footer extends React.Component {
                   <span className="text-4xl md:text-5xl xl:text-6xl font-semibold leading-extra-tight block mb-10">Ready to start your journey?</span>
                   <Link to="/" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center block">
                     <span className="block">Get in touch</span>
-                    <span className="block ml-4"><Arrow /></span>
+                    <span className="block ml-4 w-8"><Arrow /></span>
                   </Link>
                 </div>
               </div>

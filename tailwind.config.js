@@ -37,7 +37,7 @@ module.exports = {
           default: '#131739'
         },
         pink: {
-          default: '#B32750'
+          default: '#EF4362'
         }
       },
       height: {

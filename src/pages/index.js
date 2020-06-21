@@ -130,7 +130,7 @@ class IndexPage extends React.Component {
 
                   <Link to="/about" className="text-md text-white font-semibold uppercase flex flex-wrap items-center">
                     <span className="block">Discover More</span>
-                    <span className="block ml-4"><Arrow /></span>
+                    <span className="block ml-4 w-8"><Arrow /></span>
                   </Link>
                 </div>
               </div>
@@ -150,7 +150,7 @@ class IndexPage extends React.Component {
                         <span className="block text-white text-lg mb-3">Develop from learner into leader</span>
                         <span className="text-md text-white font-semibold uppercase flex flex-wrap items-center">
                           <span className="block">Discover More</span>
-                          <span className="block ml-4"><Arrow /></span>
+                          <span className="block ml-4 w-8"><Arrow /></span>
                         </span>
                       </div>
                     </Link>
@@ -163,7 +163,7 @@ class IndexPage extends React.Component {
                         <span className="block text-white text-lg mb-3">Find the talent you need</span>
                         <span className="text-md text-white font-semibold uppercase flex flex-wrap items-center">
                           <span className="block">Discover More</span>
-                          <span className="block ml-4"><Arrow /></span>
+                          <span className="block ml-4 w-8"><Arrow /></span>
                         </span>
                       </div>
                     </Link>
@@ -202,7 +202,7 @@ class IndexPage extends React.Component {
 
                   <Link to="/about" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center block">
                     <span className="block">Find Out More</span>
-                    <span className="block ml-4"><Arrow /></span>
+                    <span className="block ml-4 w-8"><Arrow /></span>
                   </Link>
                 </div>
               </div>
@@ -232,7 +232,7 @@ class IndexPage extends React.Component {
 
                 <Link to="/about" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center block">
                   <span className="block">Start your journey</span>
-                  <span className="block ml-4"><Arrow /></span>
+                  <span className="block ml-4 w-8"><Arrow /></span>
                 </Link>
               </div>
               <div className="w-full md:w-1/2 lg:w-7/12 md:px-8 order-1 md:order-2 mb-8 md:mb-0 relative">
@@ -291,7 +291,7 @@ class IndexPage extends React.Component {
 
                 <Link to="/about" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center block">
                   <span className="block">Find Out More</span>
-                  <span className="block ml-4"><Arrow /></span>
+                  <span className="block ml-4 w-8"><Arrow /></span>
                 </Link>
               </div>
             </div>

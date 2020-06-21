@@ -105,6 +105,21 @@ class CoursesPage extends React.Component {
       return <div className="w-0 h-full gradient-ltr absolute top-0 left-0 z-0 block bleed-left" ref={revealRef}>{children}</div>;
     };
 
+    const BlockRevealLeft = ({ children }) => {
+      const revealRef = useRef(null);
+
+      useEffect(() => {
+        gsap.to(revealRef.current, {
+          scrollTrigger: revealRef.current,
+          width: '88.8%',
+          ease: Power3.easeInOut,
+          duration: 2
+        });
+      }, []);
+    
+      return <div className="w-0 h-full bg-purple absolute top-0 left-0 z-0 block bleed-left" ref={revealRef}>{children}</div>;
+    };
+
     return (
       <>
         <SEO title="Courses" />
@@ -117,8 +132,8 @@ class CoursesPage extends React.Component {
           </div>
           
           {/* Hero */}
-          <div className="">
-            <div className="mt-48 md:mt-56 xl:mt-64 gradient-ltr">
+          <div className="bg-white pt-48 md:pt-56 xl:pt-64">
+            <div className="gradient-ltr">
               <div className="container lg:px-32 pb-12">
                 <div className="flex flex-wrap items-center pb-0 md:pb-20 lg:pb-24">
                   <div className="w-full md:w-1/3 mb-8 md:mb-0">
@@ -128,7 +143,7 @@ class CoursesPage extends React.Component {
                     <div className="w-full">
                       <Link to="/" className="text-md text-white font-semibold uppercase flex flex-wrap items-center">
                         <span className="block">Get in touch</span>
-                        <span className="block ml-4"><Arrow /></span>
+                        <span className="block ml-4 w-8"><Arrow /></span>
                       </Link>
                     </div>
                   </div>
@@ -190,7 +205,7 @@ class CoursesPage extends React.Component {
           </div>
         </section>
 
-        {/* Digital */}
+        {/* Marketing */}
         <section className="bg-transparent md:pb-8 lg:pb-8 xl:pb-24 relative -mt-16 md:-mt-16 xl:-mt-32 relative z-20 mb-24 md:mb-0">
           <div className="overflow-hidden">
             <RevealRight>
@@ -225,7 +240,7 @@ class CoursesPage extends React.Component {
 
                 <Link to="/about" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center block">
                   <span className="block">View Courses</span>
-                  <span className="block ml-4"><Arrow /></span>
+                  <span className="block ml-4 w-8"><Arrow /></span>
                 </Link>
               </div>
             </div>
@@ -250,7 +265,7 @@ class CoursesPage extends React.Component {
 
                 <Link to="/about" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center block">
                   <span className="block">View Courses</span>
-                  <span className="block ml-4"><Arrow /></span>
+                  <span className="block ml-4 w-8"><Arrow /></span>
                 </Link>
               </div>
               <div className="w-full md:w-1/2 lg:w-7/12 md:px-8 order-1 md:order-2 mb-8 md:mb-0 relative">
@@ -265,6 +280,33 @@ class CoursesPage extends React.Component {
                       </ImageReveal>
                       <img src="https://placedog.net/1200/700" alt="placeholder" className="relative z-10 mb-0 pb-0" />
                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Application Form */}
+        <section className="bg-white mt-10 pb-12 md:mt-24 md:pb-8 lg:pb-8 xl:mt-32 xl:pb-24">
+          <div className="overflow-hidden relative z-20">
+            <RevealRight>
+              <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text-right text-right text-transparent leading-none -mt-4 xl:-mt-8 block">Application</span>
+            </RevealRight>
+          </div>
+
+          <div className="w-full mb-8 md:mb-0 relative -mt-12 md:-mt-20 xl:-mt-40">
+            <div className="relative">
+              <div className="pt-8 md:pt-16 xl:pt-24">
+                <BlockRevealLeft>
+                </BlockRevealLeft>
+              </div>
+
+              <div className="container lg:px-32 relative z-20">
+                <div className="gradient-ltr p-8 md:p-16 xl:p-24">
+                  <div className="mb-8 text-center">
+                    <span className="text-white font-semibold block text-2xl md:text-3xl mb-5 leading-extra-tight">Want to know more information about our courses?</span>
+                    <span className="text-white block text-sm md:text-base lg:text-lg xl:text-xl">Fill in the form below and we will be in touch</span>
                   </div>
                 </div>
               </div>

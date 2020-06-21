@@ -128,7 +128,7 @@ class AboutPage extends React.Component {
                     <div className="w-full">
                       <Link to="/" className="text-md text-purple font-semibold uppercase flex flex-wrap items-center">
                         <span className="block">Discover More</span>
-                        <span className="block ml-4"><Arrow /></span>
+                        <span className="block ml-4 w-8"><Arrow /></span>
                       </Link>
                     </div>
                   </div>
@@ -182,7 +182,7 @@ class AboutPage extends React.Component {
 
                     <Link to="/about" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center block">
                       <span className="block">Find Out More</span>
-                      <span className="block ml-4"><Arrow /></span>
+                      <span className="block ml-4 w-8"><Arrow /></span>
                     </Link>
                   </div>
                 </div>
