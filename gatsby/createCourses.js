@@ -21,7 +21,7 @@ module.exports = async ({ actions, graphql }) => {
     `).then(result => {
       result.data.allDatoCmsCourse.edges.map(edge => {
         createPage({
-          path: `courses/${edge.node.subject.slug }/${edge.node.slug}-level-${edge.node.level}`,
+          path: `/courses/${edge.node.subject.slug }/${edge.node.slug}-level-${edge.node.level}`,
           component: path.resolve(`./src/templates/course.js`),
           context: {
             slug: edge.node.slug,
