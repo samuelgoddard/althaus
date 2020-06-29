@@ -17,7 +17,7 @@ class EmployersPage extends React.Component {
   render () {
     return (
       <>
-        <SEO title="Courses" />
+        <SEO title="Employers" />
 
         <section className="">
           <div className="absolute top-0 left-0 right-0 z-30">

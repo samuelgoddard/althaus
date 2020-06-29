@@ -17,7 +17,7 @@ class ResourcesPage extends React.Component {
   render () {
     return (
       <>
-        <SEO title="About" />
+        <SEO title="Resources" />
 
         <section>
           <div className="absolute top-0 left-0 right-0 z-30">
