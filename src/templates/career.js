@@ -9,7 +9,7 @@ import gsap from "gsap";
 import Img from "gatsby-image";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Moment from "react-moment"
-import { RevealLeft, RevealRight, GradientRevealLeft, GradientRevealRight, ImageReveal, BlockRevealRight } from "../components/revealHelpers"
+import { RevealLeft, RevealRight, GradientRevealLeft, ImageReveal, BlockRevealRight, GradientRevealRightLarge } from "../components/revealHelpers"
 
 if (typeof window !== `undefined`) {
   gsap.registerPlugin(ScrollTrigger)
@@ -33,10 +33,10 @@ class Career extends React.Component {
           
           {/* Hero */}
           <div className="overflow-hidden">
-            <div className="bg-white pt-32 md:pt-48 xl:pt-48 relative">
+            <div className="bg-white pt-32 md:pt-40 relative">
               <div className="container lg:px-32 relative">
                 <div className="flex flex-wrap items-center">
-                  <div className="w-full md:w-1/2 xl:w-5/12 relative z-20 mb-8 md:mb-0 md:-mt-12 xl:-mt-24">
+                  <div className="w-full md:w-1/2 relative z-20 mb-24 md:mb-0 md:-mt-12 xl:-mt-20">
                     <span className="uppercase font-semibold text-pink text-xl md:text-2xl block mb-3">Job Title</span>
                     <h1 className="text-5xl md:text-5xl xl:text-6xl 2xl:text-7xl font-medium text-purple mb-6 md:mb-8 pr-12">{ this.props.data.datoCmsCareer.title }</h1>
 
@@ -46,10 +46,10 @@ class Career extends React.Component {
                     </AnchorLink>
                   </div>
 
-                  <div className="w-full md:w-1/2 xl:w-7/12 relative mb-0 md:mb-20 mt-24 ml-auto">
-                    <GradientRevealRight>
-                    </GradientRevealRight>
-                    <Img fluid={this.props.data.datoCmsCareer.heroImage.fluid} className="relative z-10 mb-0 pb-12 lg:pb-24 -mt-12 xl:pl-12 md:-mt-24" />
+                  <div className="w-full md:w-1/2 relative -mb-12 md:mb-20 ml-auto">
+                    <GradientRevealRightLarge>
+                    </GradientRevealRightLarge>
+                    <Img fluid={this.props.data.datoCmsCareer.heroImage.fluid} className="relative z-10 md:mt-12 xl:mt-20 pb-12 -mt-12" />
                   </div>
                 </div>
               </div>
@@ -58,7 +58,7 @@ class Career extends React.Component {
         </section>
 
         {/* Listings */}
-        <section className="mb-12 md:mb-16 lg:mb-24">
+        <section className="mb-12 md:mb-16 lg:mb-24 overflow-hidden">
           <div className="bg-purple overflow-hidden py-8 md:py-10">
             <div className="container lg:px-32 relative text-white">
               <div className="flex flex-wrap -mx-4">
@@ -152,7 +152,7 @@ class Career extends React.Component {
                       <div className="relative overflow-hidden">
                         <ImageReveal>
                         </ImageReveal>
-                        <Img fluid={ this.props.data.datoCmsCareer.supportingContentBlock.image.fluid } className="relative z-10 mb-0 pb-0" />
+                        <Img fluid={ this.props.data.datoCmsCareer.supportingContentBlock.image.fluid } className="relative z-10 pb-0" />
                       </div>
                     </div>
                   </div>
@@ -182,7 +182,7 @@ class Career extends React.Component {
             </RevealLeft>
           </div>
 
-          <div className="w-full mb-8 md:mb-0 relative -mt-12 md:-mt-20 xl:-mt-40">
+          <div className="w-full mb-8 md:mb-0 relative -mt-12 md:-mt-20 xl:-mt-40 overflow-hidden">
             <div className="relative">
               <div className="pt-8 md:pt-16 xl:pt-24">
                 <BlockRevealRight>

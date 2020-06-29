@@ -4,9 +4,10 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import Arrow from "../images/arrow.inline.svg";
 import { Link } from "gatsby";
+import Img from "gatsby-image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { RevealLeft, RevealRight, GradientRevealLeft, GradientRevealRight, ImageReveal } from "../components/revealHelpers"
+import { RevealLeft, RevealRight, GradientRevealLeft, GradientRevealRight, ImageReveal, GradientRevealRightLarge } from "../components/revealHelpers"
 
 if (typeof window !== `undefined`) {
   gsap.registerPlugin(ScrollTrigger)
@@ -28,20 +29,20 @@ class CareersPage extends React.Component {
           
           {/* Hero */}
           <div className="overflow-hidden">
-            <div className="bg-purple pt-32 pb-0 md:pt-48 md:pb-12 xl:pt-48 relative">
+            <div className="bg-purple pt-32 pb-0 md:pt-48 md:pb-32 lg:pb-24 xl:pb-20 xl:pt-48 relative">
               <div className="container lg:px-32 relative">
-                <div className="flex flex-wrap items-center">
-                  <div className="w-full md:w-1/2 xl:w-5/12 relative z-20 mb-8 md:mb-0 md:-mt-12 xl:-mt-24">
+                <div className="flex flex-wrap">
+                  <div className="w-full md:w-1/2 relative z-20 mb-12 md:mb-0 mt-8 md:mt-12">
                     <span className="uppercase font-semibold text-pink text-xl md:text-2xl block mb-3">Careers</span>
-                    <h1 className="text-5xl md:text-5xl xl:text-6xl 2xl:text-7xl font-medium text-white mb-6 md:mb-8 md:whitespace-no-wrap">We hire great<br/>people who<br/>do great work!</h1>
+                    <h1 className="text-5xl md:text-5xl xl:text-6xl font-medium text-white mb-6 md:mb-8 pr-8">{ this.props.data.datoCmsCareersLanding.heroHeading }</h1>
 
-                    <p className="w-11/12 md:w-10/12 text-white text-lg md:text-xl">Work with us at althaus and be part of our team of game-changers. Our job openings can be found right here.</p>
+                    <div className="w-11/12 md:w-10/12 text-white text-lg md:text-xl" dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsCareersLanding.heroText }}></div>
                   </div>
 
-                  <div className="w-full md:w-1/2 xl:w-7/12 relative mb-16 md:mb-20 mt-24 ml-auto">
-                      <GradientRevealRight>
-                      </GradientRevealRight>
-                    <img src="https://placedog.net/1200/720" alt="placeholder" className="relative z-10 mb-0 pb-12 lg:pb-24 -mt-12 xl:pl-12 md:-mt-24" />
+                  <div className="w-full md:w-1/2 xl:w-1/2 relative mb-16 md:mb-20 ml-auto">
+                    <GradientRevealRightLarge>
+                    </GradientRevealRightLarge>
+                    <Img fluid={ this.props.data.datoCmsCareersLanding.heroImage.fluid } className="block relative z-10 mt-12 lg:mt-16" />
                   </div>
                 </div>
               </div>
@@ -82,11 +83,11 @@ class CareersPage extends React.Component {
         <section className="relative -mt-16 md:-mt-16 xl:-mt-32 relative z-20">
           <div className="overflow-hidden">
             <RevealRight>
-              <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text-right text-right text-transparent leading-none -mt-4 xl:-mt-8 block">Network</span>
+              <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text-right text-right text-transparent leading-none -mt-4 xl:-mt-8 block">{ this.props.data.datoCmsCareersLanding.supportingContentBlock.scrollingText }</span>
             </RevealRight>
           </div>
           
-          <div className="bg-white pb-24 md:pb-32 xl:pb-40">
+          <div className="bg-white pb-16 md:pb-20 xl:pb-24">
             <div className="container lg:px-32 -mt-16 md:-mt-16 lg:-mt-24 relative z-20">
               <div className="flex flex-wrap items md:-mx-8">
                 <div className="w-full md:w-1/2 lg:w-7/12 md:px-8 mb-8 md:mb-0 relative">
@@ -99,18 +100,16 @@ class CareersPage extends React.Component {
                       <div className="relative overflow-hidden">
                         <ImageReveal>
                         </ImageReveal>
-                        <img src="https://placedog.net/1200/700" alt="placeholder" className="relative z-10 mb-0 pb-0" />
+                        <Img fluid={ this.props.data.datoCmsCareersLanding.supportingContentBlock.image.fluid } className="relative z-10 mb-0 pb-0" />
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="w-full md:w-1/2 lg:w-5/12 md:px-8 content md:pt-32 xl:pt-40">
-                  <h2 className="pb-6 mb-0">Join our team</h2>
+                  <h2 className="pb-6 mb-0">{ this.props.data.datoCmsCareersLanding.supportingContentBlock.heading }</h2>
                   <span className="w-20 h-2 bg-pink block mb-8"></span>
 
-                  <div className="mb-8">
-                    <p>We’re always on the lookout for good people. If you think you’d be a great addition to our team but don’t quite fit into the roles listed, send us your CV and we will be in-touch.</p>
-                  </div>
+                  <div className="mb-8" dangerouslySetInnerHTML={{ __html:  this.props.data.datoCmsCareersLanding.supportingContentBlock.content }}></div>
 
                   <Link to="/contact" className="inline bg-pink uppercase text-white p-3 px-6 font-medium text-lg mb-4">Get In Touch</Link>
                 </div>
@@ -129,6 +128,28 @@ export default CareersPage
 
 export const query = graphql`
   query {
+    datoCmsCareersLanding {
+      title
+      heroHeading
+      heroText
+      heroImage {
+        fluid(
+          imgixParams: {w: "720", fit: "crop", crop: "faces, edges"}) {
+          ...GatsbyDatoCmsFluid
+        }
+      }
+      supportingContentBlock {
+        heading
+        scrollingText
+        content
+        image {
+          fluid(
+            imgixParams: {w: "720", fit: "crop", crop: "faces, edges"}) {
+            ...GatsbyDatoCmsFluid
+          }
+        }
+      }
+    }
     allDatoCmsCareer {
       edges {
         node {

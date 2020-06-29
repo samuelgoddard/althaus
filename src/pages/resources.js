@@ -1,11 +1,12 @@
-import React, { useEffect, useRef } from "react"
+import React from "react"
 import SEO from "../components/seo"
 import Header from "../components/header"
 import Footer from "../components/footer"
 import Teaser from "../components/teaser"
 import { Link } from "gatsby"
-import gsap, { Power3 } from "gsap";
+import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { RevealLeft, GradientRevealRight } from "../components/revealHelpers"
 
 if (typeof window !== `undefined`) {
   gsap.registerPlugin(ScrollTrigger)
@@ -13,44 +14,7 @@ if (typeof window !== `undefined`) {
 }
 
 class ResourcesPage extends React.Component {
-
   render () {
-    const RevealLeft = ({ children }) => {
-      const revealRef = useRef(null);
-      
-      useEffect(() => {
-        this.tl = gsap.timeline({
-          paused: true,
-          scrollTrigger: {
-            trigger: revealRef.current,
-            scrub: 1,
-            start: "top bottom",
-            // markers: true
-          }
-        });
-        this.tl.to(revealRef.current, {
-          x: '80vw'
-        });
-      }, []);
-    
-      return <div className="reveal-left" ref={revealRef}>{children}</div>;
-    };
-
-    const GradientRevealRight = ({ children }) => {
-      const revealRef = useRef(null);
-
-      useEffect(() => {
-        gsap.to(revealRef.current, {
-          scrollTrigger: revealRef.current,
-          width: '155%',
-          ease: Power3.easeInOut,
-          duration: 2
-        });
-      }, []);
-    
-      return <div className="w-0 h-full gradient-ltr absolute bottom-0 right-0 z-0 block bleed-right bleed-right--large -mt-8 md:-mt-24" ref={revealRef}>{children}</div>;
-    };
-
     return (
       <>
         <SEO title="About" />

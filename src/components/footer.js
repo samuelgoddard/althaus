@@ -2,6 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Arrow from "../images/arrow.inline.svg";
 import gsap from "gsap";
+import Img from "gatsby-image";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { RevealLeft } from "../components/revealHelpers"
 
@@ -18,18 +19,25 @@ const Footer = ({ contactPage }) => {
         telephone
         address
       }
+      footerImage: file(relativePath: { eq: "footer.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1200) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   `)
   const { telephone, address, emailAddress } = data.datoCmsContact;
   return (
-    <footer className="">
+    <footer className="relative overflow-hidden">
       { !contactPage && (
         <div>
-          <div className="bg-white pt-6 md:pt-10 lg:pt-16 xl:pt-20 overflow-hidden">
-            <div className="container lg:px-32">
-              <div className="flex flex-wrap pb-6 md:pb-10 lg:pb-16 xl:pb-20">
-                <div className="w-full md:w-7/12 lg:w-5/12 ml-auto">
-                  <span className="text-4xl md:text-5xl xl:text-6xl font-semibold leading-extra-tight block mb-10">Ready to start your journey?</span>
+          <div className="bg-white pt-12 md:pt-20 lg:pt-32 xl:pt-20 relative overflow-hidden">
+            <div className="container lg:px-32 relative z-20">
+              <div className="flex flex-wrap pb-16 sm:pb-32 md:pb-20 lg:pb-32 xl:pb-40">
+                <div className="w-full md:w-1/2 lg:w-5/12 ml-auto">
+                  <span className="text-4xl md:text-5xl xl:text-6xl font-semibold leading-extra-tight block mb-6 md:mb-10">Ready to start your journey?</span>
                   <Link to="/contact" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center block">
                     <span className="block">Get in touch</span>
                     <span className="block ml-4 w-8"><Arrow /></span>
@@ -37,12 +45,17 @@ const Footer = ({ contactPage }) => {
                 </div>
               </div>
             </div>
-            <div className="bg-purple-light opacity-75 w-full h-64">
-              <RevealLeft>
-                <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text scroll-text--white text-transparent leading-none block pt-48 md:pt-48 lg:pt-40 xl:pt-20">Contact</span>
-              </RevealLeft>
+            <div className="absolute right-0 left-0 bottom-0 w-full mx-auto">
+              <Img fluid={data.footerImage.childImageSharp.fluid } className="w-full max-w-screen-xl mx-auto" />
             </div>
-            <div className="bg-purple w-full h-20"></div>
+            <div className="bg-purple-light opacity-75 w-full h-64 overflow-hidden bg-multiply absolute bottom-0 left-0 right-0">
+
+            </div>
+            <RevealLeft>
+              <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text scroll-text--white text-transparent leading-none block pt-48 md:pt-48 lg:pt-48 xl:pt-32 -mb-6 xl:-mb-12">Contact</span>
+            </RevealLeft>
+            {/* <div className="bg-purple w-full h-20 relative">
+            </div> */}
           </div>
         </div>
       )}

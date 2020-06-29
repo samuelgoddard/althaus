@@ -62,6 +62,21 @@ export const GradientRevealRight = ({ children }) => {
   return <div className="w-0 h-full gradient-ltr absolute top-0 right-0 z-0 block bleed-right" ref={revealRef}>{children}</div>;
 };
 
+export const GradientRevealRightLarge = ({ children }) => {
+  const revealRef = useRef(null);
+
+  useEffect(() => {
+    gsap.to(revealRef.current, {
+      scrollTrigger: revealRef.current,
+      width: '160%',
+      ease: Power3.easeInOut,
+      duration: 2
+    });
+  }, []);
+
+  return <div className="w-0 h-almostFull gradient-ltr absolute top-0 right-0 z-0 block bleed-right mb-12" ref={revealRef}>{children}</div>;
+};
+
 export const GradientRevealLeft = ({ children }) => {
   const revealRef = useRef(null);
 

@@ -2,8 +2,9 @@ import React from "react"
 import SEO from "../components/seo"
 import Header from "../components/header"
 import Footer from "../components/footer"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 import gsap from "gsap";
+import Img from "gatsby-image";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 if (typeof window !== `undefined`) {
@@ -17,7 +18,7 @@ class PoliciesPage extends React.Component {
 
     return (
       <>
-        <SEO title="Courses" />
+        <SEO title={ this.props.data.datoCmsPoliciesLanding.title } />
 
         <section>
           <div className="absolute top-0 left-0 right-0 z-30">
@@ -33,11 +34,11 @@ class PoliciesPage extends React.Component {
                 <div className="flex flex-wrap items-start pb-0 md:pb-20 lg:pb-24">
                   <div className="w-full md:w-1/2 mb-8 md:mb-0 relative z-20">
                     <span className="uppercase font-semibold text-white text-xl md:text-2xl block mb-8 -mt-10">Policies</span>
-                    <h1 className="text-5xl md:text-6xl xl:text-7xl font-medium text-white mb-6 md:mb-8 md:whitespace-no-wrap">We protect your<br/>personal data</h1>
+                    <h1 className="text-5xl xl:text-6xl font-medium text-white mb-6 md:mb-8 pr-8">{ this.props.data.datoCmsPoliciesLanding.heroHeading }</h1>
                   </div>
 
                   <div className="w-full md:w-1/2 -mb-12 md:-mb-0 md:-mt-16 xl:-mt-24 relative z-10">
-                    <img src="https://placedog.net/1200/700" alt="placeholder" className="relative z-10 mb-0 pb-0 w-full" />
+                    <Img fluid={ this.props.data.datoCmsPoliciesLanding.heroImage.fluid } className="relative z-10 mb-0 pb-0 w-full" />
                   </div>
                 </div>
               </div>
@@ -49,55 +50,26 @@ class PoliciesPage extends React.Component {
           <div className="container relative">
             <div className="w-full lg:w-7/12 mx-auto content">
               <div className="mb-12 md:mb-16 xl:mb-20">
-                <p className="text-lg md:text-xl font-semibold">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+                <div className="text-lg md:text-xl font-semibold" dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsPoliciesLanding.introText }}></div>
 
-                <div className="w-full border-b border-pink py-8 md:py-12">
-                  <h2 className="pb-6 mb-0">Customer Privacy Policy</h2>
-                  <span className="w-20 h-2 bg-pink block mb-8"></span>
 
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                {this.props.data.allDatoCmsPolicy.edges.reverse().map(({ node }, i) => {
+                  return (
+                    <div className="w-full border-b border-pink py-8 md:py-12" key={i}>
+                      <h2 className="pb-6 mb-0">{ node.title }</h2>
+                      <span className="w-20 h-2 bg-pink block mb-8"></span>
 
-                  <div className="flex flex-wrap mt-12">
-                    <Link to="/contact" className="inline border-2 border-pink uppercase text-purple p-3 px-6 font-medium text-lg mr-5 mb-4">View Policy</Link>
-                    <Link to="/contact" className="inline bg-pink uppercase text-white p-3 px-6 font-medium text-lg mb-4">Download PDF</Link>
-                  </div>
-                </div>
+                      <div dangerouslySetInnerHTML={{ __html: node.content }} className="content"></div>
 
-                <div className="w-full border-b border-pink py-8 md:py-12">
-                  <h2 className="pb-6 mb-0">GDPR</h2>
-                  <span className="w-20 h-2 bg-pink block mb-8"></span>
-
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-                  <div className="flex flex-wrap mt-12">
-                    <Link to="/contact" className="inline border-2 border-pink uppercase text-purple p-3 px-6 font-medium text-lg mr-5 mb-4">View Policy</Link>
-                    <Link to="/contact" className="inline bg-pink uppercase text-white p-3 px-6 font-medium text-lg mb-4">Download PDF</Link>
-                  </div>
-                </div>
-
-                <div className="w-full border-b border-pink py-8 md:py-12">
-                  <h2 className="pb-6 mb-0">Prevent</h2>
-                  <span className="w-20 h-2 bg-pink block mb-8"></span>
-
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-                  <div className="flex flex-wrap mt-12">
-                    <Link to="/contact" className="inline border-2 border-pink uppercase text-purple p-3 px-6 font-medium text-lg mr-5 mb-4">View Policy</Link>
-                    <Link to="/contact" className="inline bg-pink uppercase text-white p-3 px-6 font-medium text-lg mb-4">Download PDF</Link>
-                  </div>
-                </div>
-
-                <div className="w-full border-b border-pink py-8 md:py-12">
-                  <h2 className="pb-6 mb-0">British Values</h2>
-                  <span className="w-20 h-2 bg-pink block mb-8"></span>
-
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-                  <div className="flex flex-wrap mt-12">
-                    <Link to="/contact" className="inline border-2 border-pink uppercase text-purple p-3 px-6 font-medium text-lg mr-5 mb-4">View Policy</Link>
-                    <Link to="/contact" className="inline bg-pink uppercase text-white p-3 px-6 font-medium text-lg mb-4">Download PDF</Link>
-                  </div>
-                </div>
+                      { node.policyPdf && (
+                        <div className="flex flex-wrap mt-12">
+                          {/* <Link to="/contact" className="inline border-2 border-pink uppercase text-purple p-3 px-6 font-medium text-lg mr-5 mb-4">View Policy</Link> */}
+                          <a href={ node.policyPdf.url } target="_blank" rel="noopener noreferrer" className="inline bg-pink uppercase text-white p-3 px-6 font-medium text-lg mb-4">Download PDF</a>
+                        </div>
+                      )}
+                    </div>
+                  )
+                })}
               </div>
             </div>
           </div>
@@ -110,3 +82,31 @@ class PoliciesPage extends React.Component {
 }
 
 export default PoliciesPage
+
+export const query = graphql`
+  query {
+    datoCmsPoliciesLanding {
+      title
+      heroHeading
+      heroImage {
+        fluid(
+          imgixParams: {w: "720", fit: "crop", crop: "faces, edges"}) {
+          ...GatsbyDatoCmsFluid
+        }
+      }
+      introText
+    }
+    allDatoCmsPolicy {
+      edges {
+        node {
+          title
+          content
+          policyPdf {
+            url
+          }
+          slug
+        }
+      }      
+    }
+  }
+`

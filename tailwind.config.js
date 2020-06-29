@@ -47,6 +47,7 @@ module.exports = {
       },
       height: {
         half: '50%',
+        almostFull: '90%',
       },
       lineHeight: {
         'extra-tight': '1.15',
