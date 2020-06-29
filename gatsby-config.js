@@ -1,7 +1,9 @@
+require("dotenv").config({ path: `.env` })
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby x Tailwind x Framer Motion`,
-    description: `An opinionated starter for Gatsby v2 with TailwindCSS, PostCSS and Framer Motion page transitions.`,
+    title: `Althaus Digital`,
+    description: `Welcome to althaus digital - an alternative training provider who see the bigger picture.`,
     author: `@samuelgoddard`,
   },
   plugins: [
@@ -34,6 +36,12 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`,
+      },
+    },
+    {
+      resolve: `gatsby-source-datocms`,
+      options: {
+        apiToken: `${process.env.DATOCMS_KEY}`,
       },
     },
   ],

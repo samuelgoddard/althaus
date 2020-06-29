@@ -72,5 +72,8 @@ a {
 	width: 100vw !important;;
 	overflow: hidden !important;
 	position: fixed !important;
-
 } 
+
+.bg-multiply {
+	mix-blend-mode: multiply;
+}

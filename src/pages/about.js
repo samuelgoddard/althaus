@@ -4,8 +4,10 @@ import Header from "../components/header"
 import Footer from "../components/footer"
 import { Link } from "gatsby"
 import Arrow from "../images/arrow.inline.svg";
-import gsap, { Power3 } from "gsap";
+import Img from "gatsby-image";
+import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { RevealLeft, RevealRight, GradientRevealLeft, GradientRevealRight, ImageReveal } from "../components/revealHelpers"
 
 if (typeof window !== `undefined`) {
   gsap.registerPlugin(ScrollTrigger)
@@ -15,92 +17,6 @@ if (typeof window !== `undefined`) {
 class AboutPage extends React.Component {
   
   render () {
-    const RevealLeft = ({ children }) => {
-      const revealRef = useRef(null);
-      
-      useEffect(() => {
-        this.tl = gsap.timeline({
-          paused: true,
-          scrollTrigger: {
-            trigger: revealRef.current,
-            scrub: 1,
-            start: "top bottom",
-            // markers: true
-          }
-        });
-        this.tl.to(revealRef.current, {
-          x: '100vw'
-        });
-      }, []);
-    
-      return <div className="reveal-left" ref={revealRef}>{children}</div>;
-    };
-    
-    const RevealRight = ({ children }) => {
-      const revealRef = useRef(null);
-      
-      useEffect(() => {
-        this.tl = gsap.timeline({
-          paused: true,
-          scrollTrigger: {
-            trigger: revealRef.current,
-            scrub: 1,
-            start: "top bottom",
-            // markers: true
-          }
-        });
-        this.tl.to(revealRef.current, {
-          x: '-100vw'
-        });
-      }, []);
-    
-      return <div className="reveal-right" ref={revealRef}>{children}</div>;
-    };
-
-    const ImageReveal = ({ children }) => {
-      const revealRef = useRef(null);
-
-      useEffect(() => {
-        gsap.to(revealRef.current, {
-          scrollTrigger: revealRef.current,
-          y: '-100%',
-          ease: Power3.easeInOut,
-          duration: 2
-        });
-      }, []);
-    
-      return <div className="reveal-image z-20 h-full bg-purple absolute bottom-0 left-0 right-0" ref={revealRef}>{children}</div>;
-    };
-
-    const GradientRevealRight = ({ children }) => {
-      const revealRef = useRef(null);
-
-      useEffect(() => {
-        gsap.to(revealRef.current, {
-          scrollTrigger: revealRef.current,
-          width: '100%',
-          ease: Power3.easeInOut,
-          duration: 2
-        });
-      }, []);
-    
-      return <div className="w-0 h-full gradient-ltr absolute top-0 right-0 z-0 block bleed-right -mt-8 md:-mt-24" ref={revealRef}>{children}</div>;
-    };
-    
-    const GradientRevealLeft = ({ children }) => {
-      const revealRef = useRef(null);
-
-      useEffect(() => {
-        gsap.to(revealRef.current, {
-          scrollTrigger: revealRef.current,
-          width: '100%',
-          ease: Power3.easeInOut,
-          duration: 2
-        });
-      }, []);
-    
-      return <div className="w-0 h-full gradient-ltr absolute top-0 left-0 mt-8 md:mt-24 z-0 block bleed-left" ref={revealRef}>{children}</div>;
-    };
 
     return (
       <>
@@ -117,23 +33,25 @@ class AboutPage extends React.Component {
           <div className="overflow-hidden">
             <div className="bg-white pt-32 pb-24 md:pt-48 md:pb-24 xl:pt-48 relative">
               <div className="container lg:px-32 relative">
-                <div className="flex flex-wrap items-center">
-                  <div className="w-full md:w-1/3 relative z-20 mb-8 md:mb-0">
-                    <span className="uppercase font-semibold text-purple text-xl md:text-2xl block mb-3">About</span>
-                    <h1 className="text-5xl md:text-6xl xl:text-7xl font-medium text-pink mb-6 md:mb-8 md:whitespace-no-wrap">Learn Digital.<br/>Lead Digital.</h1>
+                <div className="flex flex-wrap items-center relative">
+                  <div className="w-full md:w-8/12 xl:w-7/12 z-20 mb-8 md:mb-0 md:absolute top-0 left-0 bottom-0 flex flex-wrap">
+                    <div className="my-auto">
+                      <span className="uppercase font-semibold text-purple text-xl md:text-2xl block mb-3">About</span>
+                      <h1 className="text-5xl md:text-6xl xl:text-7xl font-medium text-pink mb-6 md:mb-8">{ this.props.data.datoCmsAbout.heroHeading }</h1>
 
-                    <div className="w-full">
-                      <Link to="/" className="text-md text-purple font-semibold uppercase flex flex-wrap items-center">
-                        <span className="block">Discover More</span>
-                        <span className="block ml-4 w-8"><Arrow /></span>
-                      </Link>
+                      <div className="w-full">
+                        <Link to="/" className="text-md text-purple font-semibold uppercase flex flex-wrap items-center">
+                          <span className="block">Discover More</span>
+                          <span className="block ml-4 w-8"><Arrow /></span>
+                        </Link>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="w-full md:w-2/3 relative mt-16 md:mt-20">
+                  <div className="w-full md:w-2/3 relative ml-auto">
                     <GradientRevealRight>
                     </GradientRevealRight>
-                    <img src="https://placedog.net/1200/640" alt="placeholder" className="relative z-10 mb-0 pb-0" />
+                    <img src="https://placedog.net/1200/640" alt="placeholder" className="relative z-10 mb-0 pb-0 pt-12 md:pt-16" />
                   </div>
                 </div>
               </div>
@@ -146,7 +64,7 @@ class AboutPage extends React.Component {
         <section>
           <div className="overflow-hidden">
             <RevealRight>
-              <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text-right scroll-text--purple text-right text-transparent leading-none block">Digital Skills</span>
+              <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text-right scroll-text--purple text-right text-transparent leading-none block">{this.props.data.datoCmsAbout.heroScrollingText}</span>
             </RevealRight>
           </div>
 
@@ -158,11 +76,11 @@ class AboutPage extends React.Component {
                     <div className="relative">
                       <GradientRevealLeft>
                       </GradientRevealLeft>
-                      <div className="relative overflow-hidden">
+                      <div className="relative overflow-hidden -mt-12">
                         <div className="relative overflow-hidden">
                           <ImageReveal>
                           </ImageReveal>
-                          <img src="https://placedog.net/1200/700" alt="placeholder" className="relative z-10 mb-0 pb-0" />
+                          <Img fluid={ this.props.data.datoCmsAbout.missionImage.fluid } alt={ this.props.data.datoCmsAbout.missionHeading } className="relative z-10  mb-12 md:mb-20 xl:mb-32" />
                         </div>
                       </div>
                     </div>
@@ -171,16 +89,7 @@ class AboutPage extends React.Component {
                     <h2 className="pb-6 mb-0">Our Mission</h2>
                     <span className="w-20 h-2 bg-pink block mb-8"></span>
 
-                    <div className="mb-8">
-                      <p>At althaus, we know that digital skills are becoming more and more important - but that’s not the full picture. As well as ensuring our learners are equipped with the very latest technical know-how, they’re taught in creative problem-solving, effective communication and emotional intelligence – a powerful combination which futureproofs their employability.</p>
-
-                      <p>It’s our mission to unleash the digital leaders of tomorrow, by ensuring that both learner and employer have the skills and resources needed to thrive. Our learners gain access to high quality training, cutting edge facilities and tailored teaching plans, whilst our partner organisations benefit from skilled, talented individuals who are able to generate real, measurable value.</p>
-                    </div>
-
-                    <Link to="/about" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center block">
-                      <span className="block">Find Out More</span>
-                      <span className="block ml-4 w-8"><Arrow /></span>
-                    </Link>
+                    <div className="mb-8" dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsAbout.missionText }}></div>
                   </div>
                 </div>
               </div>
@@ -189,24 +98,22 @@ class AboutPage extends React.Component {
         </section>
 
         {/* Insights */}
-        <section className="bg-purple pb-12 md:pb-24 lg:pb-32 relative overflow-hidden">
+        <section className="bg-purple pb-12 md:pb-24 lg:pb-32 relative overflow-hidden -mt-12 pt-12">
           <RevealLeft>
-            <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text scroll-text--pink text-transparent leading-none -mt-4 xl:-mt-8 block">Insight</span>
+            <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text scroll-text--pink text-transparent leading-none -mt-4 xl:-mt-8 block">{ this.props.data.datoCmsAbout.heroScrollingText }</span>
           </RevealLeft>
           
           <div className="container lg:px-32 -mt-20 md:-mt-20 xl:-mt-56 relative z-20">
             <div className="flex flex-wrap items md:-mx-8">
               <div className="w-full md:w-1/2 lg:w-5/12 md:px-8 content mb-8 md:mb-0 order-2 md:order-1 md:pt-24 xl:pt-56 text-white">
-                <h2 className="pb-6 mb-0">Why we're different</h2>
+                <h2 className="pb-6 mb-0">{ this.props.data.datoCmsAbout.contentBlockHeading }</h2>
                 <span className="w-20 h-2 bg-pink block mb-8"></span>
 
-                <div className="mb-12">
-                  <p>We combine self-directed learning with social and collaborative environments - an approach designed to maximise productivity. We offer a carefully-tuned blend of live webinars, face-to-face classroom sessions, and a wealth of on-demand content - all supported by one-to-one mentoring, and insights from our leading industry experts.</p>
-                </div>
+                <div className="mb-12" dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsAbout.contentBlockText }}></div>
 
                 <div className="flex flex-wrap">
-                  <Link to="/" className="xl:text-lg text-white bg-purple-light px-5 py-4 uppercase font-semibold">Learners</Link>
-                  <Link to="/" className="xl:text-lg text-white bg-pink px-5 py-4 uppercase font-semibold ml-3">Employers</Link>
+                  <Link to="/learners" className="xl:text-lg text-white bg-purple-light px-5 py-4 uppercase font-semibold">Learners</Link>
+                  <Link to="/employers" className="xl:text-lg text-white bg-pink px-5 py-4 uppercase font-semibold ml-3">Employers</Link>
                 </div>
               </div>
               <div className="w-full md:w-1/2 lg:w-7/12 md:px-8 order-1 md:order-2 mb-8 md:mb-0 relative mt-12 md:mt-24">
@@ -219,7 +126,7 @@ class AboutPage extends React.Component {
                     <div className="relative overflow-hidden">
                       <ImageReveal>
                       </ImageReveal>
-                      <img src="https://placedog.net/1200/700" alt="placeholder" className="relative z-10 mb-0 pb-0" />
+                      <Img fluid={ this.props.data.datoCmsAbout.contentBlockImage.fluid } alt={ this.props.data.datoCmsAbout.contentBlockHeading } className="relative z-10 mb-0 mt-12 md:mt-20" />
                     </div>
                   </div>
                 </div>
@@ -228,6 +135,7 @@ class AboutPage extends React.Component {
           </div>
         </section>
 
+        {/* Team */}
         <section className="bg-purple pb-12 md:pb-24 -mb-20 md:-mb-40 xl:-mb-48 relative z-10">
           <div className="overflow-hidden">
             <RevealRight>
@@ -238,37 +146,20 @@ class AboutPage extends React.Component {
         
         <section className="bg-transparent pb-12 md:pb-24">
           <div className="container lg:px-32 relative z-20">
-            <div className="flex flex-wrap -mx-4">
-              <div className="w-1/2 md:w-1/3 mb-8 px-4">
-                <div className="bg-pink w-full h-64">
-
-                </div>
-              </div>
-              <div className="w-1/2 md:w-1/3 mb-8 px-4">
-                <div className="bg-pink w-full h-64">
-
-                </div>
-              </div>
-              <div className="w-1/2 md:w-1/3 mb-8 px-4">
-                <div className="bg-pink w-full h-64">
-
-                </div>
-              </div>
-              <div className="w-1/2 md:w-1/3 mb-8 px-4">
-                <div className="bg-pink w-full h-64">
-
-                </div>
-              </div>
-              <div className="w-1/2 md:w-1/3 mb-8 px-4">
-                <div className="bg-pink w-full h-64">
-
-                </div>
-              </div>
-              <div className="w-1/2 md:w-1/3 mb-8 px-4">
-                <div className="bg-pink w-full h-64">
-
-                </div>
-              </div>
+            <div className="flex flex-wrap sm:-mx-4">
+              {this.props.data.allDatoCmsTeam.edges.map(({ node }, i) => {
+                return (
+                  <div className="w-full sm:w-1/2 md:w-1/3 mb-8 sm:px-4" key={i}>
+                    <div className="bg-pink w-full text-white h-full relative">
+                      <Img fluid={node.image.fluid} alt={node.title} className="object-cover object-center bg-multiply" />
+                      <div className="p-5 md:p-8 absolute bottom-0 left-0 right-0 z-10">
+                        <span className="block font-semibold text-2xl lg:text-3xl leading-extra-tight mb-2">{ node.name }</span>
+                        <span className="block lg:text-lg leading-extra-tight">{ node.jobTitle }</span>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })}
             </div>
           </div>
         </section>
@@ -280,3 +171,38 @@ class AboutPage extends React.Component {
 }
 
 export default AboutPage
+
+export const query = graphql`
+  query {
+    datoCmsAbout {
+      heroHeading
+      heroScrollingText
+      missionText
+      missionImage {
+        fluid(maxWidth: 600, imgixParams: { fm: "jpg", auto: "compress" }) {
+          ...GatsbyDatoCmsFluid
+        }
+      }
+      contentBlockHeading
+      contentBlockText
+      contentBlockImage {
+        fluid(maxWidth: 600, imgixParams: { fm: "jpg", auto: "compress" }) {
+          ...GatsbyDatoCmsFluid
+        }
+      }
+    }
+    allDatoCmsTeam {
+      edges {
+        node {
+          name
+          jobTitle
+          image {
+            fluid(maxWidth: 600, imgixParams: { fm: "jpg", auto: "compress" }) {
+              ...GatsbyDatoCmsFluid
+            }
+          }
+        }
+      }
+    }
+  }
+`

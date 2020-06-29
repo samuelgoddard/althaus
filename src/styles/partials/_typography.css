@@ -87,3 +87,7 @@ h2, .h2 {
     column-gap: 50px;
   }
 }
+
+strong {
+  @apply font-semibold !important;
+}
