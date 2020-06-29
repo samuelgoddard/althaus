@@ -40,6 +40,11 @@ module.exports = {
           default: '#EF4362'
         }
       },
+      spacing: {
+        '22': '5.25rem',
+        '30': '7rem',
+        '128': '24rem'
+      },
       height: {
         half: '50%',
       },

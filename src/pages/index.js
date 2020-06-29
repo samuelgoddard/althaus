@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from "react"
+import React from "react"
 import SEO from "../components/seo"
 import Header from "../components/header"
 import Footer from "../components/footer"
 import { Link } from "gatsby"
 import Arrow from "../images/arrow.inline.svg";
 import Img from "gatsby-image";
-import gsap, { Power3 } from "gsap";
+import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { RevealLeft, RevealRight, GradientRevealLeft, GradientRevealRight, ImageReveal } from "../components/revealHelpers"
 

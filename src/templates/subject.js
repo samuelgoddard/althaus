@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from "react"
+import React from "react"
 import SEO from "../components/seo"
 import Header from "../components/header"
 import Footer from "../components/footer"
 import { Link } from "gatsby"
 import Arrow from "../images/arrow.inline.svg";
-import Img from "gatsby-image";
+// import Img from "gatsby-image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { RevealLeft, RevealRight } from "../components/revealHelpers"
@@ -20,7 +20,7 @@ class SubjectTemplate extends React.Component {
 
     return (
       <>
-        <SEO title="About" />
+        <SEO title={ this.props.data.datoCmsSubject.title } />
 
         <section>
           <div className="absolute top-0 left-0 right-0 z-30">
@@ -35,7 +35,7 @@ class SubjectTemplate extends React.Component {
               <div className="container lg:px-32 pb-12">
                 <div className="flex flex-wrap items-center pb-0 md:pb-20 lg:pb-24">
                   <div className="w-full md:w-1/3 mb-8 md:mb-0">
-                    <span className="uppercase font-semibold text-purple text-xl md:text-2xl block mb-8 -mt-10">Courses</span>
+                    <span className="uppercase font-semibold text-purple text-xl md:text-2xl block mb-8 -mt-10">Subject</span>
                     <h1 className="text-5xl md:text-6xl xl:text-7xl font-medium text-white mb-6 md:mb-8">{ this.props.data.datoCmsSubject.title }</h1>
 
                     <div className="w-full">

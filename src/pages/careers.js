@@ -1,11 +1,12 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import SEO from "../components/seo";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import Arrow from "../images/arrow.inline.svg";
 import { Link } from "gatsby";
-import gsap, { Power3 } from "gsap";
+import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { RevealLeft, RevealRight, GradientRevealLeft, GradientRevealRight, ImageReveal } from "../components/revealHelpers"
 
 if (typeof window !== `undefined`) {
   gsap.registerPlugin(ScrollTrigger)
@@ -13,98 +14,10 @@ if (typeof window !== `undefined`) {
 }
 
 class CareersPage extends React.Component {
-
   render () {
-    const RevealLeft = ({ children }) => {
-      const revealRef = useRef(null);
-      
-      useEffect(() => {
-        this.tl = gsap.timeline({
-          paused: true,
-          scrollTrigger: {
-            trigger: revealRef.current,
-            scrub: 1,
-            start: "top bottom",
-            // markers: true
-          }
-        });
-        this.tl.to(revealRef.current, {
-          x: '80vw'
-        });
-      }, []);
-    
-      return <div className="reveal-left" ref={revealRef}>{children}</div>;
-    };
-    
-    const RevealRight = ({ children }) => {
-      const revealRef = useRef(null);
-      
-      useEffect(() => {
-        this.tl = gsap.timeline({
-          paused: true,
-          scrollTrigger: {
-            trigger: revealRef.current,
-            scrub: 1,
-            start: "top bottom",
-            // markers: true
-          }
-        });
-        this.tl.to(revealRef.current, {
-          x: '-100vw'
-        });
-      }, []);
-    
-      return <div className="reveal-right" ref={revealRef}>{children}</div>;
-    };
-
-    const ImageReveal = ({ children }) => {
-      const revealRef = useRef(null);
-
-      useEffect(() => {
-        gsap.to(revealRef.current, {
-          scrollTrigger: revealRef.current,
-          y: '-100%',
-          ease: Power3.easeInOut,
-          duration: 2
-        });
-      }, []);
-    
-      return <div className="reveal-image z-20 h-full bg-purple absolute bottom-0 left-0 right-0" ref={revealRef}>{children}</div>;
-    };
-    
-    const GradientRevealLeft = ({ children }) => {
-      const revealRef = useRef(null);
-
-      useEffect(() => {
-        gsap.to(revealRef.current, {
-          scrollTrigger: revealRef.current,
-          width: '100%',
-          ease: Power3.easeInOut,
-          duration: 2
-        });
-      }, []);
-    
-      return <div className="w-0 h-full gradient-ltr absolute top-0 left-0 z-0 block bleed-left" ref={revealRef}>{children}</div>;
-    };
-
-    const GradientRevealRight = ({ children }) => {
-      const revealRef = useRef(null);
-
-      useEffect(() => {
-        gsap.to(revealRef.current, {
-          scrollTrigger: revealRef.current,
-          width: '155%',
-          ease: Power3.easeInOut,
-          duration: 2
-        });
-      }, []);
-    
-      return <div className="w-0 h-full gradient-ltr absolute bottom-0 right-0 z-0 block bleed-right bleed-right--large -mt-8 md:-mt-24" ref={revealRef}>{children}</div>;
-    };
-
     return (
       <>
-        <SEO title="About" />
+        <SEO title="Careers" />
 
         <section>
           <div className="absolute top-0 left-0 right-0 z-30">
@@ -145,53 +58,21 @@ class CareersPage extends React.Component {
 
             <div className="container lg:px-32 mb-24 md:mb-40 xl:mb-56">
               <div className="flex flex-wrap md:-mx-6">
-                <div className="w-full md:w-1/2 md:px-6">
-                  <Link to="/career" className="block text-white flex flex-wrap items-center border-t-2 border-purple-light py-4 md:py-6 xl:py-8">
-                    <div>
-                      <span className="text-xl md:text-2xl xl:text-3xl block font-semibold mb-2">Digital Marketing</span>
-                      <span className="md:text-lg block">Brief description to be written</span>
+                {this.props.data.allDatoCmsCareer.edges.map(({ node }, i) => {
+                  return (
+                    <div className="w-full md:w-1/2 md:px-6" key={i}>
+                      <Link to={`/careers/${ node.slug }`} className="block text-white flex flex-wrap items-center border-t-2 border-purple-light py-4 md:py-6 xl:py-8">
+                        <div>
+                          <span className="text-xl md:text-2xl xl:text-3xl block font-semibold mb-2">{ node.title }</span>
+                          <span className="md:text-lg block">{ node.teaserText }</span>
+                        </div>
+                        <div className="w-12 text-pink ml-auto">
+                          <Arrow />
+                        </div>
+                      </Link>
                     </div>
-                    <div className="w-12 text-pink ml-auto">
-                      <Arrow />
-                    </div>
-                  </Link>
-                </div>
-                
-                <div className="w-full md:w-1/2 md:px-6">
-                  <Link to="/career" className="block text-white flex flex-wrap items-center border-t-2 border-purple-light py-4 md:py-6 xl:py-8">
-                    <div>
-                      <span className="text-xl md:text-2xl xl:text-3xl block font-semibold mb-2">Software Development</span>
-                      <span className="md:text-lg block">Brief description to be written</span>
-                    </div>
-                    <div className="w-12 text-pink ml-auto">
-                      <Arrow />
-                    </div>
-                  </Link>
-                </div>
-
-                <div className="w-full md:w-1/2 md:px-6">
-                  <Link to="/career" className="block text-white flex flex-wrap items-center border-t-2 md:border-b-2 border-purple-light py-4 md:py-6 xl:py-8">
-                    <div>
-                      <span className="text-xl md:text-2xl xl:text-3xl block font-semibold mb-2">Cyber Security</span>
-                      <span className="md:text-lg block">Brief description to be written</span>
-                    </div>
-                    <div className="w-12 text-pink ml-auto">
-                      <Arrow />
-                    </div>
-                  </Link>
-                </div>
-
-                <div className="w-full md:w-1/2 md:px-6">
-                  <Link to="/career" className="block text-white flex flex-wrap items-center border-t-2 border-b-2 border-purple-light py-4 md:py-6 xl:py-8">
-                    <div>
-                      <span className="text-xl md:text-2xl xl:text-3xl block font-semibold mb-2">IT Solutions</span>
-                      <span className="md:text-lg block">Brief description to be written</span>
-                    </div>
-                    <div className="w-12 text-pink ml-auto">
-                      <Arrow />
-                    </div>
-                  </Link>
-                </div>
+                  )
+                })}
               </div>
             </div>
           </div>
@@ -245,3 +126,17 @@ class CareersPage extends React.Component {
 }
 
 export default CareersPage
+
+export const query = graphql`
+  query {
+    allDatoCmsCareer {
+      edges {
+        node {
+          title
+          teaserText
+          slug
+        }
+      }      
+    }
+  }
+`

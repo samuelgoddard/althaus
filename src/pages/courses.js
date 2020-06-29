@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from "react"
+import React from "react"
 import SEO from "../components/seo"
 import Header from "../components/header"
 import Footer from "../components/footer"
 import { Link } from "gatsby"
 import Arrow from "../images/arrow.inline.svg";
 import Img from "gatsby-image"
-import gsap, { Power3 } from "gsap";
+import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { RevealLeft, RevealRight, GradientRevealLeft, GradientRevealRight, ImageReveal, BlockRevealLeft } from "../components/revealHelpers"
 
@@ -51,7 +51,7 @@ class CoursesPage extends React.Component {
                 <div className="flex flex-wrap items-center bg-white py-8 md:py-4  px-4">
                   {this.props.data.allDatoCmsSubject.edges.map(({ node }, i) => {
                     return (
-                      <div className={ i == 0 ? `w-full md:w-1/2 lg:w-1/4 mb-3 lg:mb-0` : `w-full md:w-1/2 lg:w-1/4 mb-3 lg:mb-0 lg:border-l-2 lg:border-pink`} key={i}>
+                      <div className={ i === 0 ? `w-full md:w-1/2 lg:w-1/4 mb-3 lg:mb-0` : `w-full md:w-1/2 lg:w-1/4 mb-3 lg:mb-0 lg:border-l-2 lg:border-pink`} key={i}>
                         { node.teaserIcon && (
                           <img src={node.teaserIcon.url} alt={node.title} className="w-12 md:w-16 xl:w-20 mx-auto mb-3" />
                         )}
@@ -103,7 +103,7 @@ class CoursesPage extends React.Component {
           const length = (this.props.data.allDatoCmsSubject.edges.length - 1);
           return (
             <section key={i} className={ i === length ? `bg-transparent md:pb-8 lg:pb-8 xl:pb-24 -mt-16 md:-mt-16 xl:-mt-32 relative z-20 mb-16 xl:mb-24` : `bg-transparent md:pb-8 lg:pb-8 xl:pb-24 relative -mt-16 md:-mt-16 xl:-mt-32 relative z-20 mb-32 md:mb-40 xl:mb-56`}>
-              { i%2 == 0 ? (
+              { i%2 === 0 ? (
                 <div className="overflow-hidden">
                   <RevealRight>
                     <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text-right text-right text-transparent leading-none -mt-4 xl:-mt-8 block">{ node.teaserScrollingText }</span>
@@ -119,7 +119,7 @@ class CoursesPage extends React.Component {
               
               <div className="container lg:px-32 -mt-10 md:-mt-16 lg:-mt-24 xl:-mt-56 relative z-20">
                 <div className="flex flex-wrap items md:-mx-8">
-                  { i%2 == 0 && (
+                  { i%2 === 0 && (
                     <div className="w-full md:w-1/2 lg:w-7/12 md:px-8 mb-8 md:mb-0 relative">
                       <div className="relative">
                         <div>

@@ -1,9 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import SEO from "../components/seo";
 import Header from "../components/header";
 import Footer from "../components/footer";
-import gsap, { Power3 } from "gsap";
+import gsap from "gsap";
+import Img from "gatsby-image";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { RevealRight, GradientRevealLeft, GradientRevealRight, ImageReveal } from "../components/revealHelpers"
 
 if (typeof window !== `undefined`) {
   gsap.registerPlugin(ScrollTrigger)
@@ -11,78 +13,10 @@ if (typeof window !== `undefined`) {
 }
 
 class ContactPage extends React.Component {
-
-  render () {
-    
-    const RevealRight = ({ children }) => {
-      const revealRef = useRef(null);
-      
-      useEffect(() => {
-        this.tl = gsap.timeline({
-          paused: true,
-          scrollTrigger: {
-            trigger: revealRef.current,
-            scrub: 1,
-            start: "top bottom",
-            // markers: true
-          }
-        });
-        this.tl.to(revealRef.current, {
-          x: '-100vw'
-        });
-      }, []);
-    
-      return <div className="reveal-right" ref={revealRef}>{children}</div>;
-    };
-
-    const ImageReveal = ({ children }) => {
-      const revealRef = useRef(null);
-
-      useEffect(() => {
-        gsap.to(revealRef.current, {
-          scrollTrigger: revealRef.current,
-          y: '-100%',
-          ease: Power3.easeInOut,
-          duration: 2
-        });
-      }, []);
-    
-      return <div className="reveal-image z-20 h-full bg-purple absolute bottom-0 left-0 right-0" ref={revealRef}>{children}</div>;
-    };
-    
-    const GradientRevealLeft = ({ children }) => {
-      const revealRef = useRef(null);
-
-      useEffect(() => {
-        gsap.to(revealRef.current, {
-          scrollTrigger: revealRef.current,
-          width: '100%',
-          ease: Power3.easeInOut,
-          duration: 2
-        });
-      }, []);
-    
-      return <div className="w-0 h-full gradient-ltr absolute top-0 left-0 z-0 block bleed-left" ref={revealRef}>{children}</div>;
-    };
-
-    const GradientRevealRight = ({ children }) => {
-      const revealRef = useRef(null);
-
-      useEffect(() => {
-        gsap.to(revealRef.current, {
-          scrollTrigger: revealRef.current,
-          width: '155%',
-          ease: Power3.easeInOut,
-          duration: 2
-        });
-      }, []);
-    
-      return <div className="w-0 h-full gradient-ltr absolute bottom-0 right-0 z-0 block bleed-right bleed-right--large -mt-8 md:-mt-24" ref={revealRef}>{children}</div>;
-    };
-
+  render () {    
     return (
       <>
-        <SEO title="About" />
+        <SEO title={ this.props.data.datoCmsContact.title } />
 
         <section>
           <div className="absolute top-0 left-0 right-0 z-30">
@@ -98,19 +32,19 @@ class ContactPage extends React.Component {
                 <div className="flex flex-wrap items-start mt-16 md:mt-20">
                   <div className="w-full md:w-1/2 xl:w-5/12 relative z-20 mb-20 md:mb-0 md:-mt-12 xl:-mt-6">
                     <span className="uppercase font-semibold text-pink text-xl md:text-2xl block mb-3">Contact</span>
-                    <h1 className="text-5xl md:text-5xl xl:text-6xl 2xl:text-7xl font-medium text-white mb-6 md:mb-8 md:whitespace-no-wrap">Get in touch</h1>
+                    <h1 className="text-5xl md:text-5xl xl:text-6xl 2xl:text-7xl font-medium text-white mb-6 md:mb-8 md:whitespace-no-wrap">{ this.props.data.datoCmsContact.heroHeading }</h1>
 
-                    <p className="w-11/12 md:w-10/12 text-white text-lg md:text-xl mb-8">If you’re interested in our unique digital apprenticeships, or if you’re looking to recruit your next team member, get in touch with althaus today and let’s find your perfect fit.</p>
+                    <div className="w-11/12 md:w-10/12 text-white text-lg md:text-xl mb-8" dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsContact.heroText }}></div>
 
-                    <a href="tel:01332780090" className="transition duration-500 text-pink ease-in-out text-lg md:text-xl xl:text-2xl font-medium block hover:opacity-25 focus:opacity-25">T: 01332 780090</a>
+                    <a href={`tel:${ this.props.data.datoCmsContact.telephone }`} className="transition duration-500 text-pink ease-in-out text-lg md:text-xl xl:text-2xl font-medium block hover:opacity-25 focus:opacity-25">T: { this.props.data.datoCmsContact.telephone }</a>
                     
-                    <a href="mailto:info@althausdigital.co.uk" className="transition duration-500 text-pink ease-in-out text-lg md:text-xl xl:text-2xl font-medium block break-all hover:opacity-25 focus:opacity-25 mb-8">E: info@althausdigital.co.uk</a>
+                    <a href={`mailto:${this.props.data.datoCmsContact.emailAddress }`} className="transition duration-500 text-pink ease-in-out text-lg md:text-xl xl:text-2xl font-medium block break-all hover:opacity-25 focus:opacity-25 mb-8">E: { this.props.data.datoCmsContact.emailAddress }</a>
                   </div>
 
                   <div className="w-full md:w-1/2 xl:w-1/2 relative ml-auto">
-                      <GradientRevealRight>
-                      </GradientRevealRight>
-                    <img src="https://placedog.net/1200/720" alt="placeholder" className="relative z-10 mb-0 pb-12 lg:pb-24 -mt-12 xl:pl-12 md:-mt-24" />
+                    <GradientRevealRight>
+                    </GradientRevealRight>
+                    <Img fluid={this.props.data.datoCmsContact.heroImage.fluid} className="relative z-10 mb-0 pb-12 lg:pb-24 -mt-12 xl:pl-12 md:-mt-24" />
                   </div>
                 </div>
               </div>
@@ -165,3 +99,22 @@ class ContactPage extends React.Component {
 }
 
 export default ContactPage
+
+export const query = graphql`
+  query {
+    datoCmsContact {
+      title
+      emailAddress
+      telephone
+      address
+      heroHeading
+      heroText
+      heroImage {
+        fluid(
+          imgixParams: {w: "720", fit: "crop", crop: "faces, edges"}) {
+          ...GatsbyDatoCmsFluid
+        }
+      }
+    }
+  }
+`

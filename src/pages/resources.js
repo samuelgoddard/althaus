@@ -106,10 +106,10 @@ class ResourcesPage extends React.Component {
 
             <div className="container lg:px-32 relative text-white -mt-20 lg:-mt-24 xl:-mt-40">
               <div className="flex flex-wrap md:-mx-6">
-                {[...Array(6)].map((e, i) => {
+                {this.props.data.allDatoCmsResource.edges.map(({ node }, i) => {
                   return (
-                    <Link to="/resource" key={i} className="w-full md:w-1/2 md:px-6 mb-8 md:mb-12">
-                      <Teaser heading="Resource Title Here" description="Description to be written here" />
+                    <Link to={`/resources/${ node.slug }`} key={i} className="w-full md:w-1/2 md:px-6 mb-8 md:mb-12">
+                      <Teaser heading={node.title} description={ node.teaserDescription } image={node.heroImage } />
                     </Link>
                   )
                 })}
@@ -125,3 +125,23 @@ class ResourcesPage extends React.Component {
 }
 
 export default ResourcesPage
+
+export const query = graphql`
+  query {
+    allDatoCmsResource {
+      edges {
+        node {
+          title
+          heroImage {
+            fluid(
+              imgixParams: {w: "720", fit: "crop", crop: "faces, edges"}) {
+              ...GatsbyDatoCmsFluid
+            }
+          }
+          teaserDescription
+          slug
+        }
+      }      
+    }
+  }
+`

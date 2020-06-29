@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 // import { motion, AnimatePresence } from "framer-motion"
 import { Link } from "gatsby"
-import SmoothScroll from "./SmoothScroll";
+// import SmoothScroll from "./SmoothScroll";
 
 import "../styles/main.css"
 
@@ -44,13 +44,13 @@ const Layout = ({ children, location }) => {
           <Link to="/employers" className="xl:text-lg text-white bg-pink p-3 py-5 uppercase font-semibold mt-3">Employers</Link>
         </div>
       </div>
-      <SmoothScroll>
+      {/* <SmoothScroll> */}
         {/* <AnimatePresence> */}
           <main>
             {children}
           </main>
         {/* </AnimatePresence> */}
-      </SmoothScroll>
+      {/* </SmoothScroll> */}
     </div>
   )
 }

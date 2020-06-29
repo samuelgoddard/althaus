@@ -106,3 +106,18 @@ export const BlockRevealLeft = ({ children }) => {
 
   return <div className="w-0 h-full bg-purple absolute top-0 left-0 z-0 block bleed-left" ref={revealRef}>{children}</div>;
 };
+
+export const BlockRevealRight = ({ children }) => {
+  const revealRef = useRef(null);
+
+  useEffect(() => {
+    gsap.to(revealRef.current, {
+      scrollTrigger: revealRef.current,
+      width: '88.8%',
+      ease: Power3.easeInOut,
+      duration: 2
+    });
+  }, []);
+
+  return <div className="w-0 h-full bg-purple absolute top-0 right-0 z-0 block bleed-right" ref={revealRef}>{children}</div>;
+};
