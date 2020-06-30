@@ -8,7 +8,7 @@ import { motion } from "framer-motion"
 import Img from "gatsby-image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { RevealLeft, RevealRight, GradientRevealLeft, ImageReveal, GradientRevealRightLarge } from "../components/revealHelpers"
+import { RevealLeft, RevealRight, GradientRevealLeft, ImageReveal, GradientRevealRightLarge, ImageParallax } from "../components/revealHelpers"
 
 if (typeof window !== `undefined`) {
   gsap.registerPlugin(ScrollTrigger)
@@ -70,7 +70,7 @@ class CareersPage extends React.Component {
 
             {/* Listings */}
             <section>
-              <div className="bg-purple overflow-hidden relative z-10 pb-16 md:pb-24 xl:pb-32">
+              <div className="bg-purple overflow-hidden relative z-10 pb-16 md:pb-24 xl:pb-32 -mt-2">
                 <RevealLeft>
                   <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text text-transparent">Current Vacancies</span>
                 </RevealLeft>
@@ -115,11 +115,13 @@ class CareersPage extends React.Component {
                           </GradientRevealLeft>
                         </div>
                         <div className="relative overflow-hidden pt-12 md:pt-24 xl:pt-32">
-                          <div className="relative overflow-hidden">
-                            <ImageReveal>
-                            </ImageReveal>
-                            <Img fluid={ this.props.data.datoCmsCareersLanding.supportingContentBlock.image.fluid } className="relative z-10 mb-0 pb-0" />
-                          </div>
+                          <ImageParallax>
+                            <div className="relative overflow-hidden">
+                              <ImageReveal>
+                              </ImageReveal>
+                              <Img fluid={ this.props.data.datoCmsCareersLanding.supportingContentBlock.image.fluid } className="relative z-10 mb-0 pb-0" />
+                            </div>
+                          </ImageParallax>
                         </div>
                       </div>
                     </div>

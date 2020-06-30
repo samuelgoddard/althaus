@@ -10,7 +10,7 @@ import Img from "gatsby-image";
 import { motion } from "framer-motion"
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Moment from "react-moment"
-import { RevealLeft, RevealRight, GradientRevealLeft, ImageReveal, BlockRevealRight, GradientRevealRightLarge } from "../components/revealHelpers"
+import { RevealLeft, RevealRight, GradientRevealLeft, ImageReveal, BlockRevealRight, GradientRevealRightLarge, ImageParallax } from "../components/revealHelpers"
 
 if (typeof window !== `undefined`) {
   gsap.registerPlugin(ScrollTrigger)
@@ -167,11 +167,13 @@ class Career extends React.Component {
                           </GradientRevealLeft>
                         </div>
                         <div className="relative overflow-hidden pt-12 md:pt-24 xl:pt-32">
-                          <div className="relative overflow-hidden">
-                            <ImageReveal>
-                            </ImageReveal>
-                            <Img fluid={ this.props.data.datoCmsCareer.supportingContentBlock.image.fluid } className="relative z-10 pb-0" />
-                          </div>
+                          <ImageParallax>
+                            <div className="relative overflow-hidden">
+                              <ImageReveal>
+                              </ImageReveal>
+                              <Img fluid={ this.props.data.datoCmsCareer.supportingContentBlock.image.fluid } className="relative z-10 pb-0" />
+                            </div>
+                          </ImageParallax>
                         </div>
                       </div>
                     </div>

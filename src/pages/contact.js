@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 import gsap from "gsap";
 import Img from "gatsby-image";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { RevealRight, GradientRevealLeft, GradientRevealRight, ImageReveal } from "../components/revealHelpers"
+import { RevealRight, GradientRevealLeft, GradientRevealRight, ImageReveal, ImageParallax } from "../components/revealHelpers"
 
 if (typeof window !== `undefined`) {
   gsap.registerPlugin(ScrollTrigger)
@@ -53,17 +53,17 @@ class ContactPage extends React.Component {
                         <span className="uppercase font-semibold text-pink text-xl md:text-2xl block mb-3">Contact</span>
                         <h1 className="text-5xl md:text-5xl xl:text-6xl 2xl:text-7xl font-medium text-white mb-6 md:mb-8 md:whitespace-no-wrap">{ this.props.data.datoCmsContact.heroHeading }</h1>
 
-                        <div className="w-11/12 md:w-10/12 text-white text-lg md:text-xl mb-8" dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsContact.heroText }}></div>
+                        <div className="w-11/12 md:w-full text-white text-lg md:text-xl mb-8" dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsContact.heroText }}></div>
 
                         <a href={`tel:${ this.props.data.datoCmsContact.telephone }`} className="transition duration-500 text-pink ease-in-out text-lg md:text-xl xl:text-2xl font-medium block hover:opacity-25 focus:opacity-25">T: { this.props.data.datoCmsContact.telephone }</a>
                         
                         <a href={`mailto:${this.props.data.datoCmsContact.emailAddress }`} className="transition duration-500 text-pink ease-in-out text-lg md:text-xl xl:text-2xl font-medium block break-all hover:opacity-25 focus:opacity-25 mb-8">E: { this.props.data.datoCmsContact.emailAddress }</a>
                       </div>
 
-                      <div className="w-full md:w-1/2 xl:w-1/2 relative ml-auto">
+                      <div className="w-full md:w-1/2 xl:w-1/2 relative ml-auto pb-12 lg:pb-24">
                         <GradientRevealRight>
                         </GradientRevealRight>
-                        <Img fluid={this.props.data.datoCmsContact.heroImage.fluid} className="relative z-10 mb-0 pb-12 lg:pb-24 -mt-12 xl:pl-12 md:-mt-24" />
+                        <Img fluid={this.props.data.datoCmsContact.heroImage.fluid} className="relative z-10 mb-0 -mt-12 xl:pl-12 md:-mt-24" />
                       </div>
                     </div>
                   </div>
@@ -90,11 +90,13 @@ class ContactPage extends React.Component {
                           </GradientRevealLeft>
                         </div>
                         <div className="relative overflow-hidden pt-12 md:pt-24 xl:pt-32">
-                          <div className="relative overflow-hidden">
-                            <ImageReveal>
-                            </ImageReveal>
-                            <img src="https://placedog.net/1200/700" alt="placeholder" className="relative z-10 mb-0 pb-0" />
-                          </div>
+                          <ImageParallax>
+                            <div className="relative overflow-hidden">
+                              <ImageReveal>
+                              </ImageReveal>
+                              <img src="https://placedog.net/1200/700" alt="placeholder" className="relative z-10 mb-0 pb-0" />
+                            </div>
+                          </ImageParallax>
                         </div>
                       </div>
                     </div>

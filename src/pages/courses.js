@@ -118,11 +118,11 @@ class CoursesPage extends React.Component {
             </section>
 
 
-
+            <section className="overflow-x-hidden -mt-16 md:-mt-16 xl:-mt-24">
             {this.props.data.allDatoCmsSubject.edges.map(({ node }, i) => {
               const length = (this.props.data.allDatoCmsSubject.edges.length - 1);
               return (
-                <section key={i} className={ i === length ? `bg-transparent md:pb-8 lg:pb-8 xl:pb-24 -mt-16 md:-mt-16 xl:-mt-32 relative z-20 mb-16 xl:mb-24` : `bg-transparent md:pb-8 lg:pb-8 xl:pb-24 relative -mt-16 md:-mt-16 xl:-mt-32 relative z-20 mb-32 md:mb-40 xl:mb-56`}>
+                <section key={i} className={ i === length ? `bg-transparent md:pb-8 lg:pb-8 xl:pb-12 relative z-20 mb-16 xl:mb-24` : `bg-transparent md:pb-8 lg:pb-8 xl:pb-12 relative  relative z-20 mb-32`}>
                   { i%2 === 0 ? (
                     <div className="overflow-hidden">
                       <RevealRight>
@@ -200,6 +200,7 @@ class CoursesPage extends React.Component {
                 </section>
               )
             })}
+            </section>
 
             {/* Application Form */}
             <section className="bg-white pb-12 md:pb-8 lg:pb-8 xl:pb-24">

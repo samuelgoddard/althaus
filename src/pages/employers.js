@@ -7,7 +7,7 @@ import Arrow from "../images/arrow.inline.svg";
 import { motion } from "framer-motion"
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { RevealLeft, RevealRight, GradientRevealLeft, ImageReveal } from "../components/revealHelpers"
+import { RevealLeft, RevealRight, GradientRevealLeft, ImageReveal, ImageParallax } from "../components/revealHelpers"
 
 if (typeof window !== `undefined`) {
   gsap.registerPlugin(ScrollTrigger)
@@ -135,11 +135,13 @@ class EmployersPage extends React.Component {
                           </GradientRevealLeft>
                         </div>
                         <div className="relative overflow-hidden pt-12 md:pt-24 xl:pt-32">
-                          <div className="relative overflow-hidden">
-                            <ImageReveal>
-                            </ImageReveal>
-                            <img src="https://placedog.net/1200/700" alt="placeholder" className="relative z-10 mb-0 pb-0" />
-                          </div>
+                          <ImageParallax>
+                            <div className="relative overflow-hidden">
+                              <ImageReveal>
+                              </ImageReveal>
+                              <img src="https://placedog.net/1200/700" alt="placeholder" className="relative z-10 mb-0 pb-0" />
+                            </div>
+                          </ImageParallax>
                         </div>
                       </div>
                     </div>
@@ -162,7 +164,7 @@ class EmployersPage extends React.Component {
             </section>
             
             {/* Courses */}
-            <section className="bg-purple md:pb-8 relative mb-8 pb-24 md:pb-32 lg:pb-40 xl:pb-64">
+            <section className="bg-purple md:pb-8 relative mb-8 pb-24 md:pb-32 lg:pb-40 xl:pb-64 pt-2">
               <div className="overflow-hidden mb-8 md:mb-12 xl:mb-16">
                 <RevealLeft>
                   <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text text-transparent leading-none block">Our Courses</span>

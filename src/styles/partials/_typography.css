@@ -84,8 +84,8 @@ h3, .h3 {
     @apply pt-6 block;
   }
 
-  img {
-    @apply my-12 block;
+  .gatsby-image-wrapper {
+    @apply my-10 block;
   }
 }
 

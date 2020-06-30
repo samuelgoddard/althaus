@@ -55,7 +55,7 @@ class CourseTemplate extends React.Component {
                         <span className="uppercase font-semibold text-pink text-xl md:text-2xl block mb-3">Level { this.props.data.datoCmsCourse.level } Course</span>
                         <h1 className="text-5xl md:text-5xl xl:text-6xl 2xl:text-7xl font-medium text-purple mb-6 md:mb-8">{ this.props.data.datoCmsCourse.title }</h1>
 
-                        <AnchorLink to={`/courses/${this.props.data.datoCmsCourse.slug}-level-${ this.props.data.datoCmsCourse.level }/#application`} title="Apply for course" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center btn-arrow">
+                        <AnchorLink to={`/courses/${this.props.data.datoCmsCourse.subject.slug}/${this.props.data.datoCmsCourse.slug}-level-${ this.props.data.datoCmsCourse.level }/#application`} title="Apply for course" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center btn-arrow">
                           <span className="block">Apply for course</span>
                           <span className="block ml-4 w-8 btn-arrow__arrow"><Arrow /></span>
                         </AnchorLink>
@@ -149,6 +149,9 @@ export const query = graphql`
       level
       introText
       slug
+      subject {
+        slug
+      }
       courseContentBlocks {
         ... on DatoCmsContent {
           id

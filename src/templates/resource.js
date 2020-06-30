@@ -7,7 +7,7 @@ import Img from "gatsby-image";
 import gsap from "gsap";
 import { motion } from "framer-motion"
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { GradientRevealRight } from "../components/revealHelpers"
+import { GradientRevealRightLarge, ImageReveal } from "../components/revealHelpers"
 
 if (typeof window !== `undefined`) {
   gsap.registerPlugin(ScrollTrigger)
@@ -46,18 +46,18 @@ class ResourcePage extends React.Component {
               
               {/* Hero */}
               <div className="overflow-hidden pb-0 md:pb-12">
-                <div className="bg-purple pt-32 md:pt-48:pt-48 relative">
+                <div className="bg-purple pt-32 md:pt-40 relative">
                   <div className="container lg:px-32 relative">
                     <div className="flex flex-wrap items-center">
-                      <div className="w-full md:w-1/2 relative z-20 mb-0 md:mb-0">
+                      <div className="w-full md:w-1/2 relative z-20 mb-12 md:mb-0">
                         <span className="uppercase font-semibold text-pink text-xl md:text-2xl block mb-3">{ this.props.data.datoCmsResource.category.title }</span>
-                        <h1 className="text-5xl md:text-6xl xl:text-7xl font-medium text-white mb-2 md:mb-8">{ this.props.data.datoCmsResource.title }</h1>
+                        <h1 className="text-5xl md:text-5xl lg:text-6xl font-medium text-white mb-2 md:mb-8">{ this.props.data.datoCmsResource.title }</h1>
                       </div>
 
-                      <div className="w-full md:w-1/2 relative mt-16 md:mt-48 -mb-12 md:-mb-24 xl:-mb-24">
-                        <GradientRevealRight>
-                        </GradientRevealRight>
-                        <Img fluid={this.props.data.datoCmsResource.heroImage.fluid } className="relative z-10 mb-0 pb-0" />
+                      <div className="w-full md:w-1/2 relative -mb-16 md:-mb-20">
+                        <GradientRevealRightLarge>
+                        </GradientRevealRightLarge>
+                        <Img fluid={this.props.data.datoCmsResource.heroImage.fluid } className="relative z-10 pb-0 mt-10 md:mt-16" />
                       </div>
                     </div>
                   </div>
@@ -86,7 +86,11 @@ class ResourcePage extends React.Component {
                           }
                           {
                             block.model.apiKey === 'image' &&
+                            <div className="relative overflow-hidden">
+                              <ImageReveal>
+                              </ImageReveal>
                               <Img fluid={ block.image.fluid } className="w-full relative mb-0 pb-0" />
+                            </div>
                           }
                         </div>
                       ))

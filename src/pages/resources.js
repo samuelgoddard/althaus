@@ -5,9 +5,10 @@ import Footer from "../components/footer"
 import Teaser from "../components/teaser"
 import { Link } from "gatsby"
 import gsap from "gsap";
+import Img from "gatsby-image";
 import { motion } from "framer-motion"
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { RevealLeft, GradientRevealRight } from "../components/revealHelpers"
+import { RevealLeft, GradientRevealRightLarge } from "../components/revealHelpers"
 
 if (typeof window !== `undefined`) {
   gsap.registerPlugin(ScrollTrigger)
@@ -46,20 +47,20 @@ class ResourcesPage extends React.Component {
               
               {/* Hero */}
               <div className="overflow-hidden">
-                <div className="bg-white pt-32 pb-24 md:pt-48 md:pb-24 xl:pt-48 relative">
+                <div className="bg-white pt-32 md:pt-48 md:pb-24 xl:pt-48 relative">
                   <div className="container lg:px-32 relative">
                     <div className="flex flex-wrap items-center">
-                      <div className="w-full md:w-1/2 xl:w-5/12 relative z-20 mb-8 md:mb-0 md:-mt-12 xl:-mt-24">
+                      <div className="w-full md:w-1/2 relative z-20 mb-8 md:mb-0 md:-mt-8">
                         <span className="uppercase font-semibold text-pink text-xl md:text-2xl block mb-3">Resources</span>
-                        <h1 className="text-5xl md:text-5xl xl:text-6xl 2xl:text-7xl font-medium text-purple mb-6 md:mb-8 md:whitespace-no-wrap">Everything you<br/>need at the click<br/>of a button</h1>
+                        <h1 className="text-5xl md:text-5xl xl:text-6xl font-medium text-purple mb-6 md:mb-8">{ this.props.data.datoCmsResourcesLanding.heroHeading }</h1>
 
-                        <p className="w-11/12 md:w-10/12">Welcome to our resource centre. We’re continuously developing our collection of useful resources, from our own articles, to the latest studies and publications about all things digital.</p>
+                        <div className="w-11/12 md:w-10/12" dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsResourcesLanding.heroText }}></div>
                       </div>
 
-                      <div className="w-full md:w-1/2 xl:w-7/12 relative mb-16 md:mb-20 mt-24 ml-auto">
-                          <GradientRevealRight>
-                          </GradientRevealRight>
-                        <img src="https://placedog.net/1200/640" alt="placeholder" className="relative z-10 mb-0 pb-12 lg:pb-24 -mt-12 xl:pl-12 md:-mt-24" />
+                      <div className="w-full md:w-1/2 relative pb-12 md:pb-20 mt-24 ml-auto -mb-12 md:mb-0">
+                          <GradientRevealRightLarge>
+                          </GradientRevealRightLarge>
+                          <Img fluid={ this.props.data.datoCmsResourcesLanding.heroImage.fluid } className="relative z-10 mb-0 pb-12 lg:pb-24 -mt-12 xl:pl-12 md:-mt-24" />
                       </div>
                     </div>
                   </div>
@@ -112,6 +113,18 @@ export default ResourcesPage
 
 export const query = graphql`
   query {
+    datoCmsResourcesLanding {
+      title
+      heroHeading
+      heroText
+      heroImage {
+        fluid(
+          imgixParams: {w: "720", fit: "crop", crop: "faces, edges"}) {
+          ...GatsbyDatoCmsFluid
+        }
+      }
+      slug
+    }
     allDatoCmsResource {
       edges {
         node {

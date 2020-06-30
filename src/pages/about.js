@@ -6,9 +6,10 @@ import { Link } from "gatsby"
 import { motion } from "framer-motion"
 import Arrow from "../images/arrow.inline.svg";
 import Img from "gatsby-image";
+import { AnchorLink } from "gatsby-plugin-anchor-links";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { RevealLeft, RevealRight, GradientRevealLeft, GradientRevealRight, ImageReveal } from "../components/revealHelpers"
+import { RevealLeft, RevealRight, GradientRevealLeft, GradientRevealRight, ImageReveal, ImageParallax } from "../components/revealHelpers"
 
 if (typeof window !== `undefined`) {
   gsap.registerPlugin(ScrollTrigger)
@@ -55,18 +56,18 @@ class AboutPage extends React.Component {
                           <h1 className="text-5xl md:text-6xl xl:text-7xl font-medium text-pink mb-6 md:mb-8">{ this.props.data.datoCmsAbout.heroHeading }</h1>
 
                           <div className="w-full">
-                            <Link to="/" className="text-md text-purple font-semibold uppercase flex flex-wrap items-center btn-arrow">
+                            <AnchorLink to={`/about/#our-mission`} title="Discover More" className="text-md text-purple font-semibold uppercase flex flex-wrap items-center btn-arrow">
                               <span className="block">Discover More</span>
                               <span className="block ml-4 w-8 btn-arrow__arrow"><Arrow /></span>
-                            </Link>
+                            </AnchorLink>
                           </div>
                         </div>
                       </div>
 
-                      <div className="w-full md:w-2/3 relative ml-auto">
+                      <div className="w-full md:w-7/12 relative ml-auto pt-10 md:pt-12">
                         <GradientRevealRight>
                         </GradientRevealRight>
-                        <img src="https://placedog.net/1200/640" alt="placeholder" className="relative z-10 mb-0 pb-0 pt-12 md:pt-16 parallax-bg" />
+                        <Img fluid={ this.props.data.datoCmsAbout.heroImage.fluid } className="relative z-10 pb-0 -mb-12" />
                       </div>
                     </div>
                   </div>
@@ -76,7 +77,7 @@ class AboutPage extends React.Component {
             
             
             {/* Our Mission */}
-            <section>
+            <section id="our-mission" className="mt-8 md:mt-12">
               <div className="overflow-hidden">
                 <RevealRight>
                   <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text-right scroll-text--purple text-right text-transparent leading-none block">{this.props.data.datoCmsAbout.heroScrollingText}</span>
@@ -91,13 +92,15 @@ class AboutPage extends React.Component {
                         <div className="relative">
                           <GradientRevealLeft>
                           </GradientRevealLeft>
-                          <div className="relative overflow-hidden">
+                          <ImageParallax>
                             <div className="relative overflow-hidden">
-                              <ImageReveal>
-                              </ImageReveal>
-                              <Img fluid={ this.props.data.datoCmsAbout.missionImage.fluid } alt={ this.props.data.datoCmsAbout.missionHeading } className="relative z-10  mb-12 md:mb-20 xl:mb-32" />
+                              <div className="relative overflow-hidden">
+                                <ImageReveal>
+                                </ImageReveal>
+                                <Img fluid={ this.props.data.datoCmsAbout.missionImage.fluid } alt={ this.props.data.datoCmsAbout.missionHeading } className="relative z-10  mb-12 md:mb-20 xl:mb-32" />
+                              </div>
                             </div>
-                          </div>
+                          </ImageParallax>
                         </div>
                       </div>
                       <div className="w-full md:w-1/2 lg:w-5/12 md:px-8 content md:pr-16 text-white md:pt-24 xl:pt-32">
@@ -141,13 +144,15 @@ class AboutPage extends React.Component {
                         <GradientRevealRight>
                         </GradientRevealRight>
                       </div>
-                      <div className="relative overflow-hidden">
-                        <div className="relative overflow-hidden mt-12 md:mt-20">
-                          <ImageReveal>
-                          </ImageReveal>
-                          <Img fluid={ this.props.data.datoCmsAbout.contentBlockImage.fluid } alt={ this.props.data.datoCmsAbout.contentBlockHeading } className="relative z-10 mb-0" />
+                      <ImageParallax>
+                        <div className="relative overflow-hidden">
+                          <div className="relative overflow-hidden mt-12 md:mt-20">
+                            <ImageReveal>
+                            </ImageReveal>
+                            <Img fluid={ this.props.data.datoCmsAbout.contentBlockImage.fluid } alt={ this.props.data.datoCmsAbout.contentBlockHeading } className="relative z-10 mb-0" />
+                          </div>
                         </div>
-                      </div>
+                      </ImageParallax>
                     </div>
                   </div>
                 </div>
@@ -197,6 +202,11 @@ export const query = graphql`
   query {
     datoCmsAbout {
       heroHeading
+      heroImage {
+        fluid(maxWidth: 600, imgixParams: { fm: "jpg", auto: "compress" }) {
+          ...GatsbyDatoCmsFluid
+        }
+      }
       heroScrollingText
       missionText
       missionImage {
