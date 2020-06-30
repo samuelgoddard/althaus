@@ -1,36 +1,10 @@
 import React from "react"
 import PropTypes from "prop-types"
-// import { motion, AnimatePresence } from "framer-motion"
+import { AnimatePresence } from "framer-motion"
 import { Link } from "gatsby"
 // import SmoothScroll from "./SmoothScroll";
 
 import "../styles/main.css"
-
-// const duration = 0.15
-
-// const variants = {
-//   initial: {
-//     opacity: 0,
-//   },
-//   enter: {
-//     opacity: 1,
-//     transition: {
-//       duration: duration,
-//       ease: [0.43, 0.13, 0.23, 0.96],
-//       delay: duration,
-//       when: 'beforeChildren',
-//       staggerChildren: 0.5,
-//     },
-//   },
-//   exit: {
-//     opacity: 0,
-//     transition: {
-//       staggerChildren: 0.5,
-//       ease: [0.43, 0.13, 0.23, 0.96],
-//       duration: duration,
-//     },
-//   },
-// }
 
 const Layout = ({ children, location }) => {
   return (
@@ -45,11 +19,9 @@ const Layout = ({ children, location }) => {
         </div>
       </div>
       {/* <SmoothScroll> */}
-        {/* <AnimatePresence> */}
-          <main>
-            {children}
-          </main>
-        {/* </AnimatePresence> */}
+        <AnimatePresence exitBeforeEnter initial={false}>
+          {children}
+        </AnimatePresence>
       {/* </SmoothScroll> */}
     </div>
   )
@@ -60,3 +32,4 @@ Layout.propTypes = {
 }
 
 export default Layout
+
