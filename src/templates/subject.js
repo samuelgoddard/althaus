@@ -106,7 +106,7 @@ class SubjectTemplate extends React.Component {
                       {this.props.data.allDatoCmsCourse.edges.map(({ node }, i) => {
                         return (
                           <div className="w-full md:w-1/2 md:px-6" key={i}>
-                            <Link to={`courses/${this.props.data.datoCmsSubject.slug}/${node.slug}-level-${node.level}`} className="text-white flex flex-wrap items-center border-t-2 border-white py-4 md:py-6 xl:py-8">
+                            <Link to={`/courses/${this.props.data.datoCmsSubject.slug}/${node.slug}-level-${node.level}`} className="text-white flex flex-wrap items-center border-t-2 border-white py-4 md:py-6 xl:py-8">
                               <div className="flex-1 pr-8">
                                 <span className="text-xl md:text-2xl xl:text-3xl block font-semibold mb-2">{ node.title }</span>
                                 <span className="md:text-lg block">Level { node.level }</span>
