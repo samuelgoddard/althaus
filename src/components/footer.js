@@ -30,7 +30,7 @@ const Footer = ({ contactPage }) => {
   `)
   const { telephone, address, emailAddress } = data.datoCmsContact;
   return (
-    <footer className="relative overflow-hidden">
+    <footer className="relative overflow-hidden" id="contact">
       { !contactPage && (
         <div>
           <div className="bg-white pt-12 md:pt-20 lg:pt-32 xl:pt-20 relative overflow-hidden">

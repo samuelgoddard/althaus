@@ -9,7 +9,7 @@ import Img from "gatsby-image";
 import gsap from "gsap";
 import { motion } from "framer-motion"
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { RevealLeft, RevealRight, GradientRevealRight, GradientRevealRightLarge } from "../components/revealHelpers"
+import { RevealLeft, RevealRight, GradientRevealRightLarge } from "../components/revealHelpers"
 
 if (typeof window !== `undefined`) {
   gsap.registerPlugin(ScrollTrigger)

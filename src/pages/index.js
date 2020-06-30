@@ -46,15 +46,15 @@ class IndexPage extends React.Component {
               </div>
               
               {/* Hero */}
-              <div className="bg-purple pt-32 pb-24 md:pt-48 md:pb-24 xl:pt-56 relative">
+              <div className="bg-purple pt-32 md:pt-48 xl:pt-56 relative">
                 <div className="absolute top-0 left-0 w-full z-10 overflow-hidden w-full">
                   <svg className="logo-bg opacity-25 relative block z-10" viewBox="0 0 44 37" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.316 31.173l9.259-.004 3.326 5.685h10.283L21.59 0 16.4 8.866l7.972 13.487-9.404.013-6.617 11.235H5.726L15.044 17.7l1.402 2.386h3.827l-5.237-8.892L0 36.858h10.262l6.613-11.24 13.26.013-9.913-16.773 1.368-2.336 15.83 27.025h-2.63L31.445 27.9l-13.295.008-5.199 8.95h16.914l-1.912-3.244h-9.276l1.427-2.436.213-.005z" fill="url(#paint0_linear)"/><defs><linearGradient id="paint0_linear" x1="42.07" y1="9.562" x2="8.917" y2="40.813" gradientUnits="userSpaceOnUse"><stop stopColor="#D51F3A"/><stop offset="1" stopColor="#2C3583"/></linearGradient></defs></svg>
                 </div>
-                <div className="container lg:px-32 relative z-10">
-                  <div className="w-11/12 md:w-9/12 lg:w-8/12">
+                <div className="container lg:px-32 relative z-10 pb-24">
+                  <div className="w-full md:w-10/12 lg:w-9/12 xl:w-9/12">
                     <h1 className="text-5xl md:text-6xl xl:text-7xl font-medium text-white mb-6 md:mb-8">{ this.props.data.datoCmsHome.heroHeading }</h1>
 
-                    <div className="w-8/12 md:w-10/12">
+                    <div className="w-8/12 md:w-8/12">
                       <div className="text-white text-xl md:text-2xl mb-8 md:mb-12" dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsHome.heroBlurb }}></div>
 
                       <Link to="/about" className="text-md text-white font-semibold uppercase flex flex-wrap items-center group btn-arrow">
@@ -63,12 +63,18 @@ class IndexPage extends React.Component {
                       </Link>
                     </div>
                   </div>
+                  
                 </div>
               </div>
             </section>
             
-            <section>
-              <div className="flex flex-wrap bg-purple">
+            <section className="relative">
+              <div className="container relative bg-red-400 w-full mx-auto h-0">
+                <div className="w-128 md:w-2/3 lg:w-7/12 xl:w-1/2 absolute bottom-0 right-0 -mr-32 md:-mr-32 xl:mr-0 z-10 max-w-3xl">
+                  <Img fluid={this.props.data.datoCmsHome.heroImage.fluid } className="w-full" />
+                </div>
+              </div>
+              <div className="flex flex-wrap bg-purple relative">
                 <div className="w-full md:w-9/12 lg:w-8/12 ml-auto relative z-20">
                   <div className="gradient-ltr">
                     <div className="flex flex-wrap xl:w-10/12 p-4">
@@ -230,6 +236,12 @@ export const query = graphql`
   query {
     datoCmsHome {
       title
+      heroImage {
+        fluid(
+          imgixParams: {w: "720", fit: "crop", crop: "faces, edges"}) {
+          ...GatsbyDatoCmsFluid_noBase64
+        }
+      }
       heroHeading
       heroBlurb
       contentBlock {

@@ -6,6 +6,8 @@ import { Link } from "gatsby"
 import Arrow from "../images/arrow.inline.svg";
 import { motion } from "framer-motion"
 import gsap from "gsap";
+import { AnchorLink } from "gatsby-plugin-anchor-links";
+import Img from "gatsby-image";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { RevealLeft, RevealRight, GradientRevealLeft, ImageReveal, ImageParallax } from "../components/revealHelpers"
 
@@ -29,7 +31,7 @@ class EmployersPage extends React.Component {
   render () {
     return (
       <>
-        <SEO title="Employers" />
+        <SEO title={ this.props.data.datoCmsEmployer.title } />
 
         <motion.div
           initial="initial"
@@ -48,10 +50,10 @@ class EmployersPage extends React.Component {
               <div className="bg-purple pt-48 md:pt-56 xl:pt-64">
                 <div className="bg-pink">
                   <div className="container lg:px-32 pb-12">
-                    <div className="flex flex-wrap items-center pb-0 md:pb-20 lg:pb-24">
-                      <div className="w-full md:w-1/3 mb-8 md:mb-0">
-                        <span className="uppercase font-semibold text-white text-xl md:text-2xl block mb-8 -mt-10">Employers</span>
-                        <h1 className="text-5xl md:text-6xl xl:text-7xl font-medium text-white mb-6 md:mb-8 md:whitespace-no-wrap">Hiring digital talent<br/>has never been<br/>so simple!</h1>
+                    <div className="flex flex-wrap pb-0 md:pb-20 lg:pb-24">
+                      <div className="w-full md:w-1/2 lg:w-1/2 mb-8 md:mb-0">
+                        <span className="uppercase font-semibold text-white text-xl md:text-2xl block mb-8 -mt-10">Learners</span>
+                        <h1 className="text-5xl lg:text-6xl font-medium text-white mb-6 md:mb-8">{ this.props.data.datoCmsEmployer.heroHeading }</h1>
 
                         <div className="w-full">
                           <Link to="/courses" className="text-md text-white font-semibold uppercase flex flex-wrap items-center btn-arrow">
@@ -61,23 +63,31 @@ class EmployersPage extends React.Component {
                         </div>
                       </div>
 
-                      <div className="w-full md:w-2/3 mt-16 md:mt-20">
-
+                      <div className="w-full md:w-1/2 lg:w-1/2 md:-mt-12 md:pl-12">
+                        <Img fluid={ this.props.data.datoCmsEmployer.heroImage.fluid } className="w-full" />
                       </div>
                     </div>
 
                     <div className="flex flex-wrap items-center bg-white p-4">
-                      <div className="w-full md:w-1/2 lg:w-1/4">
-                        <span className="block text-lg text-purple text-center">Why Althaus</span>
+                      <div className="w-full md:w-1/2 lg:w-1/4 border-b-2 md:border-0 md:border-b-0 border-pink">
+                        <AnchorLink to={`/employers/#why-althaus`} title="Why Althaus?" className="block text-lg text-purple text-center font-semibold px-4 py-6 md:py-8 hover:text-pink focus:text-pink">
+                          Why Althaus?
+                        </AnchorLink>
                       </div>
-                      <div className="w-full md:w-1/2 lg:w-1/4">
-                        <span className="block text-lg text-purple text-center">Our Courses</span>
+                      <div className="w-full md:w-1/2 lg:w-1/4 border-b-2 md:border-0 lg:border-l-2 border-pink">
+                        <AnchorLink to={`/employers/#our-courses`} title="Our Courses" className="block text-lg text-purple text-center font-semibold px-4 py-6 md:py-8 hover:text-pink focus:text-pink">
+                          Our Courses
+                        </AnchorLink>
                       </div>
-                      <div className="w-full md:w-1/2 lg:w-1/4">
-                        <span className="block text-lg text-purple text-center">Find An Apprenticeship</span>
+                      <div className="w-full md:w-1/2 lg:w-1/4 border-b-2 md:border-0 lg:border-l-2 border-pink">
+                        <AnchorLink to={`/employers/#find-an-apprenticeship`} title="Find An Apprenticeship" className="block text-lg text-purple text-center font-semibold px-4 py-6 md:py-8 hover:text-pink focus:text-pink">
+                          Find An Apprenticeship
+                        </AnchorLink>
                       </div>
-                      <div className="w-full md:w-1/2 lg:w-1/4">
-                        <span className="block text-lg text-purple text-center">Get In Touch</span>
+                      <div className="w-full md:w-1/2 lg:w-1/4 lg:border-l-2 border-pink">
+                        <AnchorLink to={`/employers/#contact`} title="Get In Touch" className="block text-lg text-purple text-center font-semibold px-4 py-6 md:py-8 hover:text-pink focus:text-pink">
+                          Get In Touch
+                        </AnchorLink>
                       </div>
                     </div>
                   </div>
@@ -96,15 +106,9 @@ class EmployersPage extends React.Component {
                 <div className="container lg:px-32 relative z-20 md:pt-24 xl:pt-32 mb-8 md:mb-16 xl:mb-24">
                   <div className="w-full md:w-9/12 xl:w-8/12 mx-auto content">
                     <div className="mb-12 md:mb-16 xl:mb-20">
-                      <h2 className="text-center">Hiring An Apprentice</h2>
+                      <h2 className="text-center mb-8 md:mb-10">{ this.props.data.datoCmsEmployer.contentHeading }</h2>
 
-                      <p className="text-lg md:text-xl">At althaus digital we ensure employers have access to the best future talent and can choose from apprentices whose skills and aspirations are aligned with their business’ goals. </p>
-
-                      <p>We understand the importance of making the right hire, which is why we tailor our digital apprenticeships to ensure they meet the needs of employers, as well as apprentices. Althaus works closely with you to establish the areas of your business which you want to develop, modernise or enhance with the help of a dedicated, specially-trained apprentice. We tailor the first part of the apprenticeship to your organisation’s digital needs, so learners immediately progress in the areas your business wants to strengthen, adding measurable value from the outset.</p>
-
-                      <p>We have developed a blend of industry-leading learning environments and resources, combining virtual and face-to-face, collaborative and self-directed learning, alongside supportive mentoring and tailored teaching plans to help our apprentices grow and realise their unique potential. Our learners will develop cutting-edge technical proficiency and leadership skills simultaneously, including creative problem-solving, effective communication and emotional intelligence – ultimately creating a well-rounded and highly skilled individual who will help lead your business into the future.</p>
-
-                      <p>Utilising althaus digital’s apprenticeship services will help your business adapt to technology’s ever-increasing influence on industries across the world. Hiring the right digital talent has never been this simple. Speak to althaus today.</p>
+                      <div className="content content--fancy" dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsEmployer.content }}></div>
                     </div>
 
                     <div className="mx-auto text-center">
@@ -117,11 +121,11 @@ class EmployersPage extends React.Component {
               </div>
             </section>
 
-            {/* Marketing */}
-            <section className="bg-white relative -mt-16 md:-mt-16 xl:-mt-32 relative z-20">
+            {/* Supporting Content Block */}
+            <section className="bg-white -mt-16 md:-mt-16 xl:-mt-32 relative z-20" id="why-althaus">
               <div className="overflow-hidden">
                 <RevealRight>
-                  <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text-right text-right text-transparent leading-none -mt-4 xl:-mt-8 block">Why Us?</span>
+                  <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text-right text-right text-transparent leading-none -mt-4 xl:-mt-8 block">{ this.props.data.datoCmsEmployer.supportingContentBlock.scrollingText }</span>
                 </RevealRight>
               </div>
               
@@ -139,19 +143,17 @@ class EmployersPage extends React.Component {
                             <div className="relative overflow-hidden">
                               <ImageReveal>
                               </ImageReveal>
-                              <img src="https://placedog.net/1200/700" alt="placeholder" className="relative z-10 mb-0 pb-0" />
+                              <Img fluid={ this.props.data.datoCmsEmployer.supportingContentBlock.image.fluid } className="relative z-10 mb-0 pb-0" />
                             </div>
                           </ImageParallax>
                         </div>
                       </div>
                     </div>
                     <div className="w-full md:w-1/2 lg:w-5/12 md:px-8 content md:pt-32 xl:pt-40 text-white">
-                      <h2 className="pb-6 mb-0">Why Althaus?</h2>
+                      <h2 className="pb-6 mb-0">{ this.props.data.datoCmsEmployer.supportingContentBlock.heading }</h2>
                       <span className="w-20 h-2 bg-pink block mb-8"></span>
 
-                      <div className="mb-8">
-                        <p>Althaus provides the crucial connection between learners and employers, giving individuals the opportunity to build their digital skills before matching them with employers who need them the most.</p>
-                      </div>
+                      <div className="mb-8" dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsEmployer.supportingContentBlock.content }}></div>
 
                       <Link to="/about" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center btn-arrow">
                         <span className="block">Find out more</span>
@@ -164,7 +166,7 @@ class EmployersPage extends React.Component {
             </section>
             
             {/* Courses */}
-            <section className="bg-purple md:pb-8 relative mb-8 pb-24 md:pb-32 lg:pb-40 xl:pb-64 pt-2">
+            <section className="bg-purple md:pb-8 relative mb-8 pb-24 md:pb-32 lg:pb-40 xl:pb-64 pt-2" id="our-courses">
               <div className="overflow-hidden mb-8 md:mb-12 xl:mb-16">
                 <RevealLeft>
                   <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text text-transparent leading-none block">Our Courses</span>
@@ -173,53 +175,22 @@ class EmployersPage extends React.Component {
 
               <div className="container lg:px-32 mb-12 md:mb-16 xl:mb-24">
                 <div className="flex flex-wrap md:-mx-6 pb-8 md:pb-12">
-                  <div className="w-full md:w-1/2 md:px-6">
-                    <Link to="/" className="block text-white flex flex-wrap items-center border-t-2 border-purple-light py-4 md:py-6 xl:py-8 hover:text-pink focus:text-pink transition duration-300 ease-in-out">
-                      <div>
-                        <span className="text-xl md:text-2xl xl:text-3xl block font-semibold mb-2">Digital Marketing</span>
-                        <span className="md:text-lg block">Brief description to be written</span>
+                  {this.props.data.allDatoCmsSubject.edges.map(({ node }, i) => {
+                    // const length = (this.props.data.allDatoCmsSubject.edges.length - 1);
+                    return (
+                      <div className="w-full md:w-1/2 md:px-6" key={i}>
+                        <Link to={`courses/${node.slug}`} className="text-white flex flex-wrap items-center border-t-2 border-purple-light py-4 md:py-6 xl:py-8 hover:text-pink focus:text-pink transition duration-300 ease-in-out">
+                          <div className="flex-1 pr-12">
+                            <span className="text-xl md:text-2xl xl:text-3xl block font-semibold mb-2">{ node.title }</span>
+                            <div className="md:text-lg block" dangerouslySetInnerHTML={{ __html: node.teaserText}}></div>
+                          </div>
+                          <div className="w-12 text-pink ml-auto">
+                            <Arrow />
+                          </div>
+                        </Link>
                       </div>
-                      <div className="w-12 text-pink ml-auto">
-                        <Arrow />
-                      </div>
-                    </Link>
-                  </div>
-                  
-                  <div className="w-full md:w-1/2 md:px-6">
-                    <Link to="/" className="block text-white flex flex-wrap items-center border-t-2 border-purple-light py-4 md:py-6 xl:py-8 hover:text-pink focus:text-pink transition duration-300 ease-in-out">
-                      <div>
-                        <span className="text-xl md:text-2xl xl:text-3xl block font-semibold mb-2">Software Development</span>
-                        <span className="md:text-lg block">Brief description to be written</span>
-                      </div>
-                      <div className="w-12 text-pink ml-auto">
-                        <Arrow />
-                      </div>
-                    </Link>
-                  </div>
-
-                  <div className="w-full md:w-1/2 md:px-6">
-                    <Link to="/" className="block text-white flex flex-wrap items-center border-t-2 md:border-b-2 border-purple-light py-4 md:py-6 xl:py-8 hover:text-pink focus:text-pink transition duration-300 ease-in-out">
-                      <div>
-                        <span className="text-xl md:text-2xl xl:text-3xl block font-semibold mb-2">Cyber Security</span>
-                        <span className="md:text-lg block">Brief description to be written</span>
-                      </div>
-                      <div className="w-12 text-pink ml-auto">
-                        <Arrow />
-                      </div>
-                    </Link>
-                  </div>
-
-                  <div className="w-full md:w-1/2 md:px-6">
-                    <Link to="/" className="block text-white flex flex-wrap items-center border-t-2 border-b-2 border-purple-light py-4 md:py-6 xl:py-8 hover:text-pink focus:text-pink transition duration-300 ease-in-out">
-                      <div>
-                        <span className="text-xl md:text-2xl xl:text-3xl block font-semibold mb-2">IT Solutions</span>
-                        <span className="md:text-lg block">Brief description to be written</span>
-                      </div>
-                      <div className="w-12 text-pink ml-auto">
-                        <Arrow />
-                      </div>
-                    </Link>
-                  </div>
+                    )
+                  })}
                 </div>
                 
                 <div className="w-full mx-auto text-center">
@@ -259,3 +230,41 @@ class EmployersPage extends React.Component {
 }
 
 export default EmployersPage
+
+export const query = graphql`
+  query {
+    datoCmsEmployer {
+      title
+      heroImage {
+        fluid(
+          imgixParams: {w: "720", fit: "crop", crop: "faces, edges"}) {
+          ...GatsbyDatoCmsFluid_noBase64
+        }
+      }
+      heroHeading
+      heroScrollingText
+      contentHeading
+      content
+      supportingContentBlock {
+        heading
+        scrollingText
+        content
+        image {
+          fluid(
+            imgixParams: {w: "720", fit: "crop", crop: "faces, edges"}) {
+            ...GatsbyDatoCmsFluid
+          }
+        }
+      }
+    }
+    allDatoCmsSubject {
+      edges {
+        node {
+          title
+          teaserText
+          slug
+        }
+      }      
+    }
+  }
+`

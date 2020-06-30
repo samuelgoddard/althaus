@@ -89,6 +89,16 @@ h3, .h3 {
   }
 }
 
+.content--fancy {
+  p {
+    @apply text-base;
+    
+    &:first-of-type {
+      @apply text-lg;
+    }
+  }
+}
+
 .content-lists {
   ul {
     li {
