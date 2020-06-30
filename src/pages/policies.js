@@ -82,7 +82,7 @@ class PoliciesPage extends React.Component {
                           { node.policyPdf && (
                             <div className="flex flex-wrap mt-12">
                               {/* <Link to="/contact" className="inline border-2 border-pink uppercase text-purple p-3 px-6 font-medium text-lg mr-5 mb-4">View Policy</Link> */}
-                              <a href={ node.policyPdf.url } target="_blank" rel="noopener noreferrer" className="inline bg-pink uppercase text-white p-3 px-6 font-medium text-lg mb-4">Download PDF</a>
+                              <a href={ node.policyPdf.url } target="_blank" rel="noopener noreferrer" className="btn btn--border text-purple text-base"><span className="btn__inner">Download PDF</span></a>
                             </div>
                           )}
                         </div>

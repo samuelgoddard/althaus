@@ -80,7 +80,7 @@ class CareersPage extends React.Component {
                     {this.props.data.allDatoCmsCareer.edges.map(({ node }, i) => {
                       return (
                         <div className="w-full md:w-1/2 md:px-6" key={i}>
-                          <Link to={`/careers/${ node.slug }`} className="block text-white flex flex-wrap items-center border-t-2 border-purple-light py-4 md:py-6 xl:py-8">
+                          <Link to={`/careers/${ node.slug }`} className="block text-white flex flex-wrap items-center border-t-2 border-purple-light py-4 md:py-6 xl:py-8 hover:text-pink focus:text-pink transition duration-300 ease-in-out">
                             <div>
                               <span className="text-xl md:text-2xl xl:text-3xl block font-semibold mb-2">{ node.title }</span>
                               <span className="md:text-lg block">{ node.teaserText }</span>
@@ -129,7 +129,7 @@ class CareersPage extends React.Component {
 
                       <div className="mb-8" dangerouslySetInnerHTML={{ __html:  this.props.data.datoCmsCareersLanding.supportingContentBlock.content }}></div>
 
-                      <Link to="/contact" className="inline bg-pink uppercase text-white p-3 px-6 font-medium text-lg mb-4">Get In Touch</Link>
+                      <Link to="/contact" className="mb-4 btn btn--pink"><span className="btn__inner">Get In Touch</span></Link>
                     </div>
                   </div>
                 </div>

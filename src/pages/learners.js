@@ -54,9 +54,9 @@ class LearnersPage extends React.Component {
                         <h1 className="text-5xl md:text-6xl xl:text-7xl font-medium text-white mb-6 md:mb-8 md:whitespace-no-wrap">Everything you<br/>need to learn<br/> &amp; develop</h1>
 
                         <div className="w-full">
-                          <Link to="/" className="text-md text-white font-semibold uppercase flex flex-wrap items-center">
+                          <Link to="/courses" className="text-md text-white font-semibold uppercase flex flex-wrap items-center btn-arrow">
                             <span className="block">View Courses</span>
-                            <span className="block ml-4 w-8"><Arrow /></span>
+                            <span className="block ml-4 w-8 btn-arrow__arrow"><Arrow /></span>
                           </Link>
                         </div>
                       </div>
@@ -109,7 +109,9 @@ class LearnersPage extends React.Component {
                     </div>
 
                     <div className="mx-auto text-center">
-                      <Link to="/contact" className="inline border-2 border-pink uppercase text-purple p-4 px-6 font-medium text-lg">Get in touch</Link>
+                      <Link to="/contact" className="btn btn--border text-purple">
+                        <span className="btn__inner">Get in touch</span>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -150,9 +152,9 @@ class LearnersPage extends React.Component {
                         <p>Althaus provides the crucial connection between learners and employers, giving individuals the opportunity to build their digital skills before matching them with employers who need them the most.</p>
                       </div>
 
-                      <Link to="/about" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center block">
+                      <Link to="/about" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center btn-arrow">
                         <span className="block">Find out more</span>
-                        <span className="block ml-4 w-8"><Arrow /></span>
+                        <span className="block ml-4 w-8 btn-arrow__arrow"><Arrow /></span>
                       </Link>
                     </div>
                   </div>
@@ -171,7 +173,7 @@ class LearnersPage extends React.Component {
               <div className="container lg:px-32 mb-12 md:mb-16 xl:mb-24">
                 <div className="flex flex-wrap md:-mx-6 pb-8 md:pb-12">
                   <div className="w-full md:w-1/2 md:px-6">
-                    <Link to="/" className="block text-white flex flex-wrap items-center border-t-2 border-purple-light py-4 md:py-6 xl:py-8">
+                    <Link to="/" className="block text-white flex flex-wrap items-center border-t-2 border-purple-light py-4 md:py-6 xl:py-8 hover:text-pink focus:text-pink transition duration-300 ease-in-out">
                       <div>
                         <span className="text-xl md:text-2xl xl:text-3xl block font-semibold mb-2">Digital Marketing</span>
                         <span className="md:text-lg block">Brief description to be written</span>
@@ -183,7 +185,7 @@ class LearnersPage extends React.Component {
                   </div>
                   
                   <div className="w-full md:w-1/2 md:px-6">
-                    <Link to="/" className="block text-white flex flex-wrap items-center border-t-2 border-purple-light py-4 md:py-6 xl:py-8">
+                    <Link to="/" className="block text-white flex flex-wrap items-center border-t-2 border-purple-light py-4 md:py-6 xl:py-8 hover:text-pink focus:text-pink transition duration-300 ease-in-out">
                       <div>
                         <span className="text-xl md:text-2xl xl:text-3xl block font-semibold mb-2">Software Development</span>
                         <span className="md:text-lg block">Brief description to be written</span>
@@ -195,7 +197,7 @@ class LearnersPage extends React.Component {
                   </div>
 
                   <div className="w-full md:w-1/2 md:px-6">
-                    <Link to="/" className="block text-white flex flex-wrap items-center border-t-2 md:border-b-2 border-purple-light py-4 md:py-6 xl:py-8">
+                    <Link to="/" className="block text-white flex flex-wrap items-center border-t-2 md:border-b-2 border-purple-light py-4 md:py-6 xl:py-8 hover:text-pink focus:text-pink transition duration-300 ease-in-out">
                       <div>
                         <span className="text-xl md:text-2xl xl:text-3xl block font-semibold mb-2">Cyber Security</span>
                         <span className="md:text-lg block">Brief description to be written</span>
@@ -207,7 +209,7 @@ class LearnersPage extends React.Component {
                   </div>
 
                   <div className="w-full md:w-1/2 md:px-6">
-                    <Link to="/" className="block text-white flex flex-wrap items-center border-t-2 border-b-2 border-purple-light py-4 md:py-6 xl:py-8">
+                    <Link to="/" className="block text-white flex flex-wrap items-center border-t-2 border-b-2 border-purple-light py-4 md:py-6 xl:py-8 hover:text-pink focus:text-pink transition duration-300 ease-in-out">
                       <div>
                         <span className="text-xl md:text-2xl xl:text-3xl block font-semibold mb-2">IT Solutions</span>
                         <span className="md:text-lg block">Brief description to be written</span>
@@ -220,7 +222,7 @@ class LearnersPage extends React.Component {
                 </div>
                 
                 <div className="w-full mx-auto text-center">
-                  <Link to="/contact" className="inline-block border border-pink uppercase text-white p-4 px-6 font-medium text-lg">Find out more</Link>
+                  <Link to="/courses" className="inline-block border border-pink uppercase text-white p-4 px-6 font-medium text-lg">Find out more</Link>
                 </div>
               </div>
             </section>

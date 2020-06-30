@@ -3,7 +3,7 @@
 body {
 	margin: 0;
 	padding: 0;
-	/* overscroll-behavior: none; */
+	overscroll-behavior: none;
 }
 
 a {
@@ -76,4 +76,16 @@ a {
 
 .bg-multiply {
 	mix-blend-mode: multiply;
+}
+
+.btn-arrow__arrow {
+	transition: all ease 250ms;
+}
+
+.btn-arrow {
+	&:hover, &:focus {
+		.btn-arrow__arrow {
+			transform: translate(5px);
+		}
+	}
 }

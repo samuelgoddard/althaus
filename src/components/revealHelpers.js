@@ -26,6 +26,27 @@ export const RevealLeft = ({ children }) => {
   return <div className="reveal-left" ref={revealRef}>{children}</div>;
 };
 
+export const ImageParallax = ({ children }) => {
+  const revealRef = useRef(null);
+  useEffect(() => {
+
+    gsap.tl = gsap.timeline({
+      paused: true,
+      scrollTrigger: {
+        trigger: revealRef.current,
+        scrub: 1,
+        start: "top bottom",
+        // markers: true
+      }
+    });
+    gsap.tl.to(revealRef.current, {
+      y: '-5vw'
+    });
+  }, []);
+
+  return <div className="parallax-bg" ref={revealRef}>{children}</div>;
+}
+
 export const RevealRight = ({ children }) => {
   const revealRef = useRef(null);
   

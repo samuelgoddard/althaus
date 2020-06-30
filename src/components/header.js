@@ -133,7 +133,7 @@ class Header extends React.Component {
                             <Link onClick={this.toggleOff} to="/about" activeClassName="text-purple" className="block font-semibold no-underline hover:opacity-25 focus:opacity-25 text-3xl md:text-4xl xl:text-5xl transition duration-500 text-white ease-in-out leading-extra-tight">About</Link>
                           </li>
                           <li className="lg:block mb-2">
-                            <Link onClick={this.toggleOff} to="/courses" activeClassName="text-purple" className="block font-semibold no-underline hover:opacity-25 focus:opacity-25 text-3xl md:text-4xl xl:text-5xl transition duration-500 text-white ease-in-out leading-extra-tight">Courses</Link>
+                            <Link onClick={this.toggleOff} to="/courses" partiallyActive={true} activeClassName="text-purple" className="block font-semibold no-underline hover:opacity-25 focus:opacity-25 text-3xl md:text-4xl xl:text-5xl transition duration-500 text-white ease-in-out leading-extra-tight">Courses</Link>
                           </li>
                           <li className="lg:block mb-2">
                             <Link onClick={this.toggleOff} to="/learners" activeClassName="text-purple" className="block font-semibold no-underline hover:opacity-25 focus:opacity-25 text-3xl md:text-4xl xl:text-5xl transition duration-500 text-white ease-in-out leading-extra-tight">Learners</Link>
@@ -142,13 +142,13 @@ class Header extends React.Component {
                             <Link onClick={this.toggleOff} to="/employers" activeClassName="text-purple" className="block font-semibold no-underline hover:opacity-25 focus:opacity-25 text-3xl md:text-4xl xl:text-5xl transition duration-500 text-white ease-in-out leading-extra-tight">Employers</Link>
                           </li>
                           <li className="lg:block mb-2">
-                            <Link onClick={this.toggleOff} to="/resources" activeClassName="text-purple" className="block font-semibold no-underline hover:opacity-25 focus:opacity-25 text-3xl md:text-4xl xl:text-5xl transition duration-500 text-white ease-in-out leading-extra-tight">Resources</Link>
+                            <Link onClick={this.toggleOff} to="/resources" partiallyActive={true} activeClassName="text-purple" className="block font-semibold no-underline hover:opacity-25 focus:opacity-25 text-3xl md:text-4xl xl:text-5xl transition duration-500 text-white ease-in-out leading-extra-tight">Resources</Link>
                           </li>
                           <li className="lg:block mb-2">
                             <Link onClick={this.toggleOff} to="/policies" activeClassName="text-purple" className="block font-semibold no-underline hover:opacity-25 focus:opacity-25 text-3xl md:text-4xl xl:text-5xl transition duration-500 text-white ease-in-out leading-extra-tight">Policies</Link>
                           </li>
                           <li className="lg:block mb-2">
-                            <Link onClick={this.toggleOff} to="/careers" activeClassName="text-purple" className="block font-semibold no-underline hover:opacity-25 focus:opacity-25 text-3xl md:text-4xl xl:text-5xl transition duration-500 text-white ease-in-out leading-extra-tight">Careers</Link>
+                            <Link onClick={this.toggleOff} to="/careers" partiallyActive={true} activeClassName="text-purple" className="block font-semibold no-underline hover:opacity-25 focus:opacity-25 text-3xl md:text-4xl xl:text-5xl transition duration-500 text-white ease-in-out leading-extra-tight">Careers</Link>
                           </li>
                           <li className="lg:block mb-2">
                             <Link onClick={this.toggleOff} to="/contact" activeClassName="text-purple" className="block font-semibold no-underline hover:opacity-25 focus:opacity-25 text-3xl md:text-4xl xl:text-5xl transition duration-500 text-white ease-in-out leading-extra-tight">Contact</Link>

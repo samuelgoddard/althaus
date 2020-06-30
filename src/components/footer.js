@@ -38,9 +38,9 @@ const Footer = ({ contactPage }) => {
               <div className="flex flex-wrap pb-16 sm:pb-32 md:pb-20 lg:pb-32 xl:pb-40">
                 <div className="w-full md:w-1/2 lg:w-5/12 ml-auto">
                   <span className="text-4xl md:text-5xl xl:text-6xl font-semibold leading-extra-tight block mb-6 md:mb-10">Ready to start your journey?</span>
-                  <Link to="/contact" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center block">
+                  <Link to="/contact" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center btn-arrow">
                     <span className="block">Get in touch</span>
-                    <span className="block ml-4 w-8"><Arrow /></span>
+                    <span className="block ml-4 w-8 btn-arrow__arrow"><Arrow /></span>
                   </Link>
                 </div>
               </div>
@@ -107,10 +107,14 @@ const Footer = ({ contactPage }) => {
                 <span className="text-white uppercase block text-lg mb-3">Customers</span>
                 <div className="flex flex-wrap -mx-2">
                   <div className="w-1/2 px-2">
-                    <Link to="/learners" className="xl:text-lg text-white bg-purple-light p-3 text-center block w-full uppercase font-semibold">Learners</Link>
+                    <Link to="/learners" className="btn block w-full">
+                      <span className="btn__inner">Learners</span>
+                    </Link>
                   </div>
                   <div className="w-1/2 px-2">
-                    <Link to="/employers" className="xl:text-lg text-white bg-pink p-3 text-center block w-full uppercase font-semibold">Employers</Link>
+                    <Link to="/employers" className="btn btn--pink block w-full">
+                      <span className="btn__inner">Employers</span>
+                    </Link>
                   </div>
                 </div>
               </div>

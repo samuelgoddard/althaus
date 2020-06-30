@@ -57,9 +57,9 @@ class SubjectTemplate extends React.Component {
                         <h1 className="text-5xl md:text-6xl xl:text-7xl font-medium text-white mb-6 md:mb-8">{ this.props.data.datoCmsSubject.title }</h1>
 
                         <div className="w-full">
-                          <Link to="/contact" className="text-md text-white font-semibold uppercase flex flex-wrap items-center">
+                          <Link to="/contact" className="text-md text-white font-semibold uppercase flex flex-wrap items-center btn-arrow">
                             <span className="block">Get in touch</span>
-                            <span className="block ml-4 w-8"><Arrow /></span>
+                            <span className="block ml-4 w-8 btn-arrow__arrow"><Arrow /></span>
                           </Link>
                         </div>
                       </div>
@@ -87,7 +87,9 @@ class SubjectTemplate extends React.Component {
                   </div>
 
                   <div className="mx-auto text-center">
-                    <Link to="/contact" className="inline border-2 border-pink uppercase text-purple p-4 px-6 font-medium text-lg">Get In Touch</Link>
+                    <Link to="/contact" className="btn btn--border text-purple">
+                      <span className="btn__inner">Get in touch</span>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -106,12 +108,12 @@ class SubjectTemplate extends React.Component {
                       {this.props.data.allDatoCmsCourse.edges.map(({ node }, i) => {
                         return (
                           <div className="w-full md:w-1/2 md:px-6" key={i}>
-                            <Link to={`/courses/${this.props.data.datoCmsSubject.slug}/${node.slug}-level-${node.level}`} className="text-white flex flex-wrap items-center border-t-2 border-white py-4 md:py-6 xl:py-8">
+                            <Link to={`/courses/${this.props.data.datoCmsSubject.slug}/${node.slug}-level-${node.level}`} className="text-white flex flex-wrap items-center border-t-2 border-white py-4 md:py-6 xl:py-8 hover:text-purple focus:text-purple transition duration-300 ease-in-out">
                               <div className="flex-1 pr-8">
                                 <span className="text-xl md:text-2xl xl:text-3xl block font-semibold mb-2">{ node.title }</span>
                                 <span className="md:text-lg block">Level { node.level }</span>
                               </div>
-                              <div className="w-12 text-white ml-auto">
+                              <div className="w-12 ml-auto">
                                 <Arrow />
                               </div>
                             </Link>

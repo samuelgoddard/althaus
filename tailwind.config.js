@@ -34,10 +34,12 @@ module.exports = {
       colors: {
         purple: {
           light: '#2C3583',
-          default: '#131739'
+          default: '#131739',
+          dark: '#2D3557'
         },
         pink: {
-          default: '#EF4362'
+          default: '#EF4362',
+          dark: '#BB4262'
         }
       },
       spacing: {
@@ -57,6 +59,9 @@ module.exports = {
         sans: ['Montserrat', 'Helvetica', 'Arial', 'sans-serif'],
       },
     }
+  },
+  variants: {
+    margin: ['responsive', 'hover', 'focus', 'group-hover'],
   },
   corePlugins: {
     container: false

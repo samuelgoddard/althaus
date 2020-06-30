@@ -55,9 +55,9 @@ class CourseTemplate extends React.Component {
                         <span className="uppercase font-semibold text-pink text-xl md:text-2xl block mb-3">Level { this.props.data.datoCmsCourse.level } Course</span>
                         <h1 className="text-5xl md:text-5xl xl:text-6xl 2xl:text-7xl font-medium text-purple mb-6 md:mb-8">{ this.props.data.datoCmsCourse.title }</h1>
 
-                        <AnchorLink to={`/courses/${this.props.data.datoCmsCourse.slug}-level-${ this.props.data.datoCmsCourse.level }/#application`} title="Apply for course" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center">
+                        <AnchorLink to={`/courses/${this.props.data.datoCmsCourse.slug}-level-${ this.props.data.datoCmsCourse.level }/#application`} title="Apply for course" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center btn-arrow">
                           <span className="block">Apply for course</span>
-                          <span className="block ml-4 w-8"><Arrow /></span>
+                          <span className="block ml-4 w-8 btn-arrow__arrow"><Arrow /></span>
                         </AnchorLink>
                       </div>
 
@@ -75,7 +75,7 @@ class CourseTemplate extends React.Component {
             {/* Listings */}
             <section>
               <div className="overflow-hidden relative z-10">
-                <div className="bg-purple">
+                <div className="bg-purple pb-12 md:pb-24 xl:pb-32">
                   <RevealLeft>
                     <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text text-transparent">Level { this.props.data.datoCmsCourse.level } Course</span>
                   </RevealLeft>

@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { AnimatePresence } from "framer-motion"
 import { Link } from "gatsby"
-// import SmoothScroll from "./SmoothScroll";
+import SmoothScroll from "./SmoothScroll";
 
 import "../styles/main.css"
 
@@ -14,15 +14,19 @@ const Layout = ({ children, location }) => {
       </div>
       <div className="fixed z-30 right-0 fixed-text-right pl-6 hidden lg:block transform rotate-180">
         <div className="flex flex-wrap">
-          <Link to="/learners" className="xl:text-lg text-white bg-purple-light p-3 py-5 uppercase font-semibold ">Learners</Link>
-          <Link to="/employers" className="xl:text-lg text-white bg-pink p-3 py-5 uppercase font-semibold mt-3">Employers</Link>
+          <Link to="/learners" className="btn block w-full py-5 px-3 btn--sideways">
+            <span className="btn__inner">Learners</span>
+          </Link>
+          <Link to="/employers" className="btn btn--pink block w-full mt-3 px-3 py-5 btn--sideways">
+            <span className="btn__inner">Employers</span>
+          </Link>
         </div>
       </div>
-      {/* <SmoothScroll> */}
+      <SmoothScroll>
         <AnimatePresence exitBeforeEnter initial={false}>
           {children}
         </AnimatePresence>
-      {/* </SmoothScroll> */}
+      </SmoothScroll>
     </div>
   )
 }

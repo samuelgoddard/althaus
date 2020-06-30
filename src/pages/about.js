@@ -27,9 +27,7 @@ const fade = {
 }
 
 class AboutPage extends React.Component {
-  
   render () {
-
     return (
       <>
         <SEO title="About" />
@@ -57,9 +55,9 @@ class AboutPage extends React.Component {
                           <h1 className="text-5xl md:text-6xl xl:text-7xl font-medium text-pink mb-6 md:mb-8">{ this.props.data.datoCmsAbout.heroHeading }</h1>
 
                           <div className="w-full">
-                            <Link to="/" className="text-md text-purple font-semibold uppercase flex flex-wrap items-center">
+                            <Link to="/" className="text-md text-purple font-semibold uppercase flex flex-wrap items-center btn-arrow">
                               <span className="block">Discover More</span>
-                              <span className="block ml-4 w-8"><Arrow /></span>
+                              <span className="block ml-4 w-8 btn-arrow__arrow"><Arrow /></span>
                             </Link>
                           </div>
                         </div>
@@ -68,7 +66,7 @@ class AboutPage extends React.Component {
                       <div className="w-full md:w-2/3 relative ml-auto">
                         <GradientRevealRight>
                         </GradientRevealRight>
-                        <img src="https://placedog.net/1200/640" alt="placeholder" className="relative z-10 mb-0 pb-0 pt-12 md:pt-16" />
+                        <img src="https://placedog.net/1200/640" alt="placeholder" className="relative z-10 mb-0 pb-0 pt-12 md:pt-16 parallax-bg" />
                       </div>
                     </div>
                   </div>
@@ -93,7 +91,7 @@ class AboutPage extends React.Component {
                         <div className="relative">
                           <GradientRevealLeft>
                           </GradientRevealLeft>
-                          <div className="relative overflow-hidden -mt-12">
+                          <div className="relative overflow-hidden">
                             <div className="relative overflow-hidden">
                               <ImageReveal>
                               </ImageReveal>
@@ -129,8 +127,12 @@ class AboutPage extends React.Component {
                     <div className="mb-12" dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsAbout.contentBlockText }}></div>
 
                     <div className="flex flex-wrap">
-                      <Link to="/learners" className="xl:text-lg text-white bg-purple-light px-5 py-4 uppercase font-semibold">Learners</Link>
-                      <Link to="/employers" className="xl:text-lg text-white bg-pink px-5 py-4 uppercase font-semibold ml-3">Employers</Link>
+                      <Link to="/learners" className="btn">
+                        <span className="btn__inner">Learners</span>
+                      </Link>
+                      <Link to="/employers" className="btn btn--pink ml-3">
+                        <span className="btn__inner">Employers</span>
+                      </Link>
                     </div>
                   </div>
                   <div className="w-full md:w-1/2 lg:w-7/12 md:px-8 order-1 md:order-2 mb-8 md:mb-0 relative mt-12 md:mt-24">
@@ -140,10 +142,10 @@ class AboutPage extends React.Component {
                         </GradientRevealRight>
                       </div>
                       <div className="relative overflow-hidden">
-                        <div className="relative overflow-hidden">
+                        <div className="relative overflow-hidden mt-12 md:mt-20">
                           <ImageReveal>
                           </ImageReveal>
-                          <Img fluid={ this.props.data.datoCmsAbout.contentBlockImage.fluid } alt={ this.props.data.datoCmsAbout.contentBlockHeading } className="relative z-10 mb-0 mt-12 md:mt-20" />
+                          <Img fluid={ this.props.data.datoCmsAbout.contentBlockImage.fluid } alt={ this.props.data.datoCmsAbout.contentBlockHeading } className="relative z-10 mb-0" />
                         </div>
                       </div>
                     </div>

@@ -58,9 +58,9 @@ class Career extends React.Component {
                         <span className="uppercase font-semibold text-pink text-xl md:text-2xl block mb-3">Job Title</span>
                         <h1 className="text-5xl md:text-5xl xl:text-6xl 2xl:text-7xl font-medium text-purple mb-6 md:mb-8 pr-12">{ this.props.data.datoCmsCareer.title }</h1>
 
-                        <AnchorLink to={`/careers/${this.props.data.datoCmsCareer.slug}/#application`} title="Apply for job" className="text-md text-purple font-semibold uppercase flex flex-wrap items-center">
+                        <AnchorLink to={`/careers/${this.props.data.datoCmsCareer.slug}/#application`} title="Apply for job" className="text-md text-purple font-semibold uppercase flex flex-wrap items-center btn-arrow">
                           <span className="block">Apply Now</span>
-                          <span className="block ml-4 w-8"><Arrow /></span>
+                          <span className="block ml-4 w-8 btn-arrow__arrow"><Arrow /></span>
                         </AnchorLink>
                       </div>
 
@@ -141,8 +141,8 @@ class Career extends React.Component {
                     </div>
                   </div>
                   <div className="mx-auto text-center">
-                    <AnchorLink to={`/careers/${this.props.data.datoCmsCareer.slug}/#application`} title="Apply for job" className="inline border-2 border-pink uppercase text-white p-4 px-6 font-medium text-lg">
-                      Apply for job
+                    <AnchorLink to={`/careers/${this.props.data.datoCmsCareer.slug}/#application`} title="Apply for job" className="btn btn--border">
+                      <span className="btn__inner">Apply for job</span>
                     </AnchorLink>
                   </div>
                 </div>
@@ -182,9 +182,9 @@ class Career extends React.Component {
                       <div className="mb-8" dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsCareer.supportingContentBlock.content }}>
                       </div>
 
-                      <Link to="/about" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center">
+                      <Link to="/about" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center btn-arrow">
                         <span className="block">Find out more</span>
-                        <span className="block ml-4 w-8"><Arrow /></span>
+                        <span className="block ml-4 w-8 btn-arrow__arrow"><Arrow /></span>
                       </Link>
                     </div>
                   </div>

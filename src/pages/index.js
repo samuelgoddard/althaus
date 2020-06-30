@@ -57,9 +57,9 @@ class IndexPage extends React.Component {
                     <div className="w-8/12 md:w-10/12">
                       <div className="text-white text-xl md:text-2xl mb-8 md:mb-12" dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsHome.heroBlurb }}></div>
 
-                      <Link to="/about" className="text-md text-white font-semibold uppercase flex flex-wrap items-center">
+                      <Link to="/about" className="text-md text-white font-semibold uppercase flex flex-wrap items-center group btn-arrow">
                         <span className="block">Discover More</span>
-                        <span className="block ml-4 w-8"><Arrow /></span>
+                        <span className="block ml-3 w-8 btn-arrow__arrow"><Arrow /></span>
                       </Link>
                     </div>
                   </div>
@@ -73,26 +73,26 @@ class IndexPage extends React.Component {
                   <div className="gradient-ltr">
                     <div className="flex flex-wrap xl:w-10/12 p-4">
                       <div className="w-1/2">
-                        <Link to="/learners" className="block py-6 md:px-10 text-center md:text-left">
+                        <Link to="/learners" className="block py-6 md:px-10 text-center md:text-left btn-arrow">
                           <span className="block text-white text-2xl md:text-3xl font-medium">Learners</span>
                           <div className="hidden md:block">
                             <span className="block text-white text-lg mb-3">Develop from learner into leader</span>
                             <span className="text-md text-white font-semibold uppercase flex flex-wrap items-center">
                               <span className="block">Discover More</span>
-                              <span className="block ml-4 w-8"><Arrow /></span>
+                              <span className="block ml-4 w-8 btn-arrow__arrow"><Arrow /></span>
                             </span>
                           </div>
                         </Link>
                       </div>
 
                       <div className="w-1/2 md:border-l md:border-white">
-                        <Link to="/employers" className="block py-6 md:px-10 text-center md:text-left">
+                        <Link to="/employers" className="block py-6 md:px-10 text-center md:text-left btn-arrow">
                           <span className="block text-white text-2xl md:text-3xl font-medium">Employers</span>
                           <div className="hidden md:block">
                             <span className="block text-white text-lg mb-3">Find the talent you need</span>
                             <span className="text-md text-white font-semibold uppercase flex flex-wrap items-center">
                               <span className="block">Discover More</span>
-                              <span className="block ml-4 w-8"><Arrow /></span>
+                              <span className="block ml-4 w-8 btn-arrow__arrow"><Arrow /></span>
                             </span>
                           </div>
                         </Link>
@@ -127,9 +127,9 @@ class IndexPage extends React.Component {
                         <div className="mb-8" dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsHome.contentBlock.content }}>
                         </div>
 
-                        <Link to="/about" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center block">
+                        <Link to="/about" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center btn-arrow">
                           <span className="block">Find Out More</span>
-                          <span className="block ml-4 w-8"><Arrow /></span>
+                          <span className="block ml-4 w-8 btn-arrow__arrow"><Arrow /></span>
                         </Link>
                       </div>
                     </div>
@@ -158,9 +158,9 @@ class IndexPage extends React.Component {
                       </ul>
                     </div>
 
-                    <Link to="/about" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center block">
+                    <Link to="/about" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center btn-arrow">
                       <span className="block">Start your journey</span>
-                      <span className="block ml-4 w-8"><Arrow /></span>
+                      <span className="block ml-4 w-8 btn-arrow__arrow"><Arrow /></span>
                     </Link>
                   </div>
                   <div className="w-full md:w-1/2 lg:w-7/12 md:px-8 order-1 md:order-2 mb-8 md:mb-0 relative">
@@ -217,9 +217,9 @@ class IndexPage extends React.Component {
                       </ul>
                     </div>
 
-                    <Link to="/about" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center block">
+                    <Link to="/about" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center btn-arrow">
                       <span className="block">Find Out More</span>
-                      <span className="block ml-4 w-8"><Arrow /></span>
+                      <span className="block ml-4 w-8 btn-arrow__arrow"><Arrow /></span>
                     </Link>
                   </div>
                 </div>

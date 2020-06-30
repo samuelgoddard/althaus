@@ -8,7 +8,7 @@ import { motion } from "framer-motion"
 import Img from "gatsby-image"
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { RevealLeft, RevealRight, GradientRevealLeft, GradientRevealRight, ImageReveal, BlockRevealLeft } from "../components/revealHelpers"
+import { RevealLeft, RevealRight, GradientRevealLeft, GradientRevealRight, ImageReveal, BlockRevealLeft, ImageParallax } from "../components/revealHelpers"
 
 if (typeof window !== `undefined`) {
   gsap.registerPlugin(ScrollTrigger)
@@ -55,9 +55,9 @@ class CoursesPage extends React.Component {
                         <h1 className="text-5xl md:text-6xl xl:text-7xl font-medium text-white mb-6 md:mb-8">{ this.props.data.datoCmsCoursesLanding.heroHeading }</h1>
 
                         <div className="w-full">
-                          <Link to="/contact" className="text-md text-white font-semibold uppercase flex flex-wrap items-center">
+                          <Link to="/contact" className="text-md text-white font-semibold uppercase flex flex-wrap items-center btn-arrow">
                             <span className="block">Get in touch</span>
-                            <span className="block ml-4 w-8"><Arrow /></span>
+                            <span className="block ml-4 w-8 btn-arrow__arrow"><Arrow /></span>
                           </Link>
                         </div>
                       </div>
@@ -105,7 +105,9 @@ class CoursesPage extends React.Component {
                           <span className="text-3xl md:text-4xl leading-extra-tight font-semibold block text-center -mt-12 md:-mt-16 xl:-mt-24 mb-12">{ this.props.data.datoCmsCoursesLanding.quote}</span>
 
                           <div className="mx-auto text-center">
-                            <Link to="/contact" className="inline border border-pink uppercase text-white p-4 px-6 font-medium text-lg">Get in touch</Link>
+                            <Link to="/contact" className="btn btn--border">
+                              <span className="btn__inner">Get in touch</span>
+                            </Link>
                           </div>
                         </div>
                       )}
@@ -144,13 +146,15 @@ class CoursesPage extends React.Component {
                               <GradientRevealLeft>
                               </GradientRevealLeft>
                             </div>
-                            <div className="relative overflow-hidden pt-12 md:pt-24 xl:pt-32">
-                              <div className="relative overflow-hidden">
-                                <ImageReveal>
-                                </ImageReveal>
-                                <Img fluid={node.teaserImage.fluid} alt={node.title} className="relative z-10 mb-0 pb-0" />
+                            <ImageParallax>
+                              <div className="relative overflow-hidden pt-12 md:pt-24 xl:pt-32">
+                                <div className="relative overflow-hidden">
+                                  <ImageReveal>
+                                  </ImageReveal>
+                                  <Img fluid={node.teaserImage.fluid} alt={node.title} className="relative z-10 mb-0 pb-0" />
+                                </div>
                               </div>
-                            </div>
+                            </ImageParallax>
                           </div>
                         </div>
                       )}
@@ -166,9 +170,9 @@ class CoursesPage extends React.Component {
                         </div>
                         </div>
 
-                        <Link to={`/courses/${ node.slug}`} className="text-md text-pink font-semibold uppercase flex flex-wrap items-center">
+                        <Link to={`/courses/${ node.slug}`} className="text-md text-pink font-semibold uppercase flex flex-wrap items-center btn-arrow">
                           <span className="block">View Courses</span>
-                          <span className="block ml-4 w-8"><Arrow /></span>
+                          <span className="block ml-4 w-8 btn-arrow__arrow"><Arrow /></span>
                         </Link>
                       </div>
 
@@ -179,13 +183,15 @@ class CoursesPage extends React.Component {
                                 <GradientRevealRight>
                                 </GradientRevealRight>
                               </div>
-                              <div className="relative overflow-hidden pt-12 md:pt-24 xl:pt-32">
-                                <div className="relative overflow-hidden">
-                                  <ImageReveal>
-                                  </ImageReveal>
-                                  <Img fluid={node.teaserImage.fluid} alt={node.title} className="relative z-10 mb-0 pb-0" />
+                              <ImageParallax>
+                                <div className="relative overflow-hidden pt-12 md:pt-24 xl:pt-32">
+                                  <div className="relative overflow-hidden">
+                                    <ImageReveal>
+                                    </ImageReveal>
+                                    <Img fluid={node.teaserImage.fluid} alt={node.title} className="relative z-10 mb-0 pb-0" />
+                                  </div>
                                 </div>
-                              </div>
+                              </ImageParallax>
                           </div>
                         </div>
                       )}
