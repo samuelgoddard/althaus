@@ -52,7 +52,7 @@ class EmployersPage extends React.Component {
                   <div className="container lg:px-32 pb-12">
                     <div className="flex flex-wrap pb-0 md:pb-20 lg:pb-24">
                       <div className="w-full md:w-1/2 lg:w-1/2 mb-8 md:mb-0">
-                        <span className="uppercase font-semibold text-white text-xl md:text-2xl block mb-8 -mt-10">Learners</span>
+                        <span className="uppercase font-semibold text-white text-xl md:text-2xl block mb-8 -mt-10">Employers</span>
                         <h1 className="text-5xl lg:text-6xl font-medium text-white mb-6 md:mb-8">{ this.props.data.datoCmsEmployer.heroHeading }</h1>
 
                         <div className="w-full">
@@ -179,7 +179,7 @@ class EmployersPage extends React.Component {
                     // const length = (this.props.data.allDatoCmsSubject.edges.length - 1);
                     return (
                       <div className="w-full md:w-1/2 md:px-6" key={i}>
-                        <Link to={`courses/${node.slug}`} className="text-white flex flex-wrap items-center border-t-2 border-purple-light py-4 md:py-6 xl:py-8 hover:text-pink focus:text-pink transition duration-300 ease-in-out">
+                        <Link to={`/courses/${node.slug}`} className="text-white flex flex-wrap items-center border-t-2 border-purple-light py-4 md:py-6 xl:py-8 hover:text-pink focus:text-pink transition duration-300 ease-in-out">
                           <div className="flex-1 pr-12">
                             <span className="text-xl md:text-2xl xl:text-3xl block font-semibold mb-2">{ node.title }</span>
                             <div className="md:text-lg block" dangerouslySetInnerHTML={{ __html: node.teaserText}}></div>

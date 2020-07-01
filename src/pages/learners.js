@@ -182,7 +182,7 @@ class LearnersPage extends React.Component {
                     // const length = (this.props.data.allDatoCmsSubject.edges.length - 1);
                     return (
                       <div className="w-full md:w-1/2 md:px-6" key={i}>
-                        <Link to={`courses/${node.slug}`} className="text-white flex flex-wrap items-center border-t-2 border-purple-light py-4 md:py-6 xl:py-8 hover:text-pink focus:text-pink transition duration-300 ease-in-out">
+                        <Link to={`/courses/${node.slug}`} className="text-white flex flex-wrap items-center border-t-2 border-purple-light py-4 md:py-6 xl:py-8 hover:text-pink focus:text-pink transition duration-300 ease-in-out">
                           <div className="flex-1 pr-12">
                             <span className="text-xl md:text-2xl xl:text-3xl block font-semibold mb-2">{ node.title }</span>
                             <div className="md:text-lg block" dangerouslySetInnerHTML={{ __html: node.teaserText}}></div>
