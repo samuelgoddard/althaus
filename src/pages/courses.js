@@ -49,10 +49,10 @@ class CoursesPage extends React.Component {
               <div className="bg-white pt-48 md:pt-56 xl:pt-64">
                 <div className="gradient-ltr">
                   <div className="container lg:px-32 pb-12">
-                    <div className="flex flex-wrap items-center pb-0 md:pb-20 lg:pb-24">
-                      <div className="w-full md:w-1/3 mb-8 md:mb-0">
+                    <div className="flex flex-wrap pb-0 md:pb-20 lg:pb-24">
+                      <div className="w-full md:w-1/2 lg:w-1/2 mb-8 md:mb-0">
                         <span className="uppercase font-semibold text-pink text-xl md:text-2xl block mb-8 -mt-10">Courses</span>
-                        <h1 className="text-5xl md:text-6xl xl:text-7xl font-medium text-white mb-6 md:mb-8">{ this.props.data.datoCmsCoursesLanding.heroHeading }</h1>
+                        <h1 className="text-5xl xl:text-6xl font-medium text-white mb-6 md:mb-8">{ this.props.data.datoCmsCoursesLanding.heroHeading }</h1>
 
                         <div className="w-full">
                           <Link to="/contact" className="text-md text-white font-semibold uppercase flex flex-wrap items-center btn-arrow">
@@ -62,7 +62,8 @@ class CoursesPage extends React.Component {
                         </div>
                       </div>
 
-                      <div className="w-full md:w-2/3 mt-16 md:mt-20">
+                      <div className="w-full md:w-1/2 lg:w-1/2 md:-mt-12 md:pl-12">
+                        <Img fluid={ this.props.data.datoCmsCoursesLanding.heroImage.fluid } className="w-full" />
                       </div>
                     </div>
 
@@ -244,6 +245,12 @@ export const query = graphql`
     datoCmsCoursesLanding {
       title
       heroHeading
+      heroImage {
+        fluid(
+          imgixParams: {w: "720", fit: "crop", crop: "faces, edges"}) {
+          ...GatsbyDatoCmsFluid
+        }
+      }
       scrollingText
       introText
       content

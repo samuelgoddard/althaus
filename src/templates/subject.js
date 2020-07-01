@@ -4,11 +4,11 @@ import Header from "../components/header"
 import Footer from "../components/footer"
 import { Link } from "gatsby"
 import Arrow from "../images/arrow.inline.svg";
-// import Img from "gatsby-image";
+import Img from "gatsby-image";
 import gsap from "gsap";
 import { motion } from "framer-motion"
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { RevealLeft, RevealRight } from "../components/revealHelpers"
+import { RevealLeft, RevealRight, GradientRevealRightLarge } from "../components/revealHelpers"
 
 if (typeof window !== `undefined`) {
   gsap.registerPlugin(ScrollTrigger)
@@ -48,13 +48,13 @@ class SubjectTemplate extends React.Component {
               </div>
               
               {/* Hero */}
-              <div className="bg-white pt-48 md:pt-56 xl:pt-64">
+              <div className="bg-white pt-48 md:pt-56 xl:pt-64 mb-32 md:mb-0">
                 <div className="bg-purple mb-6 md:mb-10">
                   <div className="container lg:px-32 pb-12">
-                    <div className="flex flex-wrap items-center pb-0 md:pb-20 lg:pb-24">
-                      <div className="w-full md:w-1/3 mb-8 md:mb-0">
+                    <div className="flex flex-wrap pb-0 md:pb-20 lg:pb-24">
+                      <div className="w-full md:w-1/2 lg:w-1/2 mb-8 md:mb-0 relative z-10">
                         <span className="uppercase font-semibold text-purple text-xl md:text-2xl block mb-8 -mt-10">Subject</span>
-                        <h1 className="text-5xl md:text-6xl xl:text-7xl font-medium text-white mb-6 md:mb-8">{ this.props.data.datoCmsSubject.title }</h1>
+                        <h1 className="text-5xl lg:text-6xl xl:text-7xl font-medium text-white mb-6 md:mb-8">{ this.props.data.datoCmsSubject.title }</h1>
 
                         <div className="w-full">
                           <Link to="/contact" className="text-md text-white font-semibold uppercase flex flex-wrap items-center btn-arrow">
@@ -64,7 +64,10 @@ class SubjectTemplate extends React.Component {
                         </div>
                       </div>
 
-                      <div className="w-full md:w-2/3 mt-16 md:mt-20">
+                      <div className="w-full md:w-1/2 lg:w-1/2 -mb-24 md:mb-0 md:-mt-12 md:pl-12 relative pt-12">
+                        <GradientRevealRightLarge>
+                        </GradientRevealRightLarge>
+                        <Img fluid={ this.props.data.datoCmsSubject.heroImage.fluid } className="w-full -mb-12 md:-mb-24" />
                       </div>
                     </div>
                   </div>
@@ -143,6 +146,12 @@ export const query = graphql`
     datoCmsSubject(slug: { eq: $slug }) {
       title
       introText
+      heroImage {
+        fluid(
+          imgixParams: {w: "720", fit: "crop", crop: "faces, edges"}) {
+          ...GatsbyDatoCmsFluid
+        }
+      }
       content
       slug
     }
