@@ -23,14 +23,14 @@ export default class SmoothScroll extends React.Component {
   });
 
   componentDidMount() {
-    if (!isMobile) {
+    if (!isMobile().any) {
       windowGlobal.addEventListener("scroll", this.onScroll);
       this.ro.observe(this.viewport);
     }
   }
 
   onScroll = () => {
-    if (!isMobile) {
+    if (!isMobile().any) {
       TweenLite.to(this.viewport, 1, {
         y: -windowGlobal.pageYOffset,
         ease: Power2.easeOut
@@ -41,10 +41,10 @@ export default class SmoothScroll extends React.Component {
   render() {
     return (
       <>
-        <div className={ isMobile ? `` : `viewport`} ref={ref => (this.viewport = ref)}>
+        <div className={ isMobile().any ? `` : `viewport`} ref={ref => (this.viewport = ref)}>
           {this.props.children}
         </div>
-        { !isMobile && (
+        { !isMobile().any && (
           <div
             ref={ref => (this.fake = ref)}
             style={{
