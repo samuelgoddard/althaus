@@ -129,7 +129,7 @@ export const query = graphql`
       }
       introText
     }
-    allDatoCmsPolicy {
+    allDatoCmsPolicy(sort: { fields: position, order: ASC }) {
       edges {
         node {
           title

@@ -5,6 +5,7 @@ import Footer from "../components/footer"
 import ContactForm from "../components/contactForm"
 import { Link } from "gatsby"
 import Arrow from "../images/arrow.inline.svg";
+import { AnchorLink } from "gatsby-plugin-anchor-links";
 import { motion } from "framer-motion"
 import Img from "gatsby-image"
 import gsap from "gsap";
@@ -77,10 +78,12 @@ class CoursesPage extends React.Component {
                       {this.props.data.allDatoCmsSubject.edges.map(({ node }, i) => {
                         return (
                           <div className={ i === 0 ? `w-full md:w-1/2 lg:w-1/4 mb-3 lg:mb-0` : `w-full md:w-1/2 lg:w-1/4 mb-3 lg:mb-0 lg:border-l-2 lg:border-pink`} key={i}>
-                            { node.teaserIcon && (
-                              <img src={node.teaserIcon.url} alt={node.title} className="w-12 md:w-16 xl:w-20 mx-auto mb-3" />
-                            )}
-                            <span className="block text-lg text-purple text-center">{ node.title }</span>
+                            <AnchorLink to={`/courses/#${ node.slug }`} title={node.title} className="block">
+                              { node.teaserIcon && (
+                                <img src={node.teaserIcon.url} alt={node.title} className="w-12 md:w-16 xl:w-20 mx-auto mb-3" />
+                              )}
+                              <span className="block text-lg text-purple text-center">{ node.title }</span>
+                            </AnchorLink>
                           </div>
                         )
                       })}
@@ -129,7 +132,7 @@ class CoursesPage extends React.Component {
             {this.props.data.allDatoCmsSubject.edges.map(({ node }, i) => {
               const length = (this.props.data.allDatoCmsSubject.edges.length - 1);
               return (
-                <section key={i} className={ i === length ? `bg-transparent md:pb-8 lg:pb-8 xl:pb-12 relative z-20 mb-16 xl:mb-24` : `bg-transparent md:pb-8 lg:pb-8 xl:pb-12 relative  relative z-20 mb-32`}>
+                <section key={i} className={ i === length ? `bg-transparent md:pb-8 lg:pb-8 xl:pb-12 relative z-20 mb-16 xl:mb-24` : `bg-transparent md:pb-8 lg:pb-8 xl:pb-12 relative z-20 mb-32`} id={ node.slug }>
                   { i%2 === 0 ? (
                     <div className="overflow-hidden">
                       <RevealRight>

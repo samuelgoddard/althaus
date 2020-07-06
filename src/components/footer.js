@@ -19,9 +19,23 @@ const Footer = ({ contactPage }) => {
         telephone
         address
       }
-      footerImage: file(relativePath: { eq: "footer.png" }) {
+      paperless: file(relativePath: { eq: "paperless.png" }) {
         childImageSharp {
           fluid(maxWidth: 1200) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      cyberEssentials: file(relativePath: { eq: "cyber-essentials.png" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      footerImage: file(relativePath: { eq: "footer.png" }) {
+        childImageSharp {
+          fluid {
             ...GatsbyImageSharpFluid
           }
         }
@@ -121,8 +135,9 @@ const Footer = ({ contactPage }) => {
             </div>
           </div>
 
-          <div className="w-full flex flex-wrap items-end py-6">
-            <span className="text-white">Paperless Logos...</span>
+          <div className="w-full flex flex-wrap items-center py-6 pb-2">
+            <Img fluid={data.paperless.childImageSharp.fluid } className="w-10 md:w-16 mr-5" />
+            <Img fluid={data.cyberEssentials.childImageSharp.fluid } className="w-8 md:w-12" />
             <small className="text-white ml-auto text-sm">&copy; Althaus. All rights reserved {(new Date().getFullYear())}</small>
           </div>
 
