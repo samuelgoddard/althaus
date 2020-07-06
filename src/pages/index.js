@@ -85,7 +85,7 @@ class IndexPage extends React.Component {
                     <div className="flex flex-wrap xl:w-10/12 p-4">
                       <div className="w-1/2">
                         <Link to="/learners" className="block py-6 md:px-10 text-center md:text-left btn-arrow">
-                          <span className="block text-white text-2xl md:text-3xl font-medium">Learners</span>
+                          <span className="block text-white text-2xl md:text-3xl font-medium">Leawefwefwefrners</span>
                           <div className="hidden md:block">
                             <span className="block text-white text-lg mb-3">Develop from learner into leader</span>
                             <span className="text-md text-white font-semibold uppercase flex flex-wrap items-center">
