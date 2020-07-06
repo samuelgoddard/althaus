@@ -31,7 +31,13 @@ class AboutPage extends React.Component {
   render () {
     return (
       <>
-        <SEO title="About" />
+        <SEO
+          titleOverride={this.props.data.datoCmsAbout.metaTags && this.props.data.datoCmsAbout.metaTags.title ? this.props.data.datoCmsAbout.metaTags.title : this.props.data.datoCmsAbout.title}
+          descriptionOverride={this.props.data.datoCmsAbout.metaTags && this.props.data.datoCmsAbout.metaTags.description ? this.props.data.datoCmsAbout.metaTags.description : null}
+          pathnameOverride={this.props.location.pathname}
+          imageOverride={this.props.data.datoCmsAbout.metaTags && this.props.data.datoCmsAbout.metaTags.image ? this.props.data.datoCmsAbout.metaTags.image.url : null}
+        />
+
         <motion.div
           initial="initial"
           animate="enter"
@@ -174,9 +180,9 @@ class AboutPage extends React.Component {
                   {this.props.data.allDatoCmsTeam.edges.map(({ node }, i) => {
                     return (
                       <div className="w-full sm:w-1/2 md:w-1/3 mb-8 sm:px-4" key={i}>
-                        <div className="bg-pink w-full text-white h-full relative">
-                          <Img fluid={node.image.fluid} alt={node.title} className="object-cover object-center bg-multiply" />
-                          <div className="p-5 md:p-8 absolute bottom-0 left-0 right-0 z-10">
+                        <div className="bg-pink w-full text-white h-full relative flex flex-wrap">
+                          <Img fluid={node.image.fluid} alt={node.title} className="object-cover object-center bg-multiply mt-auto self-end w-full" />
+                          <div className="p-5 md:p-8 z-10 w-full absolute bottom-0 left-0">
                             <span className="block font-semibold text-2xl lg:text-3xl leading-extra-tight mb-2">{ node.name }</span>
                             <span className="block lg:text-lg leading-extra-tight">{ node.jobTitle }</span>
                           </div>
@@ -201,6 +207,14 @@ export default AboutPage
 export const query = graphql`
   query {
     datoCmsAbout {
+      metaTags {
+        title
+        description
+        twitterCard
+        image {
+          url
+        }
+      }
       heroHeading
       heroImage {
         fluid(maxWidth: 600, imgixParams: { fm: "jpg", auto: "compress" }) {

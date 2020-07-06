@@ -30,7 +30,12 @@ class CareersPage extends React.Component {
   render () {
     return (
       <>
-        <SEO title="Careers" />
+        <SEO
+          titleOverride={this.props.data.datoCmsCareersLanding.metaTags && this.props.data.datoCmsCareersLanding.metaTags.title ? this.props.data.datoCmsCareersLanding.metaTags.title : this.props.data.datoCmsCareersLanding.title}
+          descriptionOverride={this.props.data.datoCmsCareersLanding.metaTags && this.props.data.datoCmsCareersLanding.metaTags.description ? this.props.data.datoCmsCareersLanding.metaTags.description : null}
+          pathnameOverride={this.props.location.pathname}
+          imageOverride={this.props.data.datoCmsCareersLanding.metaTags && this.props.data.datoCmsCareersLanding.metaTags.image ? this.props.data.datoCmsCareersLanding.metaTags.image.url : null}
+        />
 
         <motion.div
           initial="initial"
@@ -151,6 +156,14 @@ export default CareersPage
 export const query = graphql`
   query {
     datoCmsCareersLanding {
+      metaTags {
+        title
+        description
+        twitterCard
+        image {
+          url
+        }
+      }
       title
       heroHeading
       heroText

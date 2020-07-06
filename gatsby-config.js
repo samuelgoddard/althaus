@@ -2,9 +2,10 @@ require("dotenv").config({ path: `.env` })
 
 module.exports = {
   siteMetadata: {
+    siteUrl: `https://www.althausdigital.co.uk`,
     title: `Althaus Digital`,
     description: `Welcome to althaus digital - an alternative training provider who see the bigger picture.`,
-    author: `@samuelgoddard`,
+    author: `@althausdigital`,
   },
   plugins: [
     {
@@ -30,13 +31,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `althaus-digital`,
+        short_name: `althaus`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#131739`,
+        theme_color: `#131739`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`,
+        icon: `src/images/favicon.png`,
       },
     },
     {

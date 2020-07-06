@@ -29,7 +29,12 @@ class ResourcePage extends React.Component {
   render () {
     return (
       <>
-        <SEO title={ this.props.data.datoCmsResource.title } />
+        <SEO
+          titleOverride={this.props.data.datoCmsResource.metaTags && this.props.data.datoCmsResource.metaTags.title ? this.props.data.datoCmsResource.metaTags.title : this.props.data.datoCmsResource.title}
+          descriptionOverride={this.props.data.datoCmsResource.metaTags && this.props.data.datoCmsResource.metaTags.description ? this.props.data.datoCmsResource.metaTags.description : null}
+          pathnameOverride={this.props.location.pathname}
+          imageOverride={this.props.data.datoCmsResource.metaTags && this.props.data.datoCmsResource.metaTags.image ? this.props.data.datoCmsResource.metaTags.image.url : null}
+        />
 
         <motion.div
           initial="initial"
@@ -119,6 +124,14 @@ export const query = graphql`
   query ResourceQuery($slug: String!) {
     datoCmsResource(slug: { eq: $slug }) {
       title
+      metaTags {
+        title
+        description
+        twitterCard
+        image {
+          url
+        }
+      }
       heroImage {
         fluid(
           imgixParams: {w: "720", fit: "crop", crop: "faces, edges"}) {

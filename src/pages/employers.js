@@ -2,6 +2,7 @@ import React from "react"
 import SEO from "../components/seo"
 import Header from "../components/header"
 import Footer from "../components/footer"
+import ContactForm from "../components/contactForm"
 import { Link } from "gatsby"
 import Arrow from "../images/arrow.inline.svg";
 import { motion } from "framer-motion"
@@ -31,7 +32,12 @@ class EmployersPage extends React.Component {
   render () {
     return (
       <>
-        <SEO title={ this.props.data.datoCmsEmployer.title } />
+        <SEO
+          titleOverride={this.props.data.datoCmsEmployer.metaTags && this.props.data.datoCmsEmployer.metaTags.title ? this.props.data.datoCmsEmployer.metaTags.title : this.props.data.datoCmsEmployer.title}
+          descriptionOverride={this.props.data.datoCmsEmployer.metaTags && this.props.data.datoCmsEmployer.metaTags.description ? this.props.data.datoCmsEmployer.metaTags.description : null}
+          pathnameOverride={this.props.location.pathname}
+          imageOverride={this.props.data.datoCmsEmployer.metaTags && this.props.data.datoCmsEmployer.metaTags.image ? this.props.data.datoCmsEmployer.metaTags.image.url : null}
+        />
 
         <motion.div
           initial="initial"
@@ -211,10 +217,11 @@ class EmployersPage extends React.Component {
                 <div className="relative">
                   <div className="container lg:px-32 relative z-20">
                     <div className="gradient-ltr p-8 md:p-16 xl:p-24">
-                      <div className="mb-8 text-center">
-                        <span className="text-white font-semibold block text-2xl md:text-3xl mb-5 leading-extra-tight">Search our apprentice talent pool</span>
-                        <span className="text-white block text-sm md:text-base lg:text-lg xl:text-xl">Fill in the form below and we will be in touch</span>
+                      <div className="mb-8 md:mb-12 text-center">
+                        <span className="text-white font-semibold block text-2xl md:text-3xl mb-5 leading-extra-tight">Want to know more information about our courses?</span>
+                        <span className="text-white block text-sm md:text-base lg:text-lg xl:text-xl">Fill in the form below and we will be in touch</span>                        
                       </div>
+                      <ContactForm />
                     </div>
                   </div>
                 </div>
@@ -235,6 +242,14 @@ export const query = graphql`
   query {
     datoCmsEmployer {
       title
+      metaTags {
+        title
+        description
+        twitterCard
+        image {
+          url
+        }
+      }
       heroImage {
         fluid(
           imgixParams: {w: "720", fit: "crop", crop: "faces, edges"}) {

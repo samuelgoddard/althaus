@@ -2,6 +2,7 @@ import React from "react"
 import SEO from "../components/seo"
 import Header from "../components/header"
 import Footer from "../components/footer"
+import ContactForm from "../components/contactForm"
 import { Link } from "gatsby"
 import Arrow from "../images/arrow.inline.svg";
 import { motion } from "framer-motion"
@@ -30,7 +31,12 @@ class CoursesPage extends React.Component {
   render () {
     return (
       <>
-        <SEO title="Courses" />
+        <SEO
+          titleOverride={this.props.data.datoCmsCoursesLanding.metaTags && this.props.data.datoCmsCoursesLanding.metaTags.title ? this.props.data.datoCmsCoursesLanding.metaTags.title : this.props.data.datoCmsCoursesLanding.title}
+          descriptionOverride={this.props.data.datoCmsCoursesLanding.metaTags && this.props.data.datoCmsCoursesLanding.metaTags.description ? this.props.data.datoCmsCoursesLanding.metaTags.description : null}
+          pathnameOverride={this.props.location.pathname}
+          imageOverride={this.props.data.datoCmsCoursesLanding.metaTags && this.props.data.datoCmsCoursesLanding.metaTags.image ? this.props.data.datoCmsCoursesLanding.metaTags.image.url : null}
+        />
 
         <motion.div
           initial="initial"
@@ -220,10 +226,12 @@ class CoursesPage extends React.Component {
 
                   <div className="container lg:px-32 relative z-20">
                     <div className="gradient-ltr p-8 md:p-16 xl:p-24">
-                      <div className="mb-8 text-center">
+                      <div className="mb-8 md:mb-12 text-center">
                         <span className="text-white font-semibold block text-2xl md:text-3xl mb-5 leading-extra-tight">Want to know more information about our courses?</span>
                         <span className="text-white block text-sm md:text-base lg:text-lg xl:text-xl">Fill in the form below and we will be in touch</span>
                       </div>
+
+                      <ContactForm />
                     </div>
                   </div>
                 </div>
@@ -244,6 +252,14 @@ export const query = graphql`
   query {
     datoCmsCoursesLanding {
       title
+      metaTags {
+        title
+        description
+        twitterCard
+        image {
+          url
+        }
+      }
       heroHeading
       heroImage {
         fluid(

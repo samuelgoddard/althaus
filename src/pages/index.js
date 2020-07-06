@@ -30,7 +30,12 @@ class IndexPage extends React.Component {
   render () {
     return (
       <>
-        <SEO title="Home" />
+        <SEO
+          titleOverride={this.props.data.datoCmsHome.metaTags && this.props.data.datoCmsHome.metaTags.title ? this.props.data.datoCmsHome.metaTags.title : this.props.data.datoCmsHome.title}
+          descriptionOverride={this.props.data.datoCmsHome.metaTags && this.props.data.datoCmsHome.metaTags.description ? this.props.data.datoCmsHome.metaTags.description : null}
+          pathnameOverride={this.props.location.pathname}
+          imageOverride={this.props.data.datoCmsHome.metaTags && this.props.data.datoCmsHome.metaTags.image ? this.props.data.datoCmsHome.metaTags.image.url : null}
+        />
 
         <motion.div
           initial="initial"
@@ -236,6 +241,14 @@ export const query = graphql`
   query {
     datoCmsHome {
       title
+      metaTags {
+        title
+        description
+        twitterCard
+        image {
+          url
+        }
+      }
       heroImage {
         fluid(
           imgixParams: {w: "720", fit: "crop", crop: "faces, edges"}) {

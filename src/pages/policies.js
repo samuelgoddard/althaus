@@ -30,7 +30,12 @@ class PoliciesPage extends React.Component {
 
     return (
       <>
-        <SEO title={ this.props.data.datoCmsPoliciesLanding.title } />
+        <SEO
+          titleOverride={this.props.data.datoCmsPoliciesLanding.metaTags && this.props.data.datoCmsPoliciesLanding.metaTags.title ? this.props.data.datoCmsPoliciesLanding.metaTags.title : this.props.data.datoCmsPoliciesLanding.title}
+          descriptionOverride={this.props.data.datoCmsPoliciesLanding.metaTags && this.props.data.datoCmsPoliciesLanding.metaTags.description ? this.props.data.datoCmsPoliciesLanding.metaTags.description : null}
+          pathnameOverride={this.props.location.pathname}
+          imageOverride={this.props.data.datoCmsPoliciesLanding.metaTags && this.props.data.datoCmsPoliciesLanding.metaTags.image ? this.props.data.datoCmsPoliciesLanding.metaTags.image.url : null}
+        />
 
         <motion.div
           initial="initial"
@@ -107,6 +112,14 @@ export const query = graphql`
   query {
     datoCmsPoliciesLanding {
       title
+      metaTags {
+        title
+        description
+        twitterCard
+        image {
+          url
+        }
+      }
       heroHeading
       heroImage {
         fluid(

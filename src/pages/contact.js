@@ -2,6 +2,7 @@ import React from "react";
 import SEO from "../components/seo";
 import Header from "../components/header";
 import Footer from "../components/footer";
+import ContactFormBasic from "../components/contactFormBasic";
 import { motion } from "framer-motion"
 import gsap from "gsap";
 import Img from "gatsby-image";
@@ -28,7 +29,12 @@ class ContactPage extends React.Component {
   render () {    
     return (
       <>
-        <SEO title={ this.props.data.datoCmsContact.title } />
+        <SEO
+          titleOverride={this.props.data.datoCmsContact.metaTags && this.props.data.datoCmsContact.metaTags.title ? this.props.data.datoCmsContact.metaTags.title : this.props.data.datoCmsContact.title}
+          descriptionOverride={this.props.data.datoCmsContact.metaTags && this.props.data.datoCmsContact.metaTags.description ? this.props.data.datoCmsContact.metaTags.description : null}
+          pathnameOverride={this.props.location.pathname}
+          imageOverride={this.props.data.datoCmsContact.metaTags && this.props.data.datoCmsContact.metaTags.image ? this.props.data.datoCmsContact.metaTags.image.url : null}
+        />
 
         <motion.div
           initial="initial"
@@ -89,24 +95,19 @@ class ContactPage extends React.Component {
                           <GradientRevealLeft>
                           </GradientRevealLeft>
                         </div>
-                        <div className="relative overflow-hidden pt-12 md:pt-24 xl:pt-32">
+                        <div className="relative overflow-hidden">
                           <ImageParallax>
-                            <div className="relative overflow-hidden">
+                            <div className="relative overflow-hidden mt-12 md:mt-24 xl:mt-32">
                               <ImageReveal>
                               </ImageReveal>
-                              <img src="https://placedog.net/1200/700" alt="placeholder" className="relative z-10 mb-0 pb-0" />
+                              <Img fluid={ this.props.data.datoCmsContact.supportingImage.fluid} className="relative z-10 mb-0 pb-0" />
                             </div>
                           </ImageParallax>
                         </div>
                       </div>
                     </div>
                     <div className="w-full md:w-1/2 lg:w-5/12 md:px-8 content md:pt-32 xl:pt-40">
-                      <h2 className="pb-6 mb-0">Form Here...</h2>
-                      <span className="w-20 h-2 bg-pink block mb-8"></span>
-
-                      <div className="mb-8">
-                        <p>Althaus provides the crucial connection between learners and employers, giving individuals the opportunity to build their digital skills before matching them with employers who need them the most.</p>
-                      </div>
+                      <ContactFormBasic />
                     </div>
                   </div>
                 </div>
@@ -126,6 +127,14 @@ export default ContactPage
 export const query = graphql`
   query {
     datoCmsContact {
+      metaTags {
+        title
+        description
+        twitterCard
+        image {
+          url
+        }
+      }
       title
       emailAddress
       telephone
@@ -133,6 +142,12 @@ export const query = graphql`
       heroHeading
       heroText
       heroImage {
+        fluid(
+          imgixParams: {w: "720", fit: "crop", crop: "faces, edges"}) {
+          ...GatsbyDatoCmsFluid
+        }
+      }
+      supportingImage {
         fluid(
           imgixParams: {w: "720", fit: "crop", crop: "faces, edges"}) {
           ...GatsbyDatoCmsFluid

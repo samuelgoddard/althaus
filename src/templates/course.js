@@ -2,6 +2,7 @@ import React from "react"
 import SEO from "../components/seo"
 import Header from "../components/header"
 import Footer from "../components/footer"
+import ContactForm from "../components/contactForm"
 // import { Link } from "gatsby"
 import Arrow from "../images/arrow.inline.svg";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
@@ -31,7 +32,12 @@ class CourseTemplate extends React.Component {
   render () {
     return (
       <>
-        <SEO title={ `${ this.props.data.datoCmsCourse.title } Level ${ this.props.data.datoCmsCourse.level }` } />
+        <SEO
+          titleOverride={this.props.data.datoCmsCourse.metaTags && this.props.data.datoCmsCourse.metaTags.title ? this.props.data.datoCmsCourse.metaTags.title : this.props.data.datoCmsCourse.title}
+          descriptionOverride={this.props.data.datoCmsCourse.metaTags && this.props.data.datoCmsCourse.metaTags.description ? this.props.data.datoCmsCourse.metaTags.description : null}
+          pathnameOverride={this.props.location.pathname}
+          imageOverride={this.props.data.datoCmsCourse.metaTags && this.props.data.datoCmsCourse.metaTags.image ? this.props.data.datoCmsCourse.metaTags.image.url : null}
+        />
 
         <motion.div
           initial="initial"
@@ -116,10 +122,12 @@ class CourseTemplate extends React.Component {
                 <div className="relative">
                   <div className="container lg:px-32 relative z-20">
                     <div className="bg-purple-light p-8 md:p-16 xl:p-24">
-                      <div className="mb-8 text-center">
+                      <div className="mb-8 md:mb-12 text-center">
                         <span className="text-white font-semibold block text-2xl md:text-3xl mb-5 leading-extra-tight">Make an enquiry</span>
                         <span className="text-white block text-sm md:text-base lg:text-lg xl:text-xl">Fill in the form below and we will be in touch</span>
                       </div>
+                      
+                      <ContactForm />
                     </div>
                   </div>
                 </div>
@@ -140,6 +148,14 @@ export const query = graphql`
   query CourseQuery($slug: String!) {
     datoCmsCourse(slug: { eq: $slug }) {
       title
+      metaTags {
+        title
+        description
+        twitterCard
+        image {
+          url
+        }
+      }
       heroImage {
         fluid(
           imgixParams: {w: "720", fit: "crop", crop: "faces, edges"}) {

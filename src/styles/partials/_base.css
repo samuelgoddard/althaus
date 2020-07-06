@@ -14,6 +14,10 @@ a {
 	@apply duration-300;
 }
 
+.border-b-0-forced {
+	border-bottom: 0 !important;
+}
+
 .gradient-ltr {
 	background: rgb(44,53,128);
 	background: linear-gradient(275deg, rgba(49,53,130,1) 0%, rgba(236,67,98,1) 100%);

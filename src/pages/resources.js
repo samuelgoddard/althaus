@@ -30,7 +30,12 @@ class ResourcesPage extends React.Component {
   render () {
     return (
       <>
-        <SEO title="Resources" />
+        <SEO
+          titleOverride={this.props.data.datoCmsResourcesLanding.metaTags && this.props.data.datoCmsResourcesLanding.metaTags.title ? this.props.data.datoCmsResourcesLanding.metaTags.title : this.props.data.datoCmsResourcesLanding.title}
+          descriptionOverride={this.props.data.datoCmsResourcesLanding.metaTags && this.props.data.datoCmsResourcesLanding.metaTags.description ? this.props.data.datoCmsResourcesLanding.metaTags.description : null}
+          pathnameOverride={this.props.location.pathname}
+          imageOverride={this.props.data.datoCmsResourcesLanding.metaTags && this.props.data.datoCmsResourcesLanding.metaTags.image ? this.props.data.datoCmsResourcesLanding.metaTags.image.url : null}
+        />
         
         <motion.div
           initial="initial"
@@ -69,7 +74,7 @@ class ResourcesPage extends React.Component {
             </section>
 
             {/* Listings */}
-            <section>
+            <section id="resources">
               <div className="pt-12 md:pt-24 pb-12 md:pb-24 overflow-hidden relative z-10">
                 <div className="bg-purple absolute top-0 left-0 right-0 h-screen w-full"></div>
                 <div className="container lg:px-32 relative text-white text-center">
@@ -115,6 +120,14 @@ export const query = graphql`
   query {
     datoCmsResourcesLanding {
       title
+      metaTags {
+        title
+        description
+        twitterCard
+        image {
+          url
+        }
+      }
       heroHeading
       heroText
       heroImage {

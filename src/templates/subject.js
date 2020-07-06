@@ -32,7 +32,12 @@ class SubjectTemplate extends React.Component {
 
     return (
       <>
-        <SEO title={ this.props.data.datoCmsSubject.title } />
+        <SEO
+          titleOverride={this.props.data.datoCmsSubject.metaTags && this.props.data.datoCmsSubject.metaTags.title ? this.props.data.datoCmsSubject.metaTags.title : this.props.data.datoCmsSubject.title}
+          descriptionOverride={this.props.data.datoCmsSubject.metaTags && this.props.data.datoCmsSubject.metaTags.description ? this.props.data.datoCmsSubject.metaTags.description : null}
+          pathnameOverride={this.props.location.pathname}
+          imageOverride={this.props.data.datoCmsSubject.metaTags && this.props.data.datoCmsSubject.metaTags.image ? this.props.data.datoCmsSubject.metaTags.image.url : null}
+        />
 
         <motion.div
           initial="initial"
@@ -145,6 +150,14 @@ export const query = graphql`
   query SubjectQuery($slug: String!) {
     datoCmsSubject(slug: { eq: $slug }) {
       title
+      metaTags {
+        title
+        description
+        twitterCard
+        image {
+          url
+        }
+      }
       introText
       heroImage {
         fluid(

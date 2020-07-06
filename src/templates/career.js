@@ -2,6 +2,7 @@ import React from "react"
 import SEO from "../components/seo"
 import Header from "../components/header"
 import Footer from "../components/footer"
+import CareerForm from "../components/careerForm"
 import Arrow from "../images/arrow.inline.svg";
 import { Link } from "gatsby"
 import { AnchorLink } from "gatsby-plugin-anchor-links";
@@ -34,7 +35,12 @@ class Career extends React.Component {
 
     return (
       <>
-        <SEO title={ this.props.data.datoCmsCareer.title } />
+        <SEO
+          titleOverride={this.props.data.datoCmsCareer.metaTags && this.props.data.datoCmsCareer.metaTags.title ? this.props.data.datoCmsCareer.metaTags.title : this.props.data.datoCmsCareer.title}
+          descriptionOverride={this.props.data.datoCmsCareer.metaTags && this.props.data.datoCmsCareer.metaTags.description ? this.props.data.datoCmsCareer.metaTags.description : null}
+          pathnameOverride={this.props.location.pathname}
+          imageOverride={this.props.data.datoCmsCareer.metaTags && this.props.data.datoCmsCareer.metaTags.image ? this.props.data.datoCmsCareer.metaTags.image.url : null}
+        />
         
         <motion.div
           initial="initial"
@@ -211,10 +217,12 @@ class Career extends React.Component {
 
                   <div className="container lg:px-32 relative z-20">
                     <div className="gradient-ltr p-8 md:p-16 xl:p-24">
-                      <div className="mb-8 text-center">
+                      <div className="mb-8 md:mb-12 text-center">
                         <span className="text-white font-semibold block text-2xl md:text-3xl mb-5 leading-extra-tight">Interested in working for althaus?</span>
                         <span className="text-white block text-sm md:text-base lg:text-lg xl:text-xl">Fill in the form below and we will be in touch</span>
                       </div>
+
+                      <CareerForm />
                     </div>
                   </div>
                 </div>
@@ -235,6 +243,14 @@ export const query = graphql`
   query CareerQuery($slug: String!) {
     datoCmsCareer(slug: { eq: $slug }) {
       title
+      metaTags {
+        title
+        description
+        twitterCard
+        image {
+          url
+        }
+      }
       heroImage {
         fluid(
           imgixParams: {w: "720", fit: "crop", crop: "faces, edges"}) {

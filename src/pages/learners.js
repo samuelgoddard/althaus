@@ -2,6 +2,7 @@ import React from "react"
 import SEO from "../components/seo"
 import Header from "../components/header"
 import Footer from "../components/footer"
+import ContactForm from "../components/contactForm"
 import { Link } from "gatsby"
 import Arrow from "../images/arrow.inline.svg";
 import gsap from "gsap";
@@ -10,6 +11,8 @@ import { motion } from "framer-motion";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { RevealLeft, RevealRight, GradientRevealLeft, ImageReveal, ImageParallax } from "../components/revealHelpers"
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+// import 'react-tabs/style/react-tabs.css';
 
 if (typeof window !== `undefined`) {
   gsap.registerPlugin(ScrollTrigger)
@@ -31,7 +34,12 @@ class LearnersPage extends React.Component {
   render () {
     return (
       <>
-        <SEO title={ this.props.data.datoCmsLearner.title } />
+        <SEO
+          titleOverride={this.props.data.datoCmsLearner.metaTags && this.props.data.datoCmsLearner.metaTags.title ? this.props.data.datoCmsLearner.metaTags.title : this.props.data.datoCmsLearner.title}
+          descriptionOverride={this.props.data.datoCmsLearner.metaTags && this.props.data.datoCmsLearner.metaTags.description ? this.props.data.datoCmsLearner.metaTags.description : null}
+          pathnameOverride={this.props.location.pathname}
+          imageOverride={this.props.data.datoCmsLearner.metaTags && this.props.data.datoCmsLearner.metaTags.image ? this.props.data.datoCmsLearner.metaTags.image.url : null}
+        />
 
         <motion.div
           initial="initial"
@@ -104,22 +112,40 @@ class LearnersPage extends React.Component {
             <section>
               <div className="bg-white relative z-10 pb-40 md:pb-56 xl:pb-64 pt-24 md:pt-16 xl:pt-24">
                 <div className="container lg:px-32 relative z-20">
-                  <div className="flex flex-wrap md:pt-24 xl:pt-32 mb-8 md:mb-16 xl:mb-24">
-                    <button className="w-full md:w-1/2 content border-t-2 border-l-2 border-r-2 border-pink text-center p-6 block text-pink text-xl md:text-2xl xl:text-3xl font-semibold">Digital Apprenticeships.</button>
-                    <button className="w-full md:w-1/2 content text-purple border-b-2 border-pink text-center p-6 block text-xl md:text-2xl xl:text-3xl font-semibold">Learner To Leader.</button>
-                  </div>
 
-                  <div className="w-full md:w-9/12 xl:w-8/12 mx-auto content">
-                    <div className="mb-12 md:mb-16 xl:mb-20">
-                      <div className="content content--fancy" dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsLearner.digitalApprenticeshipsText}}></div>
-                    </div>
+                    <Tabs selectedTabClassName="border-t-2 border-l-2 border-r-2 border-b-0-forced text-pink">
+                      <TabList className="flex flex-wrap md:pt-24 xl:pt-32 mb-8 md:mb-16 xl:mb-24">
+                        <Tab className="w-full md:w-1/2 border-b-2 border-pink text-center p-6 block text-xl md:text-2xl xl:text-3xl font-semibold bg-white cursor-pointer">Digital Apprenticeship.</Tab>
+                        <Tab className="w-full md:w-1/2 border-b-2 border-pink text-center p-6 block text-xl md:text-2xl xl:text-3xl font-semibold bg-white cursor-pointer">Learner to Leader.</Tab>
+                      </TabList>
 
-                    <div className="mx-auto text-center">
-                      <Link to="/contact" className="btn btn--border text-purple">
-                        <span className="btn__inner">Get in touch</span>
-                      </Link>
-                    </div>
-                  </div>
+                      <TabPanel>
+                        <div className="w-full md:w-9/12 xl:w-8/12 mx-auto content">
+                          <div className="mb-12 md:mb-16 xl:mb-20">
+                            <div className="content content--fancy" dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsLearner.digitalApprenticeshipsText}}></div>
+
+                            <div className="mx-auto text-center">
+                              <Link to="/contact" className="btn btn--border text-purple">
+                                <span className="btn__inner">Get in touch</span>
+                              </Link>
+                            </div>
+                          </div>
+                        </div>
+                      </TabPanel>
+                      <TabPanel>
+                        <div className="w-full md:w-9/12 xl:w-8/12 mx-auto content">
+                          <div className="mb-12 md:mb-16 xl:mb-20">
+                            <div className="content content--fancy" dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsLearner.learnersToLeadersText }}></div>
+
+                            <div className="mx-auto text-center">
+                              <Link to="/contact" className="btn btn--border text-purple">
+                                <span className="btn__inner">Get in touch</span>
+                              </Link>
+                            </div>
+                          </div>
+                        </div>
+                      </TabPanel>
+                    </Tabs>
                 </div>
               </div>
             </section>
@@ -214,10 +240,11 @@ class LearnersPage extends React.Component {
                 <div className="relative">
                   <div className="container lg:px-32 relative z-20">
                     <div className="gradient-ltr p-8 md:p-16 xl:p-24">
-                      <div className="mb-8 text-center">
-                        <span className="text-white font-semibold block text-2xl md:text-3xl mb-5 leading-extra-tight">Search our live apprenticeship vacancies</span>
+                      <div className="mb-8 md:mb-12 text-center">
+                        <span className="text-white font-semibold block text-2xl md:text-3xl mb-5 leading-extra-tight">Want to know more information about our courses?</span>
                         <span className="text-white block text-sm md:text-base lg:text-lg xl:text-xl">Fill in the form below and we will be in touch</span>
                       </div>
+                      <ContactForm />
                     </div>
                   </div>
                 </div>
@@ -238,6 +265,14 @@ export const query = graphql`
   query {
     datoCmsLearner {
       title
+      metaTags {
+        title
+        description
+        twitterCard
+        image {
+          url
+        }
+      }
       heroImage {
         fluid(
           imgixParams: {w: "720", fit: "crop", crop: "faces, edges"}) {
