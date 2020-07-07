@@ -11,6 +11,7 @@ import gsap from "gsap";
 import { motion } from "framer-motion"
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { RevealLeft, RevealRight, GradientRevealRightLarge } from "../components/revealHelpers"
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 if (typeof window !== `undefined`) {
   gsap.registerPlugin(ScrollTrigger)
@@ -127,7 +128,22 @@ class CourseTemplate extends React.Component {
                         <span className="text-white block text-sm md:text-base lg:text-lg xl:text-xl">Fill in the form below and we will be in touch</span>
                       </div>
                       
-                      <ContactForm />
+                      <Tabs selectedTabClassName="border-t-2 border-l-2 border-r-2 border-b-2 text-white border-white font-semibold">
+                        <div className="flex flex-wrap items-center text-white justify-center mb-8">
+                          <span className="block mr-2">Are you a:</span>
+                          <TabList className="flex flex-wrap">
+                            <Tab className="border-t-2 border-l-2 border-r-2 border-b-2 border-transparent p-1 px-3 cursor-pointer uppercase">Learner</Tab>
+                            <Tab className="border-t-2 border-l-2 border-r-2 border-b-2 border-transparent p-1 px-3 cursor-pointer uppercase">Employer</Tab>
+                          </TabList>
+                        </div>
+
+                        <TabPanel>
+                          <ContactForm netlifyName="Contact Form (Learner)" />
+                        </TabPanel>
+                        <TabPanel>
+                          <ContactForm netlifyName="Contact Form (Employer)" />
+                        </TabPanel>
+                      </Tabs>
                     </div>
                   </div>
                 </div>

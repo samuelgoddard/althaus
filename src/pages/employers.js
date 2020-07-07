@@ -10,7 +10,8 @@ import gsap from "gsap";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 import Img from "gatsby-image";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { RevealLeft, RevealRight, GradientRevealLeft, ImageReveal, ImageParallax } from "../components/revealHelpers"
+import { RevealLeft, RevealRight, GradientRevealLeft, ImageReveal, ImageParallax } from "../components/revealHelpers";
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 if (typeof window !== `undefined`) {
   gsap.registerPlugin(ScrollTrigger)
@@ -56,12 +57,12 @@ class EmployersPage extends React.Component {
               <div className="bg-purple pt-48 md:pt-56 xl:pt-64">
                 <div className="bg-pink">
                   <div className="container lg:px-32 pb-12">
-                    <div className="flex flex-wrap pb-0 md:pb-20 lg:pb-24">
-                      <div className="w-full md:w-1/2 lg:w-1/2 mb-8 md:mb-0">
+                    <div className="flex flex-wrap pb-0">
+                      <div className="w-full md:w-1/2 xl:w-1/2 mb-8 md:mb-0">
                         <span className="uppercase font-semibold text-white text-xl md:text-2xl block mb-8 -mt-10">Employers</span>
                         <h1 className="text-5xl lg:text-6xl font-medium text-white mb-6 md:mb-8">{ this.props.data.datoCmsEmployer.heroHeading }</h1>
 
-                        <div className="w-full">
+                        <div className="w-full mb-8">
                           <Link to="/courses" className="text-md text-white font-semibold uppercase flex flex-wrap items-center btn-arrow">
                             <span className="block">View Courses</span>
                             <span className="block ml-4 w-8 btn-arrow__arrow"><Arrow /></span>
@@ -69,7 +70,7 @@ class EmployersPage extends React.Component {
                         </div>
                       </div>
 
-                      <div className="w-full md:w-1/2 lg:w-1/2 md:-mt-12 md:pl-12">
+                      <div className="w-full md:w-1/2 xl:w-1/2 md:-mt-16 xl:-mt-24 self-end">
                         <Img fluid={ this.props.data.datoCmsEmployer.heroImage.fluid } className="w-full" />
                       </div>
                     </div>
@@ -86,8 +87,8 @@ class EmployersPage extends React.Component {
                         </AnchorLink>
                       </div>
                       <div className="w-full md:w-1/2 lg:w-1/4 border-b-2 md:border-0 lg:border-l-2 border-pink">
-                        <AnchorLink to={`/employers/#find-an-apprenticeship`} title="Find An Apprenticeship" className="block text-lg text-purple text-center font-semibold px-4 py-6 md:py-8 hover:text-pink focus:text-pink">
-                          Find An Apprenticeship
+                        <AnchorLink to={`/employers/#enquire-online`} title="Find An Apprenticeship" className="block text-lg text-purple text-center font-semibold px-4 py-6 md:py-8 hover:text-pink focus:text-pink">
+                          Enquire Online
                         </AnchorLink>
                       </div>
                       <div className="w-full md:w-1/2 lg:w-1/4 lg:border-l-2 border-pink">
@@ -206,10 +207,10 @@ class EmployersPage extends React.Component {
             </section>
 
             {/* Application Form */}
-            <section className="pb-12 md:pb-8 lg:pb-8 xl:pb-24 -mt-24 md:-mt-32 lg:-mt-40 xl:-mt-64">
+            <section className="pb-12 md:pb-8 lg:pb-8 xl:pb-24 -mt-24 md:-mt-32 lg:-mt-40 xl:-mt-64" id="enquire-online">
               <div className="overflow-hidden relative z-20">
                 <RevealRight>
-                  <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text-right text-right text-transparent leading-none -mt-4 xl:-mt-8 block">Find Talent</span>
+                  <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text-right text-right text-transparent leading-none -mt-4 xl:-mt-8 block">Enquire Online</span>
                 </RevealRight>
               </div>
 
@@ -221,7 +222,22 @@ class EmployersPage extends React.Component {
                         <span className="text-white font-semibold block text-2xl md:text-3xl mb-5 leading-extra-tight">Want to know more information about our courses?</span>
                         <span className="text-white block text-sm md:text-base lg:text-lg xl:text-xl">Fill in the form below and we will be in touch</span>                        
                       </div>
-                      <ContactForm />
+                      <Tabs selectedTabClassName="border-t-2 border-l-2 border-r-2 border-b-2 text-white border-white font-semibold">
+                        <div className="flex flex-wrap items-center text-white justify-center mb-8">
+                          <span className="block mr-2">Are you a:</span>
+                          <TabList className="flex flex-wrap">
+                            <Tab className="border-t-2 border-l-2 border-r-2 border-b-2 border-transparent p-1 px-3 cursor-pointer uppercase">Learner</Tab>
+                            <Tab className="border-t-2 border-l-2 border-r-2 border-b-2 border-transparent p-1 px-3 cursor-pointer uppercase">Employer</Tab>
+                          </TabList>
+                        </div>
+
+                        <TabPanel>
+                          <ContactForm netlifyName="Contact Form (Learner)" />
+                        </TabPanel>
+                        <TabPanel>
+                          <ContactForm netlifyName="Contact Form (Employer)" />
+                        </TabPanel>
+                      </Tabs>
                     </div>
                   </div>
                 </div>

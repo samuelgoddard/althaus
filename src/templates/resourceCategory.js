@@ -26,12 +26,12 @@ const fade = {
 	}
 }
 
-class ResourcesPage extends React.Component {
+class ResourceCategoryPage extends React.Component {
   render () {
     return (
       <>
         <SEO
-          titleOverride={this.props.data.datoCmsResourcesLanding.metaTags && this.props.data.datoCmsResourcesLanding.metaTags.title ? this.props.data.datoCmsResourcesLanding.metaTags.title : this.props.data.datoCmsResourcesLanding.title}
+          titleOverride={this.props.data.datoCmsResourcesLanding.metaTags && this.props.data.datoCmsResourcesLanding.metaTags.title ? this.props.data.datoCmsResourcesLanding.metaTags.title : this.props.data.datoCmsResource.title}
           descriptionOverride={this.props.data.datoCmsResourcesLanding.metaTags && this.props.data.datoCmsResourcesLanding.metaTags.description ? this.props.data.datoCmsResourcesLanding.metaTags.description : null}
           pathnameOverride={this.props.location.pathname}
           imageOverride={this.props.data.datoCmsResourcesLanding.metaTags && this.props.data.datoCmsResourcesLanding.metaTags.image ? this.props.data.datoCmsResourcesLanding.metaTags.image.url : null}
@@ -80,10 +80,16 @@ class ResourcesPage extends React.Component {
                 <div className="container lg:px-32 relative text-white text-center">
                   <span className="h2 block mb-6 md:mb-8 font-semibold">Filter by</span>
                   <div className="flex flex-wrap justify-center">
-                    <Link to="/resources/#resources" className="rounded rounded-full bg-purple-light uppercase font-semibold xl:text-lg px-5 xl:px-8 py-2 xl:py-4 mx-1 mb-3 xl:mb-5 xl:mx-3">All</Link>
+                    <Link to="/resources/#resources" className="rounded rounded-full uppercase font-semibold xl:text-lg px-5 xl:px-8 py-2 xl:py-4 mx-1 mb-3 xl:mb-5 xl:mx-3 border-2 border-purple-light">All</Link>
                     {this.props.data.allDatoCmsResourceCategory.edges.map(({ node }, i) => {
                       return (
-                        <Link key={i} to={`/resources/${node.slug}/#resources`} className="rounded rounded-full border-2 border-purple-light uppercase font-semibold xl:text-lg px-5 xl:px-8 py-2 xl:py-4 mx-1 mb-3 xl:mb-5 xl:mx-3">{ node.title }</Link>
+                        <Link
+                          key={i}
+                          to={`/resources/${node.slug}/#resources`} 
+                          className={ this.props.data.datoCmsResourceCategory.slug === node.slug ? `rounded rounded-full border-2 border-purple-light uppercase font-semibold xl:text-lg px-5 xl:px-8 py-2 xl:py-4 mx-1 mb-3 xl:mb-5 xl:mx-3 bg-purple-light text-white` : `rounded rounded-full border-2 border-purple-light uppercase font-semibold xl:text-lg px-5 xl:px-8 py-2 xl:py-4 mx-1 mb-3 xl:mb-5 xl:mx-3`}
+                        >
+                            { node.title }
+                          </Link>
                       )
                     })}
                   </div>
@@ -115,10 +121,11 @@ class ResourcesPage extends React.Component {
   }
 }
 
-export default ResourcesPage
+export default ResourceCategoryPage
+
 
 export const query = graphql`
-  query {
+  query ResourceCategoryQuery($slug: String!) {
     datoCmsResourcesLanding {
       title
       metaTags {
@@ -139,6 +146,10 @@ export const query = graphql`
       }
       slug
     }
+    datoCmsResourceCategory(slug: { eq: $slug }) {
+      title
+      slug
+    }
     allDatoCmsResourceCategory {
       edges {
         node {
@@ -147,7 +158,7 @@ export const query = graphql`
         }
       }
     }
-    allDatoCmsResource {
+    allDatoCmsResource(filter: {category: {slug: {eq: $slug}}}) {
       edges {
         node {
           title

@@ -55,7 +55,7 @@ class ContactFormBasic extends React.Component {
     const { name, email, phone, subject, message } = this.state;
     return (
       <form
-        name="Contact Form"
+        name={this.props.netlifyName}
         className=""
         data-netlify="true"
         method="post"
@@ -94,7 +94,7 @@ class ContactFormBasic extends React.Component {
 
         <label className="w-full block mb-4">
           <span className="sr-only">Subject *</span>
-          <input type="subject" name="subject" id="subject" placeholder="subject" className="border-b-2 py-3 block w-full border-pink" value={subject} onChange={this.handleChange} />
+          <input type="subject" name="subject" id="subject" placeholder="Subject" className="border-b-2 py-3 block w-full border-pink" value={subject} onChange={this.handleChange} />
 
           <span className="block mt-2 text-primary text-sm">
           {this.validator.message('subject', subject, 'required')}

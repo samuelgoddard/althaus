@@ -74,8 +74,9 @@ class IndexPage extends React.Component {
             </section>
             
             <section className="relative">
-              <div className="container relative bg-red-400 w-full mx-auto h-0 hidden lg:block">
-                <div className="w-128 md:w-2/3 lg:w-7/12 xl:w-1/2 absolute bottom-0 right-0 z-10 max-w-3xl">
+              <div className="container relative w-full mx-auto h-0 ">
+                <div className="w-128 md:w-2/3 lg:w-7/12 xl:w-1/2 absolute bottom-0 right-0 z-10 max-w-3xl
+                -mr-32 md:-mr-24 lg:mr-0">
                   <Img fluid={this.props.data.datoCmsHome.heroImage.fluid } className="w-full" />
                 </div>
               </div>

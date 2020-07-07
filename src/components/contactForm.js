@@ -55,7 +55,7 @@ class ContactForm extends React.Component {
     const { name, email, phone, subject, message } = this.state;
     return (
       <form
-        name="Contact Form"
+        name={ this.props.netlifyName }
         className=""
         data-netlify="true"
         method="post"

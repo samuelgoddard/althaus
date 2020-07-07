@@ -7,6 +7,7 @@ import { motion } from "framer-motion"
 import gsap from "gsap";
 import Img from "gatsby-image";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { RevealRight, GradientRevealLeft, GradientRevealRight, ImageReveal, ImageParallax } from "../components/revealHelpers"
 
 if (typeof window !== `undefined`) {
@@ -77,7 +78,6 @@ class ContactPage extends React.Component {
               </div>
             </section>
 
-
             {/* Insight */}
             <section className="bg-purple relative -mt-16 md:-mt-16 xl:-mt-32 relative z-20 mb-12 md:mb-24">
               <div className="overflow-hidden">
@@ -89,7 +89,7 @@ class ContactPage extends React.Component {
               <div className="bg-white pb-12">
                 <div className="container lg:px-32 -mt-16 md:-mt-16 lg:-mt-24 relative z-20">
                   <div className="flex flex-wrap items md:-mx-8">
-                    <div className="w-full md:w-1/2 lg:w-7/12 md:px-8 mb-8 md:mb-0 relative">
+                    <div className="w-full md:w-1/2 lg:w-7/12 md:px-8 mb-12 md:mb-0 relative">
                       <div className="relative -mt-2 md:-mt-16 lg:-mt-20">
                         <div>
                           <GradientRevealLeft>
@@ -107,7 +107,22 @@ class ContactPage extends React.Component {
                       </div>
                     </div>
                     <div className="w-full md:w-1/2 lg:w-5/12 md:px-8 content md:pt-32 xl:pt-40">
-                      <ContactFormBasic />
+                      <Tabs selectedTabClassName="border-t-2 border-l-2 border-r-2 border-b-2 text-pink border-pink">
+                        <div className="flex flex-wrap items-center mb-4">
+                          <span className="block mr-2">Are you a:</span>
+                          <TabList className="flex flex-wrap">
+                            <Tab className="border-t-2 border-l-2 border-r-2 border-b-2 border-transparent p-1 px-3 cursor-pointer uppercase">Learner</Tab>
+                            <Tab className="border-t-2 border-l-2 border-r-2 border-b-2 border-transparent p-1 px-3 cursor-pointer uppercase">Employer</Tab>
+                          </TabList>
+                        </div>
+
+                        <TabPanel>
+                          <ContactFormBasic netlifyName="Contact Form (Learner)" />
+                        </TabPanel>
+                        <TabPanel>
+                          <ContactFormBasic netlifyName="Contact Form (Employer)" />
+                        </TabPanel>
+                      </Tabs>
                     </div>
                   </div>
                 </div>

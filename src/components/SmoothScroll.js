@@ -2,7 +2,7 @@ import React from "react";
 import { TweenLite, Power2 } from "gsap";
 import ResizeObserver from "resize-observer-polyfill";
 // import { isMobile } from 'react-device-detect';
-import isMobile from 'ismobilejs';
+// import isMobile from 'ismobilejs';
 
 const windowGlobal = typeof window !== 'undefined' && window
 
