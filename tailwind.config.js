@@ -62,6 +62,7 @@ module.exports = {
   },
   variants: {
     margin: ['responsive', 'hover', 'focus', 'group-hover'],
+    opacity: ['responsive', 'hover', 'focus', 'group-hover'],
   },
   corePlugins: {
     container: false

@@ -88,7 +88,7 @@ class IndexPage extends React.Component {
                         <Link to="/learners" className="block py-6 md:px-10 text-center md:text-left btn-arrow">
                           <span className="block text-white text-xl md:text-3xl font-medium bg-purple-light md:bg-transparent p-3 md:p-0">Learners</span>
                           <div className="hidden md:block">
-                            <span className="block text-white text-lg mb-3">Develop from learner into leader</span>
+                            <span className="block text-white text-lg mb-3">Start your digital career</span>
                             <span className="text-md text-white font-semibold uppercase flex flex-wrap items-center">
                               <span className="block">Discover More</span>
                               <span className="block ml-4 w-8 btn-arrow__arrow"><Arrow /></span>

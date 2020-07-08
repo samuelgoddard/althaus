@@ -120,6 +120,7 @@ h3, .h3 {
   @screen md {
     column-count: 2;
     column-gap: 50px;
+    break-inside: avoid;
   }
 }
 

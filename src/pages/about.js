@@ -2,6 +2,7 @@ import React from "react"
 import SEO from "../components/seo"
 import Header from "../components/header"
 import Footer from "../components/footer"
+import Lightbox from "../components/lightbox"
 import { Link } from "gatsby"
 import { motion } from "framer-motion"
 import Arrow from "../images/arrow.inline.svg";
@@ -29,6 +30,13 @@ const fade = {
 
 class AboutPage extends React.Component {
   render () {
+    const opts = {
+      height: '390',
+      width: '640',
+      playerVars: {
+        autoplay: 0,
+      },
+    };
     return (
       <>
         <SEO
@@ -73,7 +81,21 @@ class AboutPage extends React.Component {
                       <div className="w-full md:w-7/12 relative ml-auto pt-10 md:pt-12">
                         <GradientRevealRight>
                         </GradientRevealRight>
-                        <Img fluid={ this.props.data.datoCmsAbout.heroImage.fluid } className="relative z-10 pb-0 -mb-12" />
+                        
+                        { this.props.data.datoCmsAbout.youtubeVideoId ? (
+                          <Lightbox title={this.props.data.datoCmsAbout.heroHeading} videoId={this.props.data.datoCmsAbout.youtubeVideoId} thumbnail={
+                            <div className="relative group">
+                              <div className="absolute top-0 left-0 right-0 bottom-0 w-full h-full flex flex-wrap justify-center items-center z-20">
+                                <svg className="block w-24 h-24 transition duration-300 ease-in-out group-hover:opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><g data-name="Group 2662"><path data-name="Polygon 10" d="M68 47.5L36 66V29z" fill="#ef4362"/><g data-name="Ellipse 5" fill="none" stroke="#ef4362" strokeWidth="4"><circle cx="48" cy="48" r="48" stroke="none"/><circle cx="48" cy="48" r="46"/></g></g></svg>
+                              </div>
+                              <Img fluid={ this.props.data.datoCmsAbout.heroImage.fluid } className="relative z-10 pb-0 -mb-12" />
+                            </div>
+                          } />
+                        ) : (
+                          <Img fluid={ this.props.data.datoCmsAbout.heroImage.fluid } className="relative z-10 pb-0 -mb-12" />
+                        )}
+
+                        {/* <Lightbox title={"test"} videoId={"LEbyVZs54Ho"} /> */}
                       </div>
                     </div>
                   </div>
@@ -216,6 +238,7 @@ export const query = graphql`
         }
       }
       heroHeading
+      youtubeVideoId
       heroImage {
         fluid(maxWidth: 600, imgixParams: { fm: "jpg", auto: "compress" }) {
           ...GatsbyDatoCmsFluid

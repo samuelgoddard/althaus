@@ -22,11 +22,11 @@ const Layout = ({ children, location }) => {
           </Link>
         </div>
       </div>
-      <SmoothScroll>
+      {/* <SmoothScroll> */}
         <AnimatePresence exitBeforeEnter initial={false}>
           {children}
         </AnimatePresence>
-      </SmoothScroll>
+      {/* </SmoothScroll> */}
     </div>
   )
 }

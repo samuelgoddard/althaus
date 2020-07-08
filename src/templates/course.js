@@ -99,7 +99,7 @@ class CourseTemplate extends React.Component {
                               <h2 className="pb-6 mb-0 text-white h3">{ block.heading }</h2>
                               <span className="w-20 h-2 bg-pink block mb-8"></span>
 
-                              <div className="text-white block md:text-lg" dangerouslySetInnerHTML={{ __html: block.content }}></div>
+                              <div className="text-white block md:text-lg content" dangerouslySetInnerHTML={{ __html: block.content }}></div>
                               </>
                           }
                         </div>

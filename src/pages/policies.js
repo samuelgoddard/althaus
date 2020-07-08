@@ -73,9 +73,6 @@ class PoliciesPage extends React.Component {
               <div className="container relative">
                 <div className="w-full lg:w-7/12 mx-auto content">
                   <div className="mb-12 md:mb-16 xl:mb-20">
-                    <div className="text-lg md:text-xl font-semibold" dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsPoliciesLanding.introText }}></div>
-
-
                     {this.props.data.allDatoCmsPolicy.edges.reverse().map(({ node }, i) => {
                       return (
                         <div className="w-full border-b border-pink py-8 md:py-12" key={i}>
@@ -127,7 +124,6 @@ export const query = graphql`
           ...GatsbyDatoCmsFluid
         }
       }
-      introText
     }
     allDatoCmsPolicy(sort: { fields: position, order: ASC }) {
       edges {
