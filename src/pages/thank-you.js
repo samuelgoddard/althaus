@@ -27,7 +27,7 @@ class ThankYouPage extends React.Component {
   render () {
     return (
       <>
-        <SEO title="Thank You" />
+        <SEO titleOverride="Thank You" />
         <motion.div
           initial="initial"
           animate="enter"
