@@ -4,7 +4,7 @@ export default function Lightbox({videoId, thumbnail, videoTitle}) {
 	const [toggler, setToggler] = useState(false);
 	return (
 		<div>
-			<a href={"https://www.youtube.com/embed/" + videoId } onClick={ e => e.preventDefault() + setToggler(!toggler) }>
+			<a href={"https://www.youtube.com/embed/" + videoId + "?autoplay=1" } onClick={ e => e.preventDefault() + setToggler(!toggler) }>
 			{thumbnail}
 			</a>
 			<FsLightbox
@@ -13,11 +13,11 @@ export default function Lightbox({videoId, thumbnail, videoTitle}) {
 				customSources={[
 					<iframe
 						title={videoTitle}
-						src={"https://www.youtube.com/embed/" + videoId }
+						src={"https://www.youtube.com/embed/" + videoId + "?autoplay=1" }
 						width="1920px"
 						height="1080px"
-            frameBorder="0"
-            autoPlay
+            			frameBorder="0"
+            			autoPlay
 						allow="autoplay; fullscreen"
 						allowFullScreen />
 				]}

@@ -27,6 +27,8 @@ module.exports = {
     `gatsby-plugin-anchor-links`,
     `gatsby-plugin-postcss`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-robots-txt`,
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
@@ -38,6 +40,14 @@ module.exports = {
         theme_color: `#131739`,
         display: `minimal-ui`,
         icon: `src/images/favicon.png`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-153149145-1",
+        head: true,
+        anonymize: true,
       },
     },
     {

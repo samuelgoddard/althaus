@@ -69,7 +69,7 @@ class ContactFormBasic extends React.Component {
         
         <label className="w-full block mb-4">
           <span className="sr-only">Name *</span>
-          <input type="text" name="name" id="name" placeholder="Name" className="border-b-2 py-3 block w-full border-pink" value={name} onChange={this.handleChange} />
+          <input type="text" name="name" id="name" placeholder="Name" className={`border-b-2 py-3 block w-full border-${ this.props.color }`} value={name} onChange={this.handleChange} />
 
           <span className="block mt-2 text-primary text-sm">
           {this.validator.message('name', name, 'required')}
@@ -77,7 +77,7 @@ class ContactFormBasic extends React.Component {
         </label>
         <label className="w-full block mb-4">
           <span className="sr-only">Phone *</span>
-          <input type="phone" name="phone" id="phone" placeholder="Phone" className="border-b-2 py-3 block w-full border-pink" value={phone} onChange={this.handleChange} />
+          <input type="phone" name="phone" id="phone" placeholder="Phone" className={`border-b-2 py-3 block w-full border-${ this.props.color }`} value={phone} onChange={this.handleChange} />
 
           <span className="block mt-2 text-primary text-sm">
           {this.validator.message('phone number', phone, 'required|phone')}
@@ -85,7 +85,7 @@ class ContactFormBasic extends React.Component {
         </label>
         <label className="w-full block mb-4">
           <span className="sr-only">Email *</span>
-          <input type="email" name="email" id="email" placeholder="Email" className="border-b-2 py-3 block w-full border-pink" value={email} onChange={this.handleChange} />
+          <input type="email" name="email" id="email" placeholder="Email" className={`border-b-2 py-3 block w-full border-${ this.props.color }`} value={email} onChange={this.handleChange} />
 
           <span className="block mt-2 text-primary text-sm">
           {this.validator.message('email', email, 'required|email')}
@@ -94,7 +94,7 @@ class ContactFormBasic extends React.Component {
 
         <label className="w-full block mb-4">
           <span className="sr-only">Subject *</span>
-          <input type="subject" name="subject" id="subject" placeholder="Subject" className="border-b-2 py-3 block w-full border-pink" value={subject} onChange={this.handleChange} />
+          <input type="subject" name="subject" id="subject" placeholder="Subject" className={`border-b-2 py-3 block w-full border-${ this.props.color }`} value={subject} onChange={this.handleChange} />
 
           <span className="block mt-2 text-primary text-sm">
           {this.validator.message('subject', subject, 'required')}
@@ -103,7 +103,7 @@ class ContactFormBasic extends React.Component {
 
         <label className="w-full block mb-8 md:mb-12">
           <span className="sr-only">Message *</span>
-          <textarea name="message" id="message" rows="4" placeholder="Message" className="border-b-2 py-3 block w-full border-pink" value={message} onChange={this.handleChange} />
+          <textarea name="message" id="message" rows="4" placeholder="Message" className={`border-b-2 py-3 block w-full border-${ this.props.color }`} value={message} onChange={this.handleChange} />
           <span className="block mt-2 text-primary text-sm">
           {this.validator.message('message', message, 'required')}
           </span>

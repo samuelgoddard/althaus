@@ -82,17 +82,17 @@ const Footer = ({ contactPage }) => {
             </Link>
 
             <div className="mx-auto flex flex-wrap mb-6 md:mb-0">
-              <a href="https://www.linkedin.com/organization-guest/company/althausdigital?challengeId=AQGa3y8VWO5t5QAAAXM1eW7uSK-ZMkr6NbsaFlnte_XnhAzWWCP9q0sOE9cJX4-fIkLPoyLB7L-pp4O8Mnvj5JNliDTCyn-DqQ&submissionId=9553891c-b432-2016-8b95-fb45fd153b4c" rel="noopener noreferrer" target="_blank" className="block text-white ml-0 mx-2 lg:mx-4 lg:ml-0" aria-label="linkedin">
+              <a href="https://www.linkedin.com/organization-guest/company/althausdigital?challengeId=AQGa3y8VWO5t5QAAAXM1eW7uSK-ZMkr6NbsaFlnte_XnhAzWWCP9q0sOE9cJX4-fIkLPoyLB7L-pp4O8Mnvj5JNliDTCyn-DqQ&submissionId=9553891c-b432-2016-8b95-fb45fd153b4c" rel="noopener noreferrer" target="_blank" className="block text-white pl-0 p-3 lg:p-4 lg:pl-0" aria-label="linkedin">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 lg:h-5" viewBox="0 0 18.642 18.984">
                   <path id="Path_76" data-name="Path 76" d="M-347.279,214.572h-3.978V202.638h3.978Zm-1.818-14.515a2.236,2.236,0,0,1-2.238-2.236,2.235,2.235,0,0,1,2.238-2.233,2.236,2.236,0,0,1,2.236,2.233A2.237,2.237,0,0,1-349.1,200.057Zm16.4,14.515h-3.978v-6.45c0-1.439.142-3.288-1.834-3.288-2.008,0-2.144,1.566-2.144,3.184v6.554h-3.978V202.638h3.978v1.326H-341c.514,0,1.79-2.262,3.666-2.262,3.9,0,4.64,2.309,4.64,5.649Z" transform="translate(351.335 -195.588)" fill="#fff"/>
                 </svg>
               </a>
-              <a href="https://www.facebook.com/althausdigital/" rel="noopener noreferrer" target="_blank" className="block text-white mx-2 lg:mx-4" aria-label="Facebook">
+              <a href="https://www.facebook.com/althausdigital/" rel="noopener noreferrer" target="_blank" className="block text-white p-3 lg:p-4" aria-label="Facebook">
                 <svg id="Group_18" data-name="Group 18" className="h-4 lg:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9.331 20">
                   <path id="Path_74" data-name="Path 74" d="M-297.661,205.073c-.016.148-.1.153-.212.153-.787,0-1.573,0-2.36,0h-.264v10.021h-4.125v-.293q0-4.732.005-9.461c0-.213-.056-.277-.271-.272-.579.015-1.157.005-1.753.005v-3.447h2.019v-.263c0-.764-.007-1.529.013-2.293a5.015,5.015,0,0,1,.415-1.919,3.36,3.36,0,0,1,2.739-1.975,7.48,7.48,0,0,1,1.107-.077c.913-.009,1.825,0,2.739,0h.249v3.429c-.091,0-.176,0-.263,0-.652.011-1.305,0-1.956.039a.853.853,0,0,0-.879.883c-.033.715-.008,1.433-.008,2.177h3.156C-297.43,202.893-297.549,203.982-297.661,205.073Z" transform="translate(306.641 -195.246)" fill="#fff"/>
                 </svg>
               </a>
-              <a href="https://twitter.com/AlthausDigital" rel="noopener noreferrer" target="_blank" className="block text-white mx-2 mr-0 lg:mx-4 lg:mr-0" aria-label="Twitter">
+              <a href="https://twitter.com/AlthausDigital" rel="noopener noreferrer" target="_blank" className="block text-white p-3 pr-0 lg:p-4 lg:pr-0" aria-label="Twitter">
                 <svg id="Group_20" data-name="Group 20" className="h-4 lg:h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.969 18.667">
                   <path id="Path_75" data-name="Path 75" d="M-249.976,201.324c.009.2.015.405.015.609a13.316,13.316,0,0,1-13.408,13.408,13.336,13.336,0,0,1-7.224-2.117,9.491,9.491,0,0,0,1.124.067,9.458,9.458,0,0,0,5.853-2.017,4.719,4.719,0,0,1-4.4-3.273,4.738,4.738,0,0,0,.887.085,6.08,6.08,0,0,0,1.412-.165,4.572,4.572,0,0,1-3.611-4.621v-.059c0,.352,1.192.564,1.965.589a4.787,4.787,0,0,1-2.181-3.923,4.663,4.663,0,0,1,.595-2.369,13.334,13.334,0,0,0,9.692,4.924,4.759,4.759,0,0,1-.132-1.075,4.708,4.708,0,0,1,4.707-4.712,4.7,4.7,0,0,1,3.437,1.488,9.411,9.411,0,0,0,2.991-1.143,4.729,4.729,0,0,1-2.072,2.607,9.4,9.4,0,0,0,2.705-.741A9.557,9.557,0,0,1-249.976,201.324Z" transform="translate(270.593 -196.675)" fill="#fff"/>
                 </svg>
@@ -125,7 +125,7 @@ const Footer = ({ contactPage }) => {
                         <Link to="/employers" className="text-white block hover:opacity-50 focus:opacity-50">Employers</Link>
                       </div>
                       <div className="w-1/2 px-2">
-                        <Link to="/resources" className="text-white block hover:opacity-50 focus:opacity-50">Resources</Link>
+                        {/* <Link to="/resources" className="text-white block hover:opacity-50 focus:opacity-50">Resources</Link> */}
                         <Link to="/policies" className="text-white block hover:opacity-50 focus:opacity-50">Policies</Link>
                         <Link to="/careers" className="text-white block hover:opacity-50 focus:opacity-50">Careers</Link>
                         <Link to="/contact" className="text-white block hover:opacity-50 focus:opacity-50">Contact</Link>

@@ -86,7 +86,7 @@ class CareersPage extends React.Component {
                       return (
                         <div className="w-full md:w-1/2 md:px-6" key={i}>
                           <Link to={`/careers/${ node.slug }`} className="block text-white flex flex-wrap items-center border-t-2 border-purple-light py-4 md:py-6 xl:py-8 hover:text-pink focus:text-pink transition duration-300 ease-in-out">
-                            <div>
+                            <div className="flex-1 pr-8">
                               <span className="text-xl md:text-2xl xl:text-3xl block font-semibold mb-2">{ node.title }</span>
                               <span className="md:text-lg block">{ node.teaserText }</span>
                             </div>
