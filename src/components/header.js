@@ -89,10 +89,12 @@ class Header extends React.Component {
 
               <div className="ml-auto">
                 <div className="flex flex-wrap items-center">
-                  <Link
-                    to="/"
+                  <a
+                    href="http://skillshub.althausdigital.co.uk"
+                    target="_blank"
+                    rel="noreferrer noopener"
                     className={this.props.color === 'black' ? `hidden md:block border-2 border-purple uppercase text-purple p-3 xl:p-4 font-medium text-lg` : `hidden md:block border-2 border-white uppercase text-white p-3 xl:p-4 font-medium text-lg`}
-                  >Skills Hub</Link>
+                  >Skills Hub</a>
 
                   <button aria-label="Open Main Menu" className={this.props.color === 'black' ? `p-4 ml-3 text-purple` : `p-4 ml-3 text-white`} onClick={this.toggleOverlay}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="w-6 md:w-8" viewBox="0 0 32 20"><g data-name="Group 3" fill="currentColor"><path data-name="Rectangle 3" d="M0 0h32v4H0z"/><path data-name="Rectangle 4" d="M0 16h32v4H0z"/></g></svg>
@@ -113,10 +115,12 @@ class Header extends React.Component {
                     
                     <div className="ml-auto">
                       <div className="flex flex-wrap items-center">
-                        <Link
-                          to="/about"
+                      <a
+                          href="http://skillshub.althausdigital.co.uk"
+                          target="_blank"
+                          rel="noreferrer noopener"
                           className="hidden md:block border-2 border-white uppercase text-white p-3 xl:p-4 font-medium text-lg"
-                        >Skills Hub</Link>
+                        >Skills Hub</a>
 
                         <button className="p-4 ml-3 text-white" onClick={this.toggleOff}>
                           <Close />
