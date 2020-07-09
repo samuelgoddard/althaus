@@ -241,7 +241,7 @@ export const query = graphql`
       youtubeVideoId
       heroImage {
         fluid(maxWidth: 600, imgixParams: { fm: "jpg", auto: "compress" }) {
-          ...GatsbyDatoCmsFluid
+          ...GatsbyDatoCmsFluid_noBase64
         }
       }
       heroScrollingText
@@ -266,7 +266,7 @@ export const query = graphql`
           jobTitle
           image {
             fluid(maxWidth: 600, imgixParams: { fm: "jpg", auto: "compress" }) {
-              ...GatsbyDatoCmsFluid
+              ...GatsbyDatoCmsFluid_noBase64
             }
           }
         }

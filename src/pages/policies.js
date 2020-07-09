@@ -55,12 +55,12 @@ class PoliciesPage extends React.Component {
                 <div className="gradient-ltr">
                   <div className="container lg:px-32">
                     <div className="flex flex-wrap items-start pb-0 md:pb-20 lg:pb-24">
-                      <div className="w-full md:w-1/2 mb-8 md:mb-0 relative z-20">
+                      <div className="w-full md:w-4/12 mb-8 md:mb-0 relative z-20">
                         <span className="uppercase font-semibold text-white text-xl md:text-2xl block mb-8 -mt-10">Policies</span>
-                        <h1 className="text-5xl xl:text-6xl font-medium text-white mb-6 md:mb-8 pr-8">{ this.props.data.datoCmsPoliciesLanding.heroHeading }</h1>
+                        <h1 className="text-5xl md:text-6xl xl:text-7xl font-medium text-white mb-6 md:mb-8 pr-8">{ this.props.data.datoCmsPoliciesLanding.heroHeading }</h1>
                       </div>
 
-                      <div className="w-full md:w-1/2 -mb-12 md:-mb-0 md:-mt-16 xl:-mt-24 relative z-10">
+                      <div className="w-full md:w-1/2 -mb-12 md:-mb-0 md:-mt-16 xl:-mt-24 relative z-10 ml-auto">
                         <Img fluid={ this.props.data.datoCmsPoliciesLanding.heroImage.fluid } className="relative z-10 mb-0 pb-0 w-full" />
                       </div>
                     </div>

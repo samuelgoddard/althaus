@@ -30,6 +30,22 @@ const fade = {
 }
 
 class LearnersPage extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      formToggle: false,
+    }
+
+    this.toggleForm = this.toggleForm.bind(this);
+  }
+
+  toggleForm = () => {
+    this.setState({
+      formToggle: !this.state.formToggle
+    });
+  }
+
   render () {
     return (
       <>
@@ -60,7 +76,7 @@ class LearnersPage extends React.Component {
                     <div className="flex flex-wrap pb-0">
                       <div className="w-full md:w-1/2 xl:w-1/2 mb-8 md:mb-0">
                         <span className="uppercase font-semibold text-white text-xl md:text-2xl block mb-8 -mt-10">Learners</span>
-                        <h1 className="text-5xl lg:text-6xl font-medium text-white mb-6 md:mb-8">{ this.props.data.datoCmsLearner.heroHeading }</h1>
+                        <h1 className="text-5xl xl:text-6xl font-medium text-white mb-6 md:mb-8">{ this.props.data.datoCmsLearner.heroHeading }</h1>
 
                         <div className="w-full mb-8">
                           <Link to="/courses" className="text-md text-white font-semibold uppercase flex flex-wrap items-center btn-arrow">
@@ -70,7 +86,7 @@ class LearnersPage extends React.Component {
                         </div>
                       </div>
 
-                      <div className="w-full md:w-1/2 xl:w-1/2 md:-mt-16 xl:-mt-24 self-end">
+                      <div className="w-full md:w-1/2 xl:w-1/2 md:-mt-16 xl:-mt-24 self-end ml-auto">
                         <Img fluid={ this.props.data.datoCmsLearner.heroImage.fluid } className="w-full" />
                       </div>
                     </div>
@@ -238,7 +254,7 @@ class LearnersPage extends React.Component {
               <div className="w-full mb-8 md:mb-0 relative -mt-12">
                 <div className="relative">
                   <div className="container lg:px-32 relative z-20">
-                    <div className="gradient-ltr p-8 md:p-16 xl:p-24">
+                    <div className={ this.state.formToggle ? `bg-pink p-8 md:p-16 xl:p-24 transition duration-300 ease-in-out` : `bg-purple-light p-8 md:p-16 xl:p-24 duration-300 ease-in-out`}>
                       <div className="mb-8 md:mb-12 text-center">
                         <span className="text-white font-semibold block text-2xl md:text-3xl mb-5 leading-extra-tight">Want to know more information about our courses?</span>
                         <span className="text-white block text-sm md:text-base lg:text-lg xl:text-xl">Fill in the form below and we will be in touch</span>
@@ -247,8 +263,8 @@ class LearnersPage extends React.Component {
                         <div className="flex flex-wrap items-center text-white justify-center mb-8">
                           <span className="block mr-2">Are you a:</span>
                           <TabList className="flex flex-wrap">
-                            <Tab className="border-t-2 border-l-2 border-r-2 border-b-2 border-transparent p-1 px-3 cursor-pointer uppercase">Learner</Tab>
-                            <Tab className="border-t-2 border-l-2 border-r-2 border-b-2 border-transparent p-1 px-3 cursor-pointer uppercase">Employer</Tab>
+                            <Tab className="border-t-2 border-l-2 border-r-2 border-b-2 border-transparent p-1 px-3 cursor-pointer uppercase" onClick={this.toggleForm}>Learner</Tab>
+                            <Tab className="border-t-2 border-l-2 border-r-2 border-b-2 border-transparent p-1 px-3 cursor-pointer uppercase" onClick={this.toggleForm}>Employer</Tab>
                           </TabList>
                         </div>
 
