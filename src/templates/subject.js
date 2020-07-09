@@ -7,6 +7,7 @@ import Arrow from "../images/arrow.inline.svg";
 import Img from "gatsby-image";
 import gsap from "gsap";
 import { motion } from "framer-motion"
+import { AnchorLink } from "gatsby-plugin-anchor-links";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { RevealLeft, RevealRight, GradientRevealRightLarge } from "../components/revealHelpers"
 
@@ -62,10 +63,10 @@ class SubjectTemplate extends React.Component {
                         <h1 className="text-5xl lg:text-6xl xl:text-7xl font-medium text-white mb-6 md:mb-8">{ this.props.data.datoCmsSubject.title }</h1>
 
                         <div className="w-full">
-                          <Link to="/contact" className="text-md text-white font-semibold uppercase flex flex-wrap items-center btn-arrow">
-                            <span className="block">Get in touch</span>
+                          <AnchorLink to={`/courses/${this.props.data.datoCmsSubject.slug}/#courses`} title={"View Our Courses"} className="text-md text-white font-semibold uppercase flex flex-wrap items-center btn-arrow">
+                            <span className="block">View Our Courses</span>
                             <span className="block ml-4 w-8 btn-arrow__arrow"><Arrow /></span>
-                          </Link>
+                          </AnchorLink>
                         </div>
                       </div>
 
@@ -103,7 +104,7 @@ class SubjectTemplate extends React.Component {
               </div>
             </section>
 
-            <section className="mb-24 xl:mb-32 overflow-hidden">
+            <section className="mb-24 xl:mb-32 overflow-hidden" id="courses">
               <RevealLeft>
                 <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text scroll-text--purple text-transparent leading-none block">Industry Knowledge</span>
               </RevealLeft>

@@ -134,16 +134,16 @@ class Career extends React.Component {
                 <div className="container lg:px-32 mb-24 md:mb-40 xl:mb-56">
                   <div className="flex flex-wrap md:-mx-10 content text-white mb-16 md:mb-24">
                     <div className="w-full md:w-1/2 md:px-10 mb-12 md:mb-0">
-                      <h2 className="pb-6 mb-0">Requirements</h2>
+                      <h2 className="pb-6 mb-0">The Person</h2>
                       <span className="w-20 h-2 bg-pink block mb-8"></span>
 
-                      <div className="content-lists xl:text-lg" dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsCareer.requirements }}></div>
+                      <div className="content-lists xl:text-lg" dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsCareer.person }}></div>
                     </div>
                     <div className="w-full md:w-1/2 md:px-10">
-                      <h2 className="pb-6 mb-0">Benefits</h2>
+                      <h2 className="pb-6 mb-0">Key Tasks</h2>
                       <span className="w-20 h-2 bg-pink block mb-8"></span>
 
-                      <div className="content-lists xl:text-lg" dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsCareer.benefits }}></div>
+                      <div className="content-lists xl:text-lg" dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsCareer.keytasks }}></div>
                     </div>
                   </div>
                   <div className="mx-auto text-center">
@@ -262,8 +262,8 @@ export const query = graphql`
       expertiseArea
       entryLevelSalary
       jobDescription
-      requirements
-      benefits
+      person
+      keytasks 
       supportingContentBlock {
         heading
         scrollingText
