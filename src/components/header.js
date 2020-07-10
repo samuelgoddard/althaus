@@ -107,7 +107,7 @@ class Header extends React.Component {
           <PoseGroup>
             {this.state.overlay && (
             <Overlay key="overlay" className="fixed top-0 left-0 right-0 bottom-0 w-full h-screen bg-secondary-dark text-white z-40 pt-8 md:pt-12 bg-pink overflow-scroll">
-                <div className="container lg:px-32">
+                <div className="container lg:px-32 relative h-full">
                   <div className="flex flex-wrap items-center mb-16">
                     <Link className="block text-white transition duration-500 ease-in-out" to="/">
                       <LogoFlat />
@@ -189,6 +189,14 @@ class Header extends React.Component {
                           </a>
                         </div>
                       </div>
+                    </div>
+                    <div className="self-end mt-auto w-full text-center pb-5 md:hidden">
+                      <a
+                        href="http://skillshub.althausdigital.co.uk"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className={`border-2 border-white uppercase text-white p-3 xl:p-4 font-medium text-lg block`}
+                      >Skills Hub</a>
                     </div>
                   </div>
                 </div>
