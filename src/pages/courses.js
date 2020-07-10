@@ -75,7 +75,7 @@ class CoursesPage extends React.Component {
                     <div className="flex flex-wrap pb-0 ">
                       <div className="w-full md:w-1/2 lg:w-1/2 mb-8 md:mb-0">
                         <span className="uppercase font-semibold text-pink text-xl md:text-2xl block mb-8 -mt-10">Courses</span>
-                        <h1 className="text-5xl xl:text-6xl font-medium text-white mb-6 md:mb-8">{ this.props.data.datoCmsCoursesLanding.heroHeading }</h1>
+                        <h1 className="text-4xl xl:text-6xl font-medium text-white mb-6 md:mb-8">{ this.props.data.datoCmsCoursesLanding.heroHeading }</h1>
 
                         <div className="w-full md:pb-12">
                           <Link to="/contact" className="text-md text-white font-semibold uppercase flex flex-wrap items-center btn-arrow">
