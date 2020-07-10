@@ -30,21 +30,6 @@ const fade = {
 }
 
 class LearnersPage extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      formToggle: false,
-    }
-
-    this.toggleForm = this.toggleForm.bind(this);
-  }
-
-  toggleForm = () => {
-    this.setState({
-      formToggle: !this.state.formToggle
-    });
-  }
 
   render () {
     return (
@@ -128,16 +113,16 @@ class LearnersPage extends React.Component {
               <div className="bg-white relative z-10 pb-40 md:pb-56 xl:pb-64 pt-24 md:pt-16 xl:pt-24">
                 <div className="container lg:px-32 relative z-20">
 
-                    <Tabs selectedTabClassName="border-t-2 border-l-2 border-r-2 border-b-0-forced text-pink">
+                    <Tabs selectedTabClassName="md:border-t-2 md:border-l-2 md:border-r-2 border-b-0-forced text-pink">
                       <TabList className="flex flex-wrap md:pt-24 xl:pt-32 mb-8 md:mb-16 xl:mb-24">
-                        <Tab className="w-full md:w-1/2 border-b-2 border-pink text-center p-6 block text-xl md:text-2xl xl:text-3xl font-semibold bg-white cursor-pointer">Digital Apprenticeship.</Tab>
-                        <Tab className="w-full md:w-1/2 border-b-2 border-pink text-center p-6 block text-xl md:text-2xl xl:text-3xl font-semibold bg-white cursor-pointer">Learner to Leader.</Tab>
+                        <Tab className="w-full md:w-1/2 border-b-2 border-pink md:text-center py-4 md:p-6 block text-lg md:text-2xl xl:text-3xl font-semibold bg-white cursor-pointer">Digital Apprenticeship.</Tab>
+                        <Tab className="w-full md:w-1/2 border-b-2 border-pink md:text-center py-4 md:p-6 block text-lg md:text-2xl xl:text-3xl font-semibold bg-white cursor-pointer">Learner to Leader.</Tab>
                       </TabList>
 
                       <TabPanel>
                         <div className="w-full md:w-9/12 xl:w-8/12 mx-auto content">
                           <div className="mb-12 md:mb-16 xl:mb-20">
-                            <div className="content content--fancy" dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsLearner.digitalApprenticeshipsText}}></div>
+                            <div className="content content--fancy mb-8 md:mb-16" dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsLearner.digitalApprenticeshipsText}}></div>
 
                             <div className="mx-auto text-center">
                               <Link to="/contact" className="btn btn--border text-purple">
@@ -150,7 +135,7 @@ class LearnersPage extends React.Component {
                       <TabPanel>
                         <div className="w-full md:w-9/12 xl:w-8/12 mx-auto content">
                           <div className="mb-12 md:mb-16 xl:mb-20">
-                            <div className="content content--fancy" dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsLearner.learnersToLeadersText }}></div>
+                            <div className="content content--fancy mb-8 md:mb-16" dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsLearner.learnersToLeadersText }}></div>
 
                             <div className="mx-auto text-center">
                               <Link to="/contact" className="btn btn--border text-purple">
@@ -254,27 +239,14 @@ class LearnersPage extends React.Component {
               <div className="w-full mb-8 md:mb-0 relative -mt-12">
                 <div className="relative">
                   <div className="container lg:px-32 relative z-20">
-                    <div className={ this.state.formToggle ? `bg-pink p-8 md:p-16 xl:p-24 transition duration-300 ease-in-out` : `bg-purple-light p-8 md:p-16 xl:p-24 duration-300 ease-in-out`}>
+                    <div className={ `bg-purple-light p-8 md:p-16 xl:p-24 transition duration-300 ease-in-out`}>
                       <div className="mb-8 md:mb-12 text-center">
                         <span className="text-white font-semibold block text-2xl md:text-3xl mb-5 leading-extra-tight">Want to know more information about our courses?</span>
                         <span className="text-white block text-sm md:text-base lg:text-lg xl:text-xl">Fill in the form below and we will be in touch</span>
                       </div>
-                      <Tabs selectedTabClassName="border-t-2 border-l-2 border-r-2 border-b-2 text-white border-white font-semibold">
-                        <div className="flex flex-wrap items-center text-white justify-center mb-8">
-                          <span className="block mr-2">Are you a:</span>
-                          <TabList className="flex flex-wrap">
-                            <Tab className="border-t-2 border-l-2 border-r-2 border-b-2 border-transparent p-1 px-3 cursor-pointer uppercase" onClick={this.toggleForm}>Learner</Tab>
-                            <Tab className="border-t-2 border-l-2 border-r-2 border-b-2 border-transparent p-1 px-3 cursor-pointer uppercase" onClick={this.toggleForm}>Employer</Tab>
-                          </TabList>
-                        </div>
-
-                        <TabPanel>
-                          <ContactForm netlifyName="Contact Form (Learner)" />
-                        </TabPanel>
-                        <TabPanel>
-                          <ContactForm netlifyName="Contact Form (Employer)" />
-                        </TabPanel>
-                      </Tabs>
+                      <div>
+                        <ContactForm netlifyName="Contact Form (Learner)" />
+                      </div>
                     </div>
                   </div>
                 </div>

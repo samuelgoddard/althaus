@@ -157,11 +157,11 @@ class AboutPage extends React.Component {
 
                     <div className="mb-12" dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsAbout.contentBlockText }}></div>
 
-                    <div className="flex flex-wrap">
-                      <Link to="/learners" className="btn">
+                    <div className="md:flex md:flex-wrap">
+                      <Link to="/learners" className="btn block md:inline-block mb-3 md:mb-0">
                         <span className="btn__inner">Learners</span>
                       </Link>
-                      <Link to="/employers" className="btn btn--pink ml-3">
+                      <Link to="/employers" className="btn btn--pink md:ml-3 block md:inline-block">
                         <span className="btn__inner">Employers</span>
                       </Link>
                     </div>

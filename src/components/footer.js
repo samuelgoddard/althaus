@@ -139,12 +139,12 @@ const Footer = ({ contactPage }) => {
                 <span className="text-white uppercase block text-lg mb-3">Customers</span>
                 <div className="flex flex-wrap -mx-2">
                   <div className="w-1/2 px-2">
-                    <Link to="/learners" className="btn block w-full">
+                    <Link to="/learners" className="btn text-sm md:text-base block w-full">
                       <span className="btn__inner">Learners</span>
                     </Link>
                   </div>
                   <div className="w-1/2 px-2">
-                    <Link to="/employers" className="btn btn--pink block w-full">
+                    <Link to="/employers" className="btn text-sm md:text-base btn--pink block w-full">
                       <span className="btn__inner">Employers</span>
                     </Link>
                   </div>

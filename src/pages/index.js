@@ -166,7 +166,7 @@ class IndexPage extends React.Component {
 
                     <div className="mb-8 content content-lists" dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsHome.learnersBlockText }}></div>
 
-                    <Link to="/about" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center btn-arrow">
+                    <Link to="/learners" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center btn-arrow">
                       <span className="block">Start your journey</span>
                       <span className="block ml-4 w-8 btn-arrow__arrow"><Arrow /></span>
                     </Link>
@@ -219,7 +219,7 @@ class IndexPage extends React.Component {
 
                     <div className="mb-8 content content-lists" dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsHome.employersBlockText }}></div>
 
-                    <Link to="/about" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center btn-arrow">
+                    <Link to="/employers" className="text-md text-pink font-semibold uppercase flex flex-wrap items-center btn-arrow">
                       <span className="block">Find Out More</span>
                       <span className="block ml-4 w-8 btn-arrow__arrow"><Arrow /></span>
                     </Link>

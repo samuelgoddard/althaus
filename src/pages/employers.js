@@ -11,7 +11,6 @@ import { AnchorLink } from "gatsby-plugin-anchor-links";
 import Img from "gatsby-image";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { RevealLeft, RevealRight, GradientRevealLeft, ImageReveal, ImageParallax } from "../components/revealHelpers";
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 if (typeof window !== `undefined`) {
   gsap.registerPlugin(ScrollTrigger)
@@ -30,22 +29,6 @@ const fade = {
 }
 
 class EmployersPage extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      formToggle: false,
-    }
-
-    this.toggleForm = this.toggleForm.bind(this);
-  }
-
-  toggleForm = () => {
-    this.setState({
-      formToggle: !this.state.formToggle
-    });
-  }
-
   render () {
     return (
       <>
@@ -233,27 +216,12 @@ class EmployersPage extends React.Component {
               <div className="w-full mb-8 md:mb-0 relative -mt-12">
                 <div className="relative">
                   <div className="container lg:px-32 relative z-20">
-                  <div className={ this.state.formToggle ? `bg-purple-light p-8 md:p-16 xl:p-24 transition duration-300 ease-in-out` : `bg-pink p-8 md:p-16 xl:p-24 duration-300 ease-in-out`}>
+                  <div className={ `bg-pink p-8 md:p-16 xl:p-24 duration-300 ease-in-out`}>
                       <div className="mb-8 md:mb-12 text-center">
                         <span className="text-white font-semibold block text-2xl md:text-3xl mb-5 leading-extra-tight">Want to know more information about our courses?</span>
                         <span className="text-white block text-sm md:text-base lg:text-lg xl:text-xl">Fill in the form below and we will be in touch</span>                        
                       </div>
-                      <Tabs selectedTabClassName="border-t-2 border-l-2 border-r-2 border-b-2 text-white border-white font-semibold">
-                        <div className="flex flex-wrap items-center text-white justify-center mb-8">
-                          <span className="block mr-2">Are you a:</span>
-                          <TabList className="flex flex-wrap">
-                            <Tab className="border-t-2 border-l-2 border-r-2 border-b-2 border-transparent p-1 px-3 cursor-pointer uppercase" onClick={this.toggleForm}>Employer</Tab>
-                            <Tab className="border-t-2 border-l-2 border-r-2 border-b-2 border-transparent p-1 px-3 cursor-pointer uppercase" onClick={this.toggleForm}>Learner</Tab>
-                          </TabList>
-                        </div>
-
-                        <TabPanel>
-                          <ContactForm netlifyName="Contact Form (Employer)" />
-                        </TabPanel>
-                        <TabPanel>
-                          <ContactForm netlifyName="Contact Form (Learner)" />
-                        </TabPanel>
-                      </Tabs>
+                      <ContactForm netlifyName="Contact Form (Employer)" />
                     </div>
                   </div>
                 </div>

@@ -27,7 +27,22 @@ const fade = {
 }
 
 class ContactPage extends React.Component {
-  render () {    
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      formToggle: false,
+    }
+
+    this.toggleForm = this.toggleForm.bind(this);
+  }
+
+  toggleForm = () => {
+    this.setState({
+      formToggle: !this.state.formToggle
+    });
+  }
+  render () {
     return (
       <>
         <SEO
@@ -125,20 +140,20 @@ class ContactPage extends React.Component {
                       </div>
                     </div>
                     <div className="w-full md:w-1/2 lg:w-5/12 md:px-8 content md:pt-32 xl:pt-40">
-                      <Tabs selectedTabClassName="border-t-2 border-l-2 border-r-2 border-b-2 text-purple border-purple">
+                      <Tabs selectedTabClassName={this.state.formToggle ? `border-t-2 border-l-2 border-r-2 border-b-2 border-pink text-pink` : `border-t-2 border-l-2 border-r-2 border-b-2 border-purple-light text-purple-light`}>
                         <div className="flex flex-wrap items-center mb-4">
                           <span className="block mr-2">Are you a:</span>
                           <TabList className="flex flex-wrap">
-                            <Tab className="border-t-2 border-l-2 border-r-2 border-b-2 border-transparent p-1 px-3 cursor-pointer uppercase">Learner</Tab>
-                            <Tab className="border-t-2 border-l-2 border-r-2 border-b-2 border-transparent p-1 px-3 cursor-pointer uppercase">Employer</Tab>
+                            <Tab className="border-t-2 border-l-2 border-r-2 border-b-2 border-transparent p-1 px-3 cursor-pointer uppercase" onClick={this.toggleForm}>Learner</Tab>
+                            <Tab className="border-t-2 border-l-2 border-r-2 border-b-2 border-transparent p-1 px-3 cursor-pointer uppercase" onClick={this.toggleForm}>Employer</Tab>
                           </TabList>
                         </div>
 
                         <TabPanel>
-                          <ContactFormBasic netlifyName="Contact Form (Learner)" color={"pink"} />
+                          <ContactFormBasic netlifyName="Contact Form (Learner)" color={"purple-light"} />
                         </TabPanel>
                         <TabPanel>
-                          <ContactFormBasic netlifyName="Contact Form (Employer)" color={"purple-light"} />
+                          <ContactFormBasic netlifyName="Contact Form (Employer)" color={"pink"} />
                         </TabPanel>
                       </Tabs>
                     </div>

@@ -15,7 +15,9 @@ a {
 }
 
 .border-b-0-forced {
-	border-bottom: 0 !important;
+	@screen md {
+		border-bottom: 0 !important;
+	}
 }
 
 .gradient-ltr {
