@@ -9,10 +9,10 @@ import "../styles/main.css"
 const Layout = ({ children, location }) => {
   return (
     <div className="viewport">
-      <div className="fixed z-50 fixed-text-left pl-6 hidden lg:block">
-        <span className="text-lg text-white">Learn Digital. Lead Digital.</span>
+      <div className="fixed z-50 fixed-text-left ml-6 hidden lg:block">
+        <span className="text-lg text-white block">Learn Digital. Lead Digital.</span>
       </div>
-      <div className="fixed z-30 right-0 fixed-text-right pl-6 hidden lg:block transform rotate-180">
+      <div className="fixed z-30 right-0 fixed-text-right mr-6 hidden lg:block transform rotate-180">
         <div className="flex flex-wrap">
           <Link to="/learners" className="btn block w-full py-5 px-3 btn--sideways">
             <span className="btn__inner">Learners</span>
