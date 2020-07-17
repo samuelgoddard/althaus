@@ -70,6 +70,8 @@ const SEO = ({ pathname, titleOverride, descriptionOverride, pathnameOverride, i
       { noIndex && (
         <meta name="robots" content="noindex" />
       )}
+
+      <meta name="msvalidate.01" content="457B0C70F42DEE17D14A9A341FE2C590" />
       
     </Helmet>
   )
