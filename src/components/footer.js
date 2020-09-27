@@ -26,6 +26,27 @@ const Footer = ({ contactPage }) => {
           }
         }
       }
+      cisco: file(relativePath: { eq: "cisco.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1200) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      ncfe: file(relativePath: { eq: "NCFE.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 1200) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      bcs: file(relativePath: { eq: "bcs.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 1200) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
       cyberEssentials: file(relativePath: { eq: "cyber-essentials.png" }) {
         childImageSharp {
           fluid {
@@ -154,7 +175,10 @@ const Footer = ({ contactPage }) => {
           </div>
 
           <div className="w-full flex flex-wrap items-center py-6 pb-2">
+            <Img fluid={data.cisco.childImageSharp.fluid } className="w-12 md:w-20 mr-5" />
+            <Img fluid={data.bcs.childImageSharp.fluid } className="w-10 md:w-16 mr-5" />
             <Img fluid={data.paperless.childImageSharp.fluid } className="w-10 md:w-16 mr-5" />
+            <Img fluid={data.ncfe.childImageSharp.fluid } className="w-10 md:w-16 mr-5" />
             <Img fluid={data.cyberEssentials.childImageSharp.fluid } className="w-8 md:w-12" />
             <small className="text-white ml-auto text-sm">&copy; Althaus. All rights reserved {(new Date().getFullYear())}</small>
           </div>
