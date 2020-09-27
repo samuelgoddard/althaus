@@ -14,10 +14,7 @@ const SEO = ({ pathname, titleOverride, descriptionOverride, pathnameOverride, i
         twitterAccount,
         fallbackSeo: {
           title,
-          description,
-          image: {
-            url
-          }
+          description
         }
       }
     },
@@ -37,9 +34,6 @@ const SEO = ({ pathname, titleOverride, descriptionOverride, pathnameOverride, i
             title
             description
             twitterCard
-            image {
-              url
-            }
           }
         }
       }
