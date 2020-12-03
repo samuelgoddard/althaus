@@ -10,16 +10,8 @@ export default function Lightbox({videoId, thumbnail, videoTitle}) {
 			<FsLightbox
 				toggler={ toggler }
 				key={ videoId }
-				customSources={[
-					<iframe
-						title={videoTitle}
-						src={"https://www.youtube.com/embed/" + videoId + "?autoplay=1" }
-						width="1920px"
-						height="1080px"
-            			frameBorder="0"
-            			autoPlay
-						allow="autoplay; fullscreen"
-						allowFullScreen />
+				sources={[
+					"https://www.youtube.com/watch?v=" + videoId + "?autoplay=1"
 				]}
 			/>
 		</div>
