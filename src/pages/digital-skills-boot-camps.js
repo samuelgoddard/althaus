@@ -78,41 +78,44 @@ class DigitalSkillsBootCampPage extends React.Component {
               
               {/* Hero */}
               <div className="overflow-hidden">
-                <div className="bg-white pt-32 pb-16 md:pt-48 md:pb-20 xl:pb-24 relative">
-                  <div className="container lg:px-32 relative">
-                    <div className="flex flex-wrap items-center relative">
-                      <div className="w-full md:w-8/12 xl:w-7/12 z-20 mb-8 md:mb-0 md:absolute top-0 left-0 bottom-0 flex flex-wrap">
-                        <div className="my-auto">
-                          <span className="uppercase font-semibold text-purple text-xl md:text-2xl block mb-3">Kicking-off January 2021</span>
-                          <h1 className="text-5xl md:text-6xl xl:text-7xl font-medium text-pink mb-4">{ this.props.data.datoCmsDigitalSkillsBootCamp.heroHeading }</h1>
+                <div className="bg-white pt-32 md:pt-48 relative">
+                  <div className="bg-pink pb-16 md:pb-40 lg:pb-32 xl:pb-56 2xl:pb-32 mt-12 md:mt-16 xl:mt-20">
+                    <div className="container lg:px-32 relative">
+                      <div className="flex flex-wrap items-center relative">
+                        <div className="w-full md:w-6/12 relative mr-auto pt-10 md:pt-12 md:pr-12 -mt-16 md:-mt-20 xl:-mt-24">
+                          <GradientRevealLeft>
+                          </GradientRevealLeft>
+                          
+                          { this.props.data.datoCmsDigitalSkillsBootCamp.youtubeVideoId ? (
+                            <Lightbox title={this.props.data.datoCmsDigitalSkillsBootCamp.heroHeading} videoId={this.props.data.datoCmsDigitalSkillsBootCamp.youtubeVideoId} thumbnail={
+                              <div className="relative group ">
+                                <div className="absolute top-0 left-0 right-0 bottom-0 w-full h-full flex flex-wrap justify-center items-center z-20">
+                                  <svg className="block w-24 h-24 transition duration-300 ease-in-out group-hover:opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><g data-name="Group 2662"><path data-name="Polygon 10" d="M68 47.5L36 66V29z" fill="#ef4362"/><g data-name="Ellipse 5" fill="none" stroke="#ef4362" strokeWidth="4"><circle cx="48" cy="48" r="48" stroke="none"/><circle cx="48" cy="48" r="46"/></g></g></svg>
+                                </div>
+                                <Img fluid={ this.props.data.datoCmsDigitalSkillsBootCamp.heroImage.fluid } className="relative z-10 pb-0 -mb-12" />
+                              </div>
+                            } />
+                          ) : (
+                            <Img fluid={ this.props.data.datoCmsDigitalSkillsBootCamp.heroImage.fluid } className="relative z-10 pb-0 -mb-12" />
+                          )}
 
-                          <div className="w-full">
-                            <AnchorLink to={`/digital-skills-boot-camps/#content`} title="Discover More" className="text-md text-purple font-semibold uppercase flex flex-wrap items-center btn-arrow">
-                              <span className="block">Discover More</span>
-                              <span className="block ml-4 w-8 btn-arrow__arrow"><Arrow /></span>
-                            </AnchorLink>
+                          {/* <Lightbox title={"test"} videoId={"LEbyVZs54Ho"} /> */}
+                        </div>
+
+                        <div className="w-full md:w-6/12 xl:w-6/12 z-20 mb-8 md:mb-0 md:absolute top-0 right-0 bottom-0 flex flex-wrap mt-20 md:mt-0">
+                          <div className="my-auto">
+                            <span className="uppercase font-semibold text-purple text-xl md:text-2xl block mb-3 md:mt-8 xl:mt-12">Kicking-off January 2021</span>
+                            <h1 className="text-5xl md:text-5xl xl:text-7xl font-medium text-purple mb-4">{ this.props.data.datoCmsDigitalSkillsBootCamp.heroHeading }</h1>
+
+                            <div className="w-full">
+                              <AnchorLink to={`/digital-skills-boot-camps/#content`} title="Discover More" className="text-md text-purple font-semibold uppercase flex flex-wrap items-center btn-arrow">
+                                <span className="block">Discover More</span>
+                                <span className="block ml-4 w-8 btn-arrow__arrow"><Arrow /></span>
+                              </AnchorLink>
+                            </div>
                           </div>
                         </div>
-                      </div>
 
-                      <div className="w-full md:w-7/12 relative ml-auto pt-10 md:pt-12">
-                        <GradientRevealRight>
-                        </GradientRevealRight>
-                        
-                        { this.props.data.datoCmsDigitalSkillsBootCamp.youtubeVideoId ? (
-                          <Lightbox title={this.props.data.datoCmsDigitalSkillsBootCamp.heroHeading} videoId={this.props.data.datoCmsDigitalSkillsBootCamp.youtubeVideoId} thumbnail={
-                            <div className="relative group">
-                              <div className="absolute top-0 left-0 right-0 bottom-0 w-full h-full flex flex-wrap justify-center items-center z-20">
-                                <svg className="block w-24 h-24 transition duration-300 ease-in-out group-hover:opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><g data-name="Group 2662"><path data-name="Polygon 10" d="M68 47.5L36 66V29z" fill="#ef4362"/><g data-name="Ellipse 5" fill="none" stroke="#ef4362" strokeWidth="4"><circle cx="48" cy="48" r="48" stroke="none"/><circle cx="48" cy="48" r="46"/></g></g></svg>
-                              </div>
-                              <Img fluid={ this.props.data.datoCmsDigitalSkillsBootCamp.heroImage.fluid } className="relative z-10 pb-0 -mb-12" />
-                            </div>
-                          } />
-                        ) : (
-                          <Img fluid={ this.props.data.datoCmsDigitalSkillsBootCamp.heroImage.fluid } className="relative z-10 pb-0 -mb-12" />
-                        )}
-
-                        {/* <Lightbox title={"test"} videoId={"LEbyVZs54Ho"} /> */}
                       </div>
                     </div>
                   </div>
@@ -120,7 +123,7 @@ class DigitalSkillsBootCampPage extends React.Component {
               </div>
             </section>
 
-            <section className="mt-8">
+            <section className="bg-pink">
               <div className="overflow-hidden">
                 <RevealRight>
                   <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text-right scroll-text--purple text-right text-transparent leading-none block">{this.props.data.datoCmsDigitalSkillsBootCamp.heroScrollingText}</span>
@@ -134,12 +137,23 @@ class DigitalSkillsBootCampPage extends React.Component {
                   <div>
                     { this.props.data.datoCmsDigitalSkillsBootCamp.introText && (
                       <div className="w-full">
-                      <h2 className="pb-6 mb-0">Digital Skills Boot Camps</h2>
-                      <span className="w-20 h-2 bg-pink block mb-8"></span>
+                        <h2 className="pb-6 mb-0">Digital Skills Boot Camps</h2>
+                        <span className="w-20 h-2 bg-pink block mb-8"></span>
 
-                      <div dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsDigitalSkillsBootCamp.introText }} className="content content-lists"></div>
+                        <div dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsDigitalSkillsBootCamp.introText }} className="content content-lists"></div>
+                        
                       </div>
                     )}
+                  </div>
+                  
+                  <div className="flex flex-wrap mt-6 md:mt-10 xl:mt-12">
+                    <span className="bg-white block py-3 px-4 w-32 xl:w-40 mr-6">
+                      <Img fluid={this.props.data.dfe.childImageSharp.fluid } className="w-full p-0 block" />
+                    </span>
+
+                    <span className="bg-white block py-3 px-4 w-32 xl:w-40 mr-6">
+                      <Img fluid={this.props.data.d2n2.childImageSharp.fluid } className="w-full p-0 block" />
+                    </span>
                   </div>
                 </div>
               </div>
@@ -296,6 +310,20 @@ export default DigitalSkillsBootCampPage
 
 export const query = graphql`
   query {
+    d2n2: file(relativePath: { eq: "d2n2.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 450) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    dfe: file(relativePath: { eq: "dfe.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 450) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
     datoCmsDigitalSkillsBootCamp {
       metaTags {
         title
