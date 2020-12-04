@@ -146,14 +146,13 @@ class DigitalSkillsBootCampPage extends React.Component {
                     )}
                   </div>
                   
-                  <div className="flex flex-wrap mt-6 md:mt-10 xl:mt-12">
-                    <span className="bg-white block py-3 px-4 w-32 xl:w-40 mr-6">
-                      <Img fluid={this.props.data.dfe.childImageSharp.fluid } className="w-full p-0 block" />
-                    </span>
-
-                    <span className="bg-white block py-3 px-4 w-32 xl:w-40 mr-6">
-                      <Img fluid={this.props.data.d2n2.childImageSharp.fluid } className="w-full p-0 block" />
-                    </span>
+                  <div className="mt-16 md:mt-16 xl:mt-20">
+                    <h3 className="text-center mb-0 pb-0">In partnership with</h3>
+                    <div className="flex flex-wrap justify-center">
+                      <span className="block w-48 xl:w-56">
+                        <Img fluid={this.props.data.d2n2.childImageSharp.fluid } className="w-full p-0 block" />
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
