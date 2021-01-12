@@ -90,7 +90,7 @@ class Header extends React.Component {
               <div className="ml-auto">
                 <div className="flex flex-wrap items-center">
                   <a
-                    href="http://skillshub.althausdigital.co.uk"
+                    href="https://skillshub.althausdigital.co.uk"
                     target="_blank"
                     rel="noreferrer noopener"
                     className={this.props.color === 'black' ? `hidden md:block border-2 border-purple uppercase text-purple p-3 xl:p-4 font-medium text-lg` : `hidden md:block border-2 border-white uppercase text-white p-3 xl:p-4 font-medium text-lg`}
