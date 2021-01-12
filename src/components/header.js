@@ -195,7 +195,7 @@ class Header extends React.Component {
                     </div>
                     <div className="self-end mt-auto w-full text-center pb-5 md:hidden">
                       <a
-                        href="http://skillshub.althausdigital.co.uk"
+                        href="https://skillshub.althausdigital.co.uk"
                         target="_blank"
                         rel="noreferrer noopener"
                         className={`border-2 border-white uppercase text-white p-3 xl:p-4 font-medium text-lg block`}
