@@ -86,14 +86,9 @@ class DigitalPovertyPledge extends React.Component {
                         <div className="my-auto">
                           <h1 className="text-5xl md:text-6xl xl:text-7xl font-medium text-pink mb-6 md:mb-8 md:max-w-md xl:max-w-xl">{ this.props.data.datoCmsDigitalPovertyPledge.heroHeading }</h1>
 
-                          <div className="content-lists pl-2 mb-6 md:mb-8 text-lg">
-                            <ul>
-                              <li>Impactful Digital Skills</li>
-                              <li>Access To The Internet</li>
-                              <li>Access To Hardware</li>
-                              <li>Inclusive Digital Employment Opportunities</li>
-                            </ul>
-                          </div>
+                          { this.props.data.datoCmsDigitalPovertyPledge.heroList && (
+                            <div dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsDigitalPovertyPledge.heroList }} className="content-lists pl-2 mb-6 md:mb-8 text-lg"></div>
+                          )}
 
                           <div className="w-full pl-2">
                             <AnchorLink to={`/digital-poverty-pledge-2021/#content`} title="Discover More" className="text-md text-purple font-semibold uppercase flex flex-wrap items-center btn-arrow">
@@ -231,8 +226,12 @@ class DigitalPovertyPledge extends React.Component {
                         )}
                         <span className="w-20 h-2 bg-pink block mb-8"></span>
 
-                        <div dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsDigitalPovertyPledge.content }} className="content content-lists"></div>
+                        <div dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsDigitalPovertyPledge.content }} className="content content-lists mb-8 md:mb-12"></div>
                         
+                        { this.props.data.datoCmsDigitalPovertyPledge.pledgeText && (
+                          <div dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsDigitalPovertyPledge.pledgeText }} className="content content-lists bg-pink text-white p-8 block">
+                        </div>
+                        )}
                       </div>
                     )}
                   </div>
@@ -430,7 +429,9 @@ export const query = graphql`
           ...GatsbyDatoCmsFluid_noBase64
         }
       }
+      heroList
       heroScrollingText
+      pledgeText
     }
   }
 `
