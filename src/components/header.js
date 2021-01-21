@@ -149,6 +149,9 @@ class Header extends React.Component {
                           <li className="lg:block mb-2">
                             <Link onClick={this.toggleOff} to="/digital-skills-boot-camps" activeClassName="text-purple" className="block font-semibold no-underline hover:opacity-25 focus:opacity-25 text-3xl md:text-4xl xl:text-5xl transition duration-500 text-white ease-in-out leading-extra-tight">Digital Bootcamps</Link>
                           </li>
+                          <li className="lg:block mb-2">
+                            <Link onClick={this.toggleOff} to="/digital-poverty-pledge-2021" activeClassName="text-purple" className="block font-semibold no-underline hover:opacity-25 focus:opacity-25 text-3xl md:text-4xl xl:text-5xl transition duration-500 text-white ease-in-out leading-extra-tight">Digital Poverty Pledge</Link>
+                          </li>
                           {/* Resources Hidden for now... <li className="lg:block mb-2">
                             <Link onClick={this.toggleOff} to="/resources" partiallyActive={true} activeClassName="text-purple" className="block font-semibold no-underline hover:opacity-25 focus:opacity-25 text-3xl md:text-4xl xl:text-5xl transition duration-500 text-white ease-in-out leading-extra-tight">Resources</Link>
                           </li> */}
