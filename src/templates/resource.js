@@ -55,15 +55,19 @@ class ResourcePage extends React.Component {
                   <div className="container lg:px-32 relative">
                     <div className="flex flex-wrap items-center">
                       <div className="w-full md:w-1/2 relative z-20 mb-12 md:mb-0">
-                        <span className="uppercase font-semibold text-pink text-xl md:text-2xl block mb-3">{ this.props.data.datoCmsResource.category.title }</span>
+                        { this.props.data.datoCmsResource.category && (
+                          <span className="uppercase font-semibold text-pink text-xl md:text-2xl block mb-3">{ this.props.data.datoCmsResource.category.title }</span>
+                        )}
                         <h1 className="text-5xl md:text-5xl lg:text-6xl font-medium text-white mb-2 md:mb-8">{ this.props.data.datoCmsResource.title }</h1>
                       </div>
 
-                      <div className="w-full md:w-1/2 relative -mb-16 md:-mb-20">
-                        <GradientRevealRightLarge>
-                        </GradientRevealRightLarge>
-                        <Img fluid={this.props.data.datoCmsResource.heroImage.fluid } className="relative z-10 pb-0 mt-10 md:mt-16" />
-                      </div>
+                      {this.props.data.datoCmsResource.heroImage && (
+                        <div className="w-full md:w-1/2 relative -mb-16 md:-mb-20">
+                          <GradientRevealRightLarge>
+                          </GradientRevealRightLarge>
+                          <Img fluid={this.props.data.datoCmsResource.heroImage.fluid } className="relative z-10 pb-0 mt-10 md:mt-16" />
+                        </div>
+                      )}
                     </div>
                   </div>
                   <div className="w-full h-32 bg-white"></div>
@@ -79,7 +83,7 @@ class ResourcePage extends React.Component {
 
                     {
                       this.props.data.datoCmsResource.contentBlocks.map((block, i) => (
-                        <div key={block.id} className="mb-8 xl:mb-12">
+                        <div key={i} className="mb-8 xl:mb-12">
                           {
                             block.model.apiKey === 'content' &&
                               <>
@@ -96,6 +100,10 @@ class ResourcePage extends React.Component {
                               </ImageReveal>
                               <Img fluid={ block.image.fluid } className="w-full relative mb-0 pb-0" />
                             </div>
+                          }
+                          {
+                            block.model.apiKey === 'video' &&
+                            <iframe title="Althaus Vision" width="100%" className="video mb-8 md:mb-12" src={`https://www.youtube.com/embed/${ block.videoId}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                           }
                         </div>
                       ))
@@ -158,6 +166,11 @@ export const query = graphql`
               ...GatsbyDatoCmsFluid
             }
           }
+        }
+        ... on DatoCmsVideo {
+          id
+          model { apiKey }
+          videoId
         }
       }
       slug

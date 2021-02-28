@@ -253,8 +253,38 @@ class DigitalSkillsBootCampPage extends React.Component {
               </div>
             </section>
 
+            <section className="overflow-hidden" id="courses">
+              <div className="gradient-ltr py-12 md:py-16 text-white relative z-10 -mt-6 xl:-mt-12">
+                <div className="container lg:px-32 pt-12 md:pt-16 xl:pt-20">
+                  <span className="text-2xl md:text-3xl xl:text-4xl block text-center mb-8 md:mb-12 font-semibold">Available Courses</span>
+
+                  {this.props.data.allDatoCmsCourse.edges.length > 0 ? (
+                    <div className="flex flex-wrap md:-mx-6 pb-8 md:pb-12">
+                      {this.props.data.allDatoCmsCourse.edges.map(({ node }, i) => {
+                        return (
+                          <div className="w-full md:w-1/2 md:px-6" key={i}>
+                            <Link to={`/courses/${node.subject.slug}/${node.slug}-level-${node.level}`} className="text-white flex flex-wrap items-center border-t-2 border-white py-4 md:py-6 xl:py-8 hover:text-purple focus:text-purple transition duration-300 ease-in-out">
+                              <div className="flex-1 pr-8">
+                                <span className="text-xl md:text-2xl xl:text-3xl block font-semibold mb-2">{ node.title }</span>
+                                <span className="md:text-lg block">Level { node.level }</span>
+                              </div>
+                              <div className="w-12 ml-auto">
+                                <Arrow />
+                              </div>
+                            </Link>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  ) : (
+                    <span className="block text-lg text-center">Course coming soon &hellip;</span>
+                  )}
+                </div>
+              </div>
+            </section>
+
             {/* Application Form */}
-            <section className="bg-purple pb-12 md:pb-8 lg:pb-8 xl:pb-24">
+            <section className="bg-purple pb-12 md:pb-8 lg:pb-8 xl:pb-24 pt-8 md:pt-12 xl:pt-20">
               <div className="overflow-hidden relative z-20">
                 <RevealRight>
                   <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text-right text-right text-transparent leading-none -mt-4 xl:-mt-8 block">Application</span>
@@ -320,6 +350,18 @@ export const query = graphql`
       childImageSharp {
         fluid(maxWidth: 450) {
           ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    allDatoCmsCourse(filter: {showOnBootCampsPage: {eq: true}}) {
+      edges {
+        node {
+          level
+          title
+          slug
+          subject {
+            slug
+          }
         }
       }
     }

@@ -113,9 +113,9 @@ class AboutPage extends React.Component {
               </div>
 
               <div className="pt-10 md:pt-12">    
-                <div className="bg-purple relative z-10 pb-24 md:pb-32 xl:pb-48">
+                <div className="bg-purple relative z-10 pb-24 md:pb-32 xl:pb-32">
                   <div className="container lg:px-32 relative z-20">
-                    <div className="flex flex-wrap md:-mx-8">
+                    <div className="flex flex-wrap md:-mx-8 mb-12 md:mb-16 xl:mb-24">
                       <div className="w-full md:w-1/2 lg:w-7/12 md:px-8 mb-20 md:mb-0 -mt-20 md:-mt-24 xl:-mt-32">
                         <div className="relative">
                           <GradientRevealLeft>
@@ -136,6 +136,35 @@ class AboutPage extends React.Component {
                         <span className="w-20 h-2 bg-pink block mb-8"></span>
 
                         <div className="mb-8" dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsAbout.missionText }}></div>
+                      </div>
+                    </div>
+
+                    <div className="w-full content text-white justify-center mb-8 md:mb-12">
+                      <div className="w-full max-w-xl">
+                        <h2>Our Vision</h2>
+
+                        <div dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsAbout.visionText }}></div>
+                      </div>
+                    </div>
+
+                    <div className="bg-purple w-full p-8 md:p-12">
+                      <h2 className="mb-10 md:mb-12 xl:mb-16 text-center text-white">Our Values</h2>
+                      <div className="flex flex-wrap md:-mx-5">
+                        {
+                          this.props.data.datoCmsAbout.values.map((block, i) => (
+                            <div key={block.id} className="w-full lg:w-1/2 lg:px-5 content text-white mb-10">
+                              {
+                                block.model.apiKey === 'content' &&
+                                  <div className="bg-pink p-8 lg:p-12 h-full">
+                                  <h3 className="text-xl lg:text-2xl xl:text-2xl mb-5">{ block.heading }</h3>
+                                  <span className="w-full h-px bg-white opacity-50 block mb-5"></span>
+
+                                  <div className="text-white" dangerouslySetInnerHTML={{ __html: block.content }}></div>
+                                  </div>
+                              }
+                            </div>
+                          ))
+                        }
                       </div>
                     </div>
                   </div>
@@ -246,6 +275,15 @@ export const query = graphql`
       }
       heroScrollingText
       missionText
+      visionText
+      values {
+        ... on DatoCmsContent {
+          id
+          model { apiKey }
+          heading
+          content
+        }
+      }
       missionImage {
         fluid(maxWidth: 600, imgixParams: { fm: "jpg", auto: "compress" }) {
           ...GatsbyDatoCmsFluid

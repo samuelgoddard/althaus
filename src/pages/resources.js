@@ -97,9 +97,17 @@ class ResourcesPage extends React.Component {
                   <div className="flex flex-wrap md:-mx-6">
                     {this.props.data.allDatoCmsResource.edges.map(({ node }, i) => {
                       return (
-                        <Link to={`/resources/${ node.slug }`} key={i} className="w-full md:w-1/2 md:px-6 mb-8 md:mb-12">
-                          <Teaser heading={node.title} description={ node.teaserDescription } image={node.heroImage } />
-                        </Link>
+                        <div key={i} className="w-full md:w-1/2 md:px-6 mb-8 md:mb-12">
+                        { node.externalResourceUrl ? (
+                          <a href={node.externalResourceUrl} target="_blank" rel="noopener noreferrer" className="w-full">
+                            <Teaser heading={node.title} description={ node.teaserDescription } image={node.heroImage } />
+                          </a>
+                          ) : (
+                          <Link to={`/resources/${ node.slug }`} className="w-full">
+                            <Teaser heading={node.title} description={ node.teaserDescription } image={node.heroImage } />
+                          </Link>
+                        )}
+                        </div>
                       )
                     })}
                   </div>
@@ -153,10 +161,11 @@ export const query = graphql`
           title
           heroImage {
             fluid(
-              imgixParams: {w: "720", fit: "crop", crop: "faces, edges"}) {
+              imgixParams: {w: "720", h: "420", fit: "crop", crop: "faces, edges"}) {
               ...GatsbyDatoCmsFluid
             }
           }
+          externalResourceUrl
           teaserDescription
           slug
         }

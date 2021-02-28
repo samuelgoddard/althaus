@@ -16,3 +16,25 @@
 
 /* Tailwind Utils */
 @import 'tailwindcss/utilities';
+
+.hero__bullets {
+    > ul {
+        @apply list-disc list-inside;
+
+        li {
+            @apply mb-3;
+        }
+    }
+}
+
+.video {
+    height: 300px;
+    
+    @screen md {
+        height: 480px;
+    }
+    
+    @screen xl {
+        height: 580px;
+    }
+}

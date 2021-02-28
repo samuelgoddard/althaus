@@ -191,7 +191,7 @@ class IndexPage extends React.Component {
             </section>
 
             {/* Digital */}
-            <section className="bg-white pt-10 pb-12 md:pt-24 md:pb-8 lg:pb-8 xl:pt-32 xl:pb-24 relative overflow-hidden z-20">
+            <section className="bg-white pt-10 pb-12 md:pt-24 md:pb-24 lg:pb-8 xl:pt-32 xl:pb-40 relative overflow-hidden z-20">
               <RevealRight>
                 <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text-right text-right text-transparent leading-none -mt-4 xl:-mt-8 block">{ this.props.data.datoCmsHome.employersBlockScrollingText }</span>
               </RevealRight>
@@ -224,6 +224,58 @@ class IndexPage extends React.Component {
                       <span className="block ml-4 w-8 btn-arrow__arrow"><Arrow /></span>
                     </Link>
                   </div>
+                </div>
+              </div>
+            </section>
+
+            <section className="bg-white relative z-10">
+              <div className="overflow-hidden">
+                <RevealLeft>
+                  <span className="text-8xl lg:text-9xl xl:text-10xl uppercase font-extrabold scroll-text text-transparent scroll-text--purple leading-none">Employer Feedback</span>
+                </RevealLeft>
+              </div>
+            </section>
+            
+            <section className="bg-transparent pb-12 md:pb-24 -mt-6 md:-mt-8 xl:-mt-16">
+              <div className="container lg:px-32 relative z-20">
+                <div className="flex flex-wrap sm:-mx-4">
+                  <div className="w-full sm:w-1/2 md:w-1/3 mb-8 sm:px-4">
+                    <div className="bg-pink w-full text-white h-full relative flex flex-wrap">
+                      <div className="p-5 md:p-8 z-10 w-full">
+                        <span className="block text-sm md:text-base mb-2">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."</span>
+                        <span className="block font-semibold text-lg md:text-xl leading-extra-tight mb-0">- John Doe</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="w-full sm:w-1/2 md:w-1/3 mb-8 sm:px-4">
+                    <div className="bg-pink w-full text-white h-full relative flex flex-wrap">
+                      <div className="p-5 md:p-8 z-10 w-full">
+                        <span className="block text-sm md:text-base mb-2">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."</span>
+                        <span className="block font-semibold text-lg md:text-xl leading-extra-tight mb-0">- John Doe</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="w-full sm:w-1/2 md:w-1/3 mb-8 sm:px-4">
+                    <div className="bg-pink w-full text-white h-full relative flex flex-wrap">
+                      <div className="p-5 md:p-8 z-10 w-full">
+                        <span className="block text-sm md:text-base mb-2">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."</span>
+                        <span className="block font-semibold text-lg md:text-xl leading-extra-tight mb-0">- John Doe</span>
+                      </div>
+                    </div>
+                  </div>
+                  {/* {this.props.data.allDatoCmsTeam.edges.map(({ node }, i) => {
+                    return (
+                      <div className="w-full sm:w-1/2 md:w-1/3 mb-8 sm:px-4" key={i}>
+                        <div className="bg-pink w-full text-white h-full relative flex flex-wrap">
+                          <Img fluid={node.image.fluid} alt={node.title} className="object-cover object-center bg-multiply mt-auto self-end w-full" />
+                          <div className="p-5 md:p-8 z-10 w-full absolute bottom-0 left-0">
+                            <span className="block font-semibold text-2xl lg:text-3xl leading-extra-tight mb-2">{ node.name }</span>
+                            <span className="block lg:text-lg leading-extra-tight">{ node.jobTitle }</span>
+                          </div>
+                        </div>
+                      </div>
+                    )
+                  })} */}
                 </div>
               </div>
             </section>
