@@ -256,7 +256,7 @@ class DigitalSkillsBootCampPage extends React.Component {
             <section className="overflow-hidden" id="courses">
               <div className="gradient-ltr py-12 md:py-16 text-white relative z-10 -mt-6 xl:-mt-12">
                 <div className="container lg:px-32 pt-12 md:pt-16 xl:pt-20">
-                  <span className="text-2xl md:text-3xl xl:text-4xl block text-center mb-8 md:mb-12 font-semibold">Available Courses</span>
+                  <span className="text-2xl md:text-3xl xl:text-4xl block text-center mb-8 md:mb-12 font-semibold">Available Courses </span>
 
                   {this.props.data.allDatoCmsCourse.edges.length > 0 ? (
                     <div className="flex flex-wrap md:-mx-6 pb-8 md:pb-12">
