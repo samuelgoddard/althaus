@@ -104,7 +104,6 @@ class DigitalSkillsBootCampPage extends React.Component {
 
                         <div className="w-full md:w-6/12 xl:w-6/12 z-20 mb-8 md:mb-0 md:absolute top-0 right-0 bottom-0 flex flex-wrap mt-20 md:mt-0">
                           <div className="my-auto">
-                            <span className="uppercase font-semibold text-purple text-xl md:text-2xl block mb-3 md:mt-8 xl:mt-12">Kicking-off January 2021</span>
                             <h1 className="text-5xl md:text-5xl xl:text-7xl font-medium text-purple mb-4">{ this.props.data.datoCmsDigitalSkillsBootCamp.heroHeading }</h1>
 
                             <div className="w-full">
@@ -227,7 +226,7 @@ class DigitalSkillsBootCampPage extends React.Component {
                         <span className="block text-pink text-center text-lg">{ this.props.data.datoCmsDigitalSkillsBootCamp.programmeOptionsSubheading }</span>
                       )}
 
-                      <div className="flex justify-center mt-12 md:mt-16 xl:mt-20">
+                      {/* <div className="flex justify-center mt-12 md:mt-16 xl:mt-20">
                         <div className="flex flex-wrap md:-mx-12 max-w-5xl mx-auto">
                           {this.props.data.datoCmsDigitalSkillsBootCamp.programmeOptionsDigital && (
                             <div className="w-full md:w-1/2 md:px-12 mb-12 md:mb-0">
@@ -244,41 +243,33 @@ class DigitalSkillsBootCampPage extends React.Component {
                             </div>
                           )}
                         </div>
-                      </div>
+                      </div> */}
+
+                      {this.props.data.allDatoCmsCourse.edges.length > 0 ? (
+                        <div className="flex flex-wrap md:-mx-6 pb-8 md:pb-12 mt-16 md:mt-20 xl:mt-32">
+                          {this.props.data.allDatoCmsCourse.edges.map(({ node }, i) => {
+                            return (
+                              <div className="w-full md:w-1/2 md:px-6" key={i}>
+                                <Link to={`/courses/${node.subject.slug}/${node.slug}-level-${node.level}`} className="text-white flex flex-wrap items-center border-t-2 border-white py-4 md:py-6 xl:py-8 hover:text-pink focus:text-pink transition duration-300 ease-in-out">
+                                  <div className="flex-1 pr-8">
+                                    <span className="text-xl md:text-2xl xl:text-3xl block font-semibold mb-2">{ node.title }</span>
+                                    <span className="md:text-lg block">Level { node.level }</span>
+                                  </div>
+                                  <div className="w-12 ml-auto">
+                                    <Arrow />
+                                  </div>
+                                </Link>
+                              </div>
+                            )
+                          })}
+                        </div>
+                      ) : (
+                        <span className="block text-lg text-center">Course coming soon &hellip;</span>
+                      )}
                       {/* <div className="mb-16 xl:mb-24 css-cols text-lg" dangerouslySetInnerHTML={{ __html: this.props.data.datoCmsCoursesLanding.content }}>
                       </div> */}
                     </div>
                   </div>
-                </div>
-              </div>
-            </section>
-
-            <section className="overflow-hidden" id="courses">
-              <div className="gradient-ltr py-12 md:py-16 text-white relative z-10 -mt-6 xl:-mt-12">
-                <div className="container lg:px-32 pt-12 md:pt-16 xl:pt-20">
-                  <span className="text-2xl md:text-3xl xl:text-4xl block text-center mb-8 md:mb-12 font-semibold">Available Courses </span>
-
-                  {this.props.data.allDatoCmsCourse.edges.length > 0 ? (
-                    <div className="flex flex-wrap md:-mx-6 pb-8 md:pb-12">
-                      {this.props.data.allDatoCmsCourse.edges.map(({ node }, i) => {
-                        return (
-                          <div className="w-full md:w-1/2 md:px-6" key={i}>
-                            <Link to={`/courses/${node.subject.slug}/${node.slug}-level-${node.level}`} className="text-white flex flex-wrap items-center border-t-2 border-white py-4 md:py-6 xl:py-8 hover:text-purple focus:text-purple transition duration-300 ease-in-out">
-                              <div className="flex-1 pr-8">
-                                <span className="text-xl md:text-2xl xl:text-3xl block font-semibold mb-2">{ node.title }</span>
-                                <span className="md:text-lg block">Level { node.level }</span>
-                              </div>
-                              <div className="w-12 ml-auto">
-                                <Arrow />
-                              </div>
-                            </Link>
-                          </div>
-                        )
-                      })}
-                    </div>
-                  ) : (
-                    <span className="block text-lg text-center">Course coming soon &hellip;</span>
-                  )}
                 </div>
               </div>
             </section>
