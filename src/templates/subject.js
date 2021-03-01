@@ -169,7 +169,7 @@ export const query = graphql`
       content
       slug
     }
-    allDatoCmsCourse(filter: {subject: {slug: {eq: $slug}}}) {
+    allDatoCmsCourse(filter: {showOnBootCampsPage: {eq: false}, subject: {slug: {eq: $slug}}}) {
       edges {
         node {
           level
