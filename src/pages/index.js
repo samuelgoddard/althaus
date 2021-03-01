@@ -239,43 +239,18 @@ class IndexPage extends React.Component {
             <section className="bg-transparent pb-12 md:pb-24 -mt-6 md:-mt-8 xl:-mt-16">
               <div className="container lg:px-32 relative z-20">
                 <div className="flex flex-wrap sm:-mx-4">
-                  <div className="w-full sm:w-1/2 md:w-1/3 mb-8 sm:px-4">
-                    <div className="bg-pink w-full text-white h-full relative flex flex-wrap">
-                      <div className="p-5 md:p-8 z-10 w-full">
-                        <span className="block text-sm md:text-base mb-2">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."</span>
-                        <span className="block font-semibold text-lg md:text-xl leading-extra-tight mb-0">- John Doe</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="w-full sm:w-1/2 md:w-1/3 mb-8 sm:px-4">
-                    <div className="bg-pink w-full text-white h-full relative flex flex-wrap">
-                      <div className="p-5 md:p-8 z-10 w-full">
-                        <span className="block text-sm md:text-base mb-2">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."</span>
-                        <span className="block font-semibold text-lg md:text-xl leading-extra-tight mb-0">- John Doe</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="w-full sm:w-1/2 md:w-1/3 mb-8 sm:px-4">
-                    <div className="bg-pink w-full text-white h-full relative flex flex-wrap">
-                      <div className="p-5 md:p-8 z-10 w-full">
-                        <span className="block text-sm md:text-base mb-2">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."</span>
-                        <span className="block font-semibold text-lg md:text-xl leading-extra-tight mb-0">- John Doe</span>
-                      </div>
-                    </div>
-                  </div>
-                  {/* {this.props.data.allDatoCmsTeam.edges.map(({ node }, i) => {
+                  {this.props.data.datoCmsHome.employerFeedback.map(({ content, heading }, i) => {
                     return (
-                      <div className="w-full sm:w-1/2 md:w-1/3 mb-8 sm:px-4" key={i}>
-                        <div className="bg-pink w-full text-white h-full relative flex flex-wrap">
-                          <Img fluid={node.image.fluid} alt={node.title} className="object-cover object-center bg-multiply mt-auto self-end w-full" />
-                          <div className="p-5 md:p-8 z-10 w-full absolute bottom-0 left-0">
-                            <span className="block font-semibold text-2xl lg:text-3xl leading-extra-tight mb-2">{ node.name }</span>
-                            <span className="block lg:text-lg leading-extra-tight">{ node.jobTitle }</span>
-                          </div>
+                    <div className="w-full sm:w-1/2 md:w-1/3 mb-8 sm:px-4" key={i}>
+                      <div className="bg-pink w-full text-white h-full relative flex flex-wrap">
+                        <div className="p-5 md:p-8 z-10 w-full">
+                          <span className="block text-sm md:text-base mb-2" dangerouslySetInnerHTML={{ __html: content}}></span>
+                          <span className="block font-semibold text-lg md:text-xl leading-extra-tight mb-0">- {heading}</span>
                         </div>
                       </div>
+                    </div>
                     )
-                  })} */}
+                  })}
                 </div>
               </div>
             </section>
@@ -310,6 +285,10 @@ export const query = graphql`
       }
       heroHeading
       heroBlurb
+      employerFeedback {
+        content
+        heading
+      }
       contentBlock {
         heading
         scrollingText
