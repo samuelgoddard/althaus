@@ -28,11 +28,13 @@ class Header extends React.Component {
     this.state = {
       active: false,
       overlay: false,
+      coursesToggle: false,
       navItems: this.props.navItems,
       socialItems: this.props.socialItems
     }
 
     this.toggleOverlay = this.toggleOverlay.bind(this);
+    this.toggleCourses = this.toggleCourses.bind(this);
   }
 
   targetElement = null;
@@ -41,6 +43,12 @@ class Header extends React.Component {
     this.targetElement = document.querySelector('#viewport');
   }
   
+  toggleCourses= () => {
+    this.setState({
+      coursesToggle: !this.state.coursesToggle
+    });
+  }
+
   toggleOverlay = () => {
     disableBodyScroll(this.targetElement);
     this.setState({
@@ -138,7 +146,18 @@ class Header extends React.Component {
                             <Link onClick={this.toggleOff} to="/about" activeClassName="text-purple" className="block font-semibold no-underline hover:opacity-25 focus:opacity-25 text-3xl md:text-4xl xl:text-5xl transition duration-500 text-white ease-in-out leading-extra-tight">About</Link>
                           </li>
                           <li className="lg:block mb-2">
-                            <Link onClick={this.toggleOff} to="/courses" partiallyActive={true} activeClassName="text-purple" className="block font-semibold no-underline hover:opacity-25 focus:opacity-25 text-3xl md:text-4xl xl:text-5xl transition duration-500 text-white ease-in-out leading-extra-tight">Courses</Link>
+                            <button onClick={this.toggleCourses}activeClassName="text-purple" className="block font-semibold no-underline hover:opacity-25 focus:opacity-25 text-3xl md:text-4xl xl:text-5xl transition duration-500 text-white ease-in-out leading-extra-tight border-none outline-none hover:border-none focus:outline-none">Courses</button>
+
+                            {this.state.coursesToggle && (
+                              <ul>
+                                <li className="lg:block mb-2 mt-2">
+                                  <Link onClick={this.toggleOff} to="/courses" partiallyActive={true} activeClassName="text-purple" className="block no-underline hover:opacity-25 focus:opacity-25 text-2xl md:text-3xl xl:text-4xl transition duration-500 text-white ease-in-out leading-extra-tight font-normal">- Apprenticeships</Link>
+                                </li>
+                                <li className="lg:block mb-4">
+                                  <Link onClick={this.toggleOff} to="/digital-skills-boot-camps" partiallyActive={true} activeClassName="text-purple" className="block no-underline hover:opacity-25 focus:opacity-25 text-2xl md:text-3xl xl:text-4xl transition duration-500 text-white ease-in-out leading-extra-tight font-normal">- Digital Bootcamps</Link>
+                                </li>
+                              </ul>
+                            )}
                           </li>
                           <li className="lg:block mb-2">
                             <Link onClick={this.toggleOff} to="/learners" activeClassName="text-purple" className="block font-semibold no-underline hover:opacity-25 focus:opacity-25 text-3xl md:text-4xl xl:text-5xl transition duration-500 text-white ease-in-out leading-extra-tight">Learners</Link>
@@ -147,10 +166,10 @@ class Header extends React.Component {
                             <Link onClick={this.toggleOff} to="/employers" activeClassName="text-purple" className="block font-semibold no-underline hover:opacity-25 focus:opacity-25 text-3xl md:text-4xl xl:text-5xl transition duration-500 text-white ease-in-out leading-extra-tight">Employers</Link>
                           </li>
                           <li className="lg:block mb-2">
-                            <Link onClick={this.toggleOff} to="/digital-skills-boot-camps" activeClassName="text-purple" className="block font-semibold no-underline hover:opacity-25 focus:opacity-25 text-3xl md:text-4xl xl:text-5xl transition duration-500 text-white ease-in-out leading-extra-tight">Digital Bootcamps</Link>
+                            <Link onClick={this.toggleOff} to="/digital-poverty-pledge-2021" activeClassName="text-purple" className="block font-semibold no-underline hover:opacity-25 focus:opacity-25 text-3xl md:text-4xl xl:text-5xl transition duration-500 text-white ease-in-out leading-extra-tight">Digital Poverty Pledge</Link>
                           </li>
                           <li className="lg:block mb-2">
-                            <Link onClick={this.toggleOff} to="/digital-poverty-pledge-2021" activeClassName="text-purple" className="block font-semibold no-underline hover:opacity-25 focus:opacity-25 text-3xl md:text-4xl xl:text-5xl transition duration-500 text-white ease-in-out leading-extra-tight">Digital Poverty Pledge</Link>
+                            <Link onClick={this.toggleOff} to="/resources" activeClassName="text-purple" className="block font-semibold no-underline hover:opacity-25 focus:opacity-25 text-3xl md:text-4xl xl:text-5xl transition duration-500 text-white ease-in-out leading-extra-tight">Resources</Link>
                           </li>
                           {/* Resources Hidden for now... <li className="lg:block mb-2">
                             <Link onClick={this.toggleOff} to="/resources" partiallyActive={true} activeClassName="text-purple" className="block font-semibold no-underline hover:opacity-25 focus:opacity-25 text-3xl md:text-4xl xl:text-5xl transition duration-500 text-white ease-in-out leading-extra-tight">Resources</Link>
